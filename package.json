@@ -3,10 +3,13 @@
   "private": true,
   "scripts": {
     "certificate": "node ./utils/certificate",
+    "add-hosts": "nodepath=$(which node); sudo $nodepath ./utils/set-up-hosts",
+    "prepare": "npm run certicate && npm run add-hosts",
     "docker:prod": "docker-compose -f docker/prod/docker-compose.yml ",
     "docker:prod:up": "npm run docker:prod -- up"
   },
   "devDependencies": {
+    "hosts-etc": "^1.3.1",
     "lerna": "^4.0.0",
     "selfsigned": "^1.10.11"
   }

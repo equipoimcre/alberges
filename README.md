@@ -8,12 +8,16 @@ TODO: Add short description of the project
 * Docker: v20.10.7
 * Docker compose: v1.28.5
 
-## Getting started
+## Getting started (only tested on linux)
 
-### Hosts
+The first time you run the project you have to execute this command.
 
-Add to `hosts` file:
-
+```bash
+npm run prepare
 ```
-127.0.0.1	shelter-evaluation.cruzroja.com
+
+### Runing the project localy
+
+```bash
+npm run docker:prod:up # This command laucnh localy production environment
 ```
