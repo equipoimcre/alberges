@@ -1,0 +1,25 @@
+FROM nginx:1.21.3
+# Update container
+RUN apt-get update
+# Arg
+ARG BACKEND_HOSTNAME
+ARG BACKEND_UPSTREAM
+ARG FRONTEND_HOSTNAME
+ARG FRONTEND_UPSTREAM
+# Create folders
+RUN mkdir /etc/nginx/sites-available
+RUN mkdir /etc/nginx/sites-enabled
+RUN mkdir /etc/nginx/ssl
+# Copy files
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./sites-available/* /etc/nginx/sites-available/
+COPY ./cert/* /etc/nginx/ssl/
+# Create symbolick link
+RUN sed -i 's/HOST_NAME/'$BACKEND_HOSTNAME'/g' /etc/nginx/sites-available/backend.conf
+RUN sed -i 's/UPSTREAM/'$BACKEND_UPSTREAM'/g' /etc/nginx/sites-available/backend.conf
+RUN sed -i 's/HOST_NAME/'$FRONTEND_HOSTNAME'/g' /etc/nginx/sites-available/frontend.conf
+RUN sed -i 's/UPSTREAM/'$FRONTEND_UPSTREAM'/g' /etc/nginx/sites-available/frontend.conf
+RUN cat /etc/nginx/sites-available/frontend.conf
+RUN ln -s /etc/nginx/sites-available/*.conf /etc/nginx/sites-enabled
+
+CMD ["nginx", "-g", "daemon off;"]

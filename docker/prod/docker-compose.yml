@@ -1,0 +1,53 @@
+version: "3.7"
+
+services:
+  shelter-evaluation-database:
+    image: mariadb:10.6.4
+    container_name: shelter-evaluation-database-prod
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: $ROOT_PASSWORD
+      MARIADB_DATABASE: $DATABASE
+      MARIADB_USER: $USER
+      MARIADB_PASSWORD: $PASSWORD
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "no"
+    networks:
+      - shelter-evaluation-network-database
+  shelter-evaluation-gateway:
+    build:
+      context: ../platform/nginx
+      args:
+        - BACKEND_HOSTNAME
+        - BACKEND_UPSTREAM
+        - FRONTEND_HOSTNAME
+        - FRONTEND_UPSTREAM
+    container_name: shelter-evaluation-gateway-prod
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      NGINX_HOST: $GATEWAY_HOST
+      NGINX_PORT: 80
+    networks:
+      - shelter-evaluation-network-gateway
+  shelter-evaluation-backend:
+    build:
+      context: ../../packages/shelter-evaluation-backend
+      dockerfile: docker/dockerfile
+    container_name: shelter-evaluation-backend-prod
+    networks:
+      - shelter-evaluation-network-gateway
+      - shelter-evaluation-network-database
+  shelter-evaluation-frontend:
+    build:
+      context: ../../packages/shelter-evaluation-front
+      dockerfile: docker/dockerfile
+    container_name: shelter-evaluation-frontend-prod
+    networks:
+      - shelter-evaluation-network-gateway
+
+networks: 
+  shelter-evaluation-network-gateway:
+    driver: bridge
+  shelter-evaluation-network-database:
+    driver: bridge
