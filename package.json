@@ -7,6 +7,7 @@
     "prepare": "npm run certicate && npm run add-hosts",
     "docker:prod": "docker-compose -f docker/prod/docker-compose.yml ",
     "docker:prod:up": "npm run docker:prod -- up",
+    "docker:prod:rm": "npm run docker:prod -- rm",
     "docker:prod:clean": "npm run docker:prod -- down --rmi all"
   },
   "devDependencies": {

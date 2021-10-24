@@ -31,7 +31,7 @@ export class DatabaseConfigurationService {
   }
 
   get syncrhonize() {
-    return this.configService.get<boolean>('DATABASE_SYNCRHONIZE', {infer: true});
+    return this.configService.get<string>('DATABASE_SYNCRHONIZE', 'false') === 'true';
   }
 
   get typeOrmConfiguration(): TypeOrmModuleOptions {

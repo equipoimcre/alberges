@@ -21,10 +21,10 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ name: 'agree_term' })
   agreeTerm: boolean;
 
-  @Column({ default: true })
+  @Column({ default: true, name: 'is_active' })
   isActive: boolean;
 
   @OneToOne(type => ProvinceEntity, province => province.id)

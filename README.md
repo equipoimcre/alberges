@@ -21,3 +21,12 @@ npm run prepare
 ```bash
 npm run docker:prod:up # This command laucnh localy production environment
 ```
+
+## Frecuently use commands
+
+### Mysql
+
+Connect to mysql
+```bash
+mysql -u $MYSQL_USER -p$MYSQL_PASSWORD
+```

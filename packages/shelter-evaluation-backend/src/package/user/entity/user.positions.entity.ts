@@ -7,6 +7,6 @@ export class UserPositionEntity {
   id: number;
 
   @Column()
-  position: string;
+  name: string;
 
 }
