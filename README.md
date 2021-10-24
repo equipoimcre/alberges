@@ -13,6 +13,7 @@ TODO: Add short description of the project
 The first time you run the project you have to execute this command.
 
 ```bash
+npm install
 npm run prepare
 ```
 
