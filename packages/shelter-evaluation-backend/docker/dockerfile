@@ -2,6 +2,13 @@ FROM node:14.17.3
 
 WORKDIR /opt/backend
 COPY . /opt/backend
+# Database environment
+ENV DATABSE_HOST localhost
+ENV DATABASE_PORT 3306
+ENV DATABASE_USER root
+ENV DATABASE_PASSWORD root
+ENV DATABASE_COLLECTION test
+ENV DATABASE_SYNCRHONIZE false
 
 RUN npm install
 RUN npm i -g @nestjs/cli@7.2.0

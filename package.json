@@ -6,7 +6,8 @@
     "add-hosts": "nodepath=$(which node); sudo $nodepath ./utils/set-up-hosts",
     "prepare": "npm run certicate && npm run add-hosts",
     "docker:prod": "docker-compose -f docker/prod/docker-compose.yml ",
-    "docker:prod:up": "npm run docker:prod -- up"
+    "docker:prod:up": "npm run docker:prod -- up",
+    "docker:prod:clean": "npm run docker:prod -- down --rmi all"
   },
   "devDependencies": {
     "hosts-etc": "^1.3.1",
