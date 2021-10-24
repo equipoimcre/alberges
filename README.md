@@ -20,6 +20,7 @@ npm run prepare
 
 ```bash
 npm run docker:prod:up # This command laucnh localy production environment
+npm run docker:prod:migrate # Populate the database
 ```
 
 ## Frecuently use commands

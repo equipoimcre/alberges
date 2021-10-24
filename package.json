@@ -6,6 +6,7 @@
     "add-hosts": "nodepath=$(which node); sudo $nodepath ./utils/set-up-hosts",
     "prepare": "npm run certicate && npm run add-hosts",
     "docker:prod": "docker-compose -f docker/prod/docker-compose.yml ",
+    "docker:prod:migrate": "docker exec -it shelter-evaluation-backend-prod npm run migrate",
     "docker:prod:up": "npm run docker:prod -- up",
     "docker:prod:rm": "npm run docker:prod -- rm",
     "docker:prod:clean": "npm run docker:prod -- down --rmi all"
