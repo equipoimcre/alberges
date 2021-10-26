@@ -6,7 +6,7 @@ export class setup1635081217246 implements MigrationInterface {
         const provinceTable = new Table({
             name: 'province',
             columns: [
-                new TableColumn({ name: 'id', type: 'INT', isPrimary: true}),
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
                 new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
             ],
         });
@@ -14,7 +14,7 @@ export class setup1635081217246 implements MigrationInterface {
         const organizationTable = new Table({
             name: 'organization',
             columns: [
-                new TableColumn({ name: 'id', type: 'INT', isPrimary: true }),
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true}),
                 new TableColumn({ name: 'name', type: 'VARCHAR(250)' })
             ],
         });
@@ -22,15 +22,15 @@ export class setup1635081217246 implements MigrationInterface {
         const userPositionTable = new Table({
             name: 'user_position',
             columns: [
-                new TableColumn({ name: 'id', type: 'INT', isPrimary: true }),
-                new TableColumn({ name: 'name', type: 'INT'}),
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
+                new TableColumn({ name: 'name', type: 'VARCHAR(250)'}),
             ],
         });
         await queryRunner.createTable(userPositionTable, true);
         const userRoleTable = new Table({
             name: 'user_role',
             columns: [
-                new TableColumn({ name: 'id', type: 'INT', isPrimary: true }),
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
                 new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
             ],
         });
@@ -38,31 +38,25 @@ export class setup1635081217246 implements MigrationInterface {
         const userTable = new Table({
             name: 'user',
             columns: [
-                new TableColumn({ name: 'id', type: 'INT', isPrimary: true }),
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
                 new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
                 new TableColumn({ name: 'surname', type: 'VARCHAR(250)' }),
                 new TableColumn({ name: 'email', type: 'VARCHAR(250)' }),
                 new TableColumn({ name: 'password', type: 'VARCHAR(250)' }),
-                new TableColumn({ name: 'agree_term', type: 'tinyint(4)' }),
-                new TableColumn({ name: 'is_active', type: 'tinyint(4)' }),
-                new TableColumn({ name: 'province', type: 'INT' }),
-                new TableColumn({ name: 'organization', type: 'INT' }),
-                new TableColumn({ name: 'role', type: 'INT' }),
-                new TableColumn({ name: 'position', type: 'INT' }),
-                new TableColumn({ name: 'create_date', type: 'datetime' }),
-                new TableColumn({ name: 'udpate_date', type: 'datetime' }),
+                new TableColumn({ name: 'agree_term', type: 'tinyint(4)', default: true }),
+                new TableColumn({ name: 'is_active', type: 'tinyint(4)', default: true }),
+                new TableColumn({ name: 'provinceId', type: 'INT' }),
+                new TableColumn({ name: 'organizationId', type: 'INT' }),
+                new TableColumn({ name: 'roleId', type: 'INT' }),
+                new TableColumn({ name: 'positionId', type: 'INT' }),
+                new TableColumn({ name: 'create_date', type: 'datetime', default: 'CURRENT_TIMESTAMP' }),
+                new TableColumn({ name: 'udpate_date', type: 'datetime', default: 'CURRENT_TIMESTAMP' }),
             ],
             foreignKeys: [
-                { columnNames: ['province'], referencedTableName: 'province', referencedColumnNames: ['id'] },
-                { columnNames: ['organization'], referencedTableName: 'organization', referencedColumnNames: ['id'] },
-                { columnNames: ['role'], referencedTableName: 'user_role', referencedColumnNames: ['id'] },
-                { columnNames: ['position'], referencedTableName: 'user_position', referencedColumnNames: ['id'] },
-            ],
-            indices: [
-                { columnNames: [ 'province', ] },
-                { columnNames: [ 'organization', ] },
-                { columnNames: [ 'role',] },
-                { columnNames: [ 'position', ] },
+                { columnNames: ['provinceId'], referencedTableName: 'province', referencedColumnNames: ['id'] },
+                { columnNames: ['organizationId'], referencedTableName: 'organization', referencedColumnNames: ['id'] },
+                { columnNames: ['roleId'], referencedTableName: 'user_role', referencedColumnNames: ['id'] },
+                { columnNames: ['positionId'], referencedTableName: 'user_position', referencedColumnNames: ['id'] },
             ],
         });
         await queryRunner.createTable(userTable, true);

@@ -50,7 +50,10 @@ services:
       TYPEORM_PORT: $DATABASE_PORT
       TYPEORM_SYNCHRONIZE: $TYPEORM_SYNCHRONIZE
       TYPEORM_LOGGING: $TYPEORM_LOGGING
-      TYPEORM_MIGRATIONS: migration/dist/*.js
+      TYPEORM_ENTITIES: dist/src/**/*.entity.js
+      TYPEORM_ENTITIES_DIR: dist/src
+      TYPEORM_MIGRATIONS: dist/migration/**/*.js
+      TYPEORM_MIGRATIONS_DIR: dist/migration
     volumes:
       - ../../packages/shelter-evaluation-backend/src:/opt/backend/src
       - ../../packages/shelter-evaluation-backend/node_modules:/opt/backend/node_modules

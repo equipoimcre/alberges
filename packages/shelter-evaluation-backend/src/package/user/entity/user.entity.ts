@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 import { OrganizationEntity } from './organization.entity';
 import { ProvinceEntity } from './province.entity';
 import { UserPositionEntity } from './user.positions.entity';
-import { UserRoleEntity } from './user.role';
+import { UserRoleEntity } from './user.role.entity';
 
 @Entity({ name: 'user' })
 export class UserEntity {
@@ -43,9 +43,9 @@ export class UserEntity {
   @JoinColumn()
   position: UserPositionEntity;
 
-  @CreateDateColumn()
+  @CreateDateColumn({name: 'create_date'})
   createDate: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({name: 'udpate_date'})
   updateDate: Date;
 }

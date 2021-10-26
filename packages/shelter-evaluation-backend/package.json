@@ -20,9 +20,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm",
-    "migrate:build": "npm run tsc -- --build migration",
-    "migrate": "npm run migrate:build && npm run typeorm -- migration:run",
-    "migrate:revert": "npm run migrate:build && npm run typeorm -- migration:revert",
+    "migrate": "npm run typeorm -- migration:run",
+    "migrate:revert": "npm run typeorm -- migration:revert",
     "tsc": "tsc"
   },
   "dependencies": {
