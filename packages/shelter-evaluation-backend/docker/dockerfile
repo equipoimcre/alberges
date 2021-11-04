@@ -1,7 +1,9 @@
 FROM node:14.17.3
 
+COPY shelter-evaluation-dto /opt/shelter-evaluation-dto
+
 WORKDIR /opt/backend
-COPY . /opt/backend
+COPY shelter-evaluation-backend /opt/backend
 # Database environment
 ENV DATABSE_HOST localhost
 ENV DATABASE_PORT 3306
@@ -10,6 +12,8 @@ ENV DATABASE_PASSWORD root
 ENV DATABASE_COLLECTION test
 ENV DATABASE_SYNCRHONIZE false
 
+RUN rm package-lock.json
+RUN npm link ../shelter-evaluation-dto
 RUN npm install
 RUN npm i -g @nestjs/cli@7.2.0
 

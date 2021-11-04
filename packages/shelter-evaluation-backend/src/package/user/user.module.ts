@@ -15,6 +15,9 @@ import { OrganizationEntity, ProvinceEntity, UserEntity, UserPositionEntity, Use
     ])
   ],
   providers: [UserService],
-  controllers: [UserController]
+  controllers: [UserController],
+  exports: [
+    UserService,
+  ]
 })
 export class UserModule {}

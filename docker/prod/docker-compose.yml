@@ -32,9 +32,11 @@ services:
       - shelter-evaluation-network-gateway
   shelter-evaluation-backend:
     build:
-      context: ../../packages/shelter-evaluation-backend
-      dockerfile: docker/dockerfile
+      context: ../../packages
+      dockerfile: shelter-evaluation-backend/docker/dockerfile
     container_name: shelter-evaluation-backend-prod
+    ports:
+      - 9229:9229
     environment:
       DATABSE_HOST: $DATABASE_HOST
       DATABASE_PORT: $DATABASE_PORT
@@ -59,6 +61,8 @@ services:
       - ../../packages/shelter-evaluation-backend/node_modules:/opt/backend/node_modules
       - ../../packages/shelter-evaluation-backend/package.json:/opt/backend/package.json
       - ../../packages/shelter-evaluation-backend/migration:/opt/backend/migration
+      - ../../packages/shelter-evaluation-dto:/opt/shelter-evaluation-dto
+      - ../../packages/shelter-evaluation-backend/dist:/opt/backend/dist
     networks:
       - shelter-evaluation-network-gateway
       - shelter-evaluation-network-database

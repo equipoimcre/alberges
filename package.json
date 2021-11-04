@@ -5,6 +5,7 @@
     "certificate": "node ./utils/certificate",
     "add-hosts": "nodepath=$(which node); sudo $nodepath ./utils/set-up-hosts",
     "prepare": "npm run certicate && npm run add-hosts",
+    "docker:prepare":"cp -r ./packages/shelter-evaluation-dto ./packages/shelter-evaluation-backend/node_modules/shelter-evaluation-dto",
     "docker:prod": "docker-compose -f docker/prod/docker-compose.yml ",
     "docker:prod:migration:run": "docker exec -it shelter-evaluation-backend-prod npm run migrate",
     "docker:prod:migration:revert": "docker exec -it shelter-evaluation-backend-prod npm run migrate:revert",

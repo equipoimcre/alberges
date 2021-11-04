@@ -11,4 +11,7 @@ export class UserService {
     private usersRepository: Repository<UserEntity>,
   ) {}
 
+  findByEmail(email: string) {
+    return this.usersRepository.findOne({email});
+  }
 }
