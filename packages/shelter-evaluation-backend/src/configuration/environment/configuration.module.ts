@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseConfigurationService } from './service';
+import { DatabaseConfigurationService, JwtConfigurationService } from './service';
 
 @Module({
   imports: [
@@ -10,10 +10,12 @@ import { DatabaseConfigurationService } from './service';
   ],
   providers: [
     DatabaseConfigurationService,
+    JwtConfigurationService,
   ],
   exports: [
     ConfigModule,
-    DatabaseConfigurationService
+    DatabaseConfigurationService,
+    JwtConfigurationService,
   ],
 })
 export class ConfigurationModule {}

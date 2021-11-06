@@ -56,6 +56,8 @@ services:
       TYPEORM_ENTITIES_DIR: dist/src
       TYPEORM_MIGRATIONS: dist/migration/**/*.js
       TYPEORM_MIGRATIONS_DIR: dist/migration
+      AUTH_SECRET_KEY: $AUTH_SECRET_KEY
+      AUTH_EXPIRE_IN: $AUTH_EXPIRE_IN
     volumes:
       - ../../packages/shelter-evaluation-backend/src:/opt/backend/src
       - ../../packages/shelter-evaluation-backend/node_modules:/opt/backend/node_modules
