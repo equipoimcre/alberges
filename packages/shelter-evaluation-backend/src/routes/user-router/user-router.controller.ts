@@ -3,8 +3,11 @@ import { UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
 import { JwtAuthGuard } from '../../guard';
+import { ApiResponse, ApiSecurity, ApiTags } from '@nestjs/swagger';
 
 @Controller('user')
+@ApiSecurity('basic')
+@ApiTags('user')
 export class UserRouterController {
 
   constructor(
