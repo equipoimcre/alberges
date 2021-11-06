@@ -12,12 +12,12 @@ export class UserDto {
   public name: string;
   @AutoMap()
   public surname: string;
-  @AutoMap()
+  @AutoMap({ typeFn: () => ProvinceDto })
   public province: ProvinceDto;
-  @AutoMap()
+  @AutoMap({ typeFn: () => UserRoleDto })
   public role: UserRoleDto;
-  @AutoMap()
-  public userPosition: UserPositionDto;
-  @AutoMap()
+  @AutoMap({ typeFn: () => UserPositionDto })
+  public position: UserPositionDto;
+  @AutoMap({ typeFn: () => OrganizationDto })
   public organization: OrganizationDto;
 }

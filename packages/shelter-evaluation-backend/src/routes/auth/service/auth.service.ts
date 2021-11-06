@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserEntity, UserService } from '../../../package';
 import { UserDto } from 'shelter-evaluation-dto';
-import { mapper } from 'src/utils';
+import { mapper } from '../../../utils';
 import { JwtService } from '@nestjs/jwt';
 
 

@@ -32,24 +32,24 @@ export class UserEntity {
   @Column({ default: true, name: 'is_active' })
   isActive: boolean;
 
-  @OneToOne(type => ProvinceEntity, province => province.id)
+  @OneToOne(() => ProvinceEntity, province => province.id, { eager: true })
   @JoinColumn()
-  @AutoMap()
+  @AutoMap({ typeFn: () => ProvinceEntity })
   province: ProvinceEntity;
 
-  @OneToOne(type => OrganizationEntity, organization => organization.id)
+  @OneToOne(() => OrganizationEntity, organization => organization.id, { eager: true })
   @JoinColumn()
-  @AutoMap()
+  @AutoMap({ typeFn: () => OrganizationEntity })
   organization: OrganizationEntity;
 
-  @OneToOne(type => UserRoleEntity, role => role.id)
+  @OneToOne(() => UserRoleEntity, role => role.id, {eager: true})
   @JoinColumn()
-  @AutoMap()
+  @AutoMap({ typeFn: () => UserRoleEntity })
   role: UserRoleEntity;
 
-  @OneToOne(type => UserPositionEntity, position => position.id)
+  @OneToOne(() => UserPositionEntity, position => position.id, { eager: true })
   @JoinColumn()
-  @AutoMap()
+  @AutoMap({ typeFn: () => UserPositionEntity })
   position: UserPositionEntity;
 
   @CreateDateColumn({name: 'create_date'})

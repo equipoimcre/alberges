@@ -14,4 +14,15 @@ export class UserService {
   findByEmail(email: string) {
     return this.usersRepository.findOne({email});
   }
+
+  async getAll(take: number, skip: number) {
+    const [data, count] = await this.usersRepository.findAndCount({
+      take: take || 10,
+      skip: skip || 0,
+    });
+    return {
+      data,
+      count,
+    }
+  }
 }
