@@ -1,7 +1,9 @@
 import { AutoMap } from "@automapper/classes";
+import { IsNumber } from "class-validator";
 import { BaseUserDto } from "./base-user.dto";
 
 export class UserDto extends BaseUserDto {
   @AutoMap()
-  public id: string;
+  @IsNumber()
+  public id: number;
 }
