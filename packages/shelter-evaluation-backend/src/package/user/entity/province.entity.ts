@@ -5,6 +5,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class ProvinceEntity { 
 
   @PrimaryGeneratedColumn()
+  @AutoMap()
   id: number;
 
   @Column()

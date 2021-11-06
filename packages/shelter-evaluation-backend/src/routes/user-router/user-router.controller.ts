@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards, Request } from '@nestjs/common';
 import { UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
@@ -10,6 +10,13 @@ export class UserRouterController {
   constructor(
     private userService: UserService,
   ) {}
+
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  async get(@Request() req) {
+    const user = await this.userService.findByEmail(req.user.email);
+    return mapper.map(user, UserDto, UserEntity);
+  }
 
   @UseGuards(JwtAuthGuard)
   @Get('all')
