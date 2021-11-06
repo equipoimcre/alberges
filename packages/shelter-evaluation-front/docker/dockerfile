@@ -1,8 +1,12 @@
 FROM node:14.17.3
 
-WORKDIR /opt/frontend
-COPY . /opt/frontend
+COPY shelter-evaluation-dto /opt/shelter-evaluation-dto
 
+WORKDIR /opt/frontend
+COPY shelter-evaluation-front /opt/frontend
+
+RUN rm package-lock.json
+RUN npm link ../shelter-evaluation-dto
 RUN npm install
 RUN npm install -g @angular/cli@9.1.7
 

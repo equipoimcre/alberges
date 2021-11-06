@@ -1,7 +1,7 @@
 import { AutoMap } from "@automapper/classes";
 import { BaseUserDto } from "./base-user.dto";
 
-export class UserDto extends BaseUserDto {
+export class CreateUserDto extends BaseUserDto {
   @AutoMap()
-  public id: string;
+  password: string;
 }

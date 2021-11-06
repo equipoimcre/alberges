@@ -41,7 +41,7 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
                 new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
                 new TableColumn({ name: 'surname', type: 'VARCHAR(250)' }),
-                new TableColumn({ name: 'email', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'email', type: 'VARCHAR(250)', isUnique: true }),
                 new TableColumn({ name: 'password', type: 'VARCHAR(250)' }),
                 new TableColumn({ name: 'agree_term', type: 'tinyint(4)', default: true }),
                 new TableColumn({ name: 'is_active', type: 'tinyint(4)', default: true }),

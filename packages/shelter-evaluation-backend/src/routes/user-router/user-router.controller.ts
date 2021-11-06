@@ -1,9 +1,9 @@
-import { Controller, Get, Param, UseGuards, Request } from '@nestjs/common';
-import { UserDto } from 'shelter-evaluation-dto';
+import { Controller, Get, Param, UseGuards, Request, Post, Body } from '@nestjs/common';
+import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
 import { JwtAuthGuard } from '../../guard';
-import { ApiResponse, ApiSecurity, ApiTags } from '@nestjs/swagger';
+import { ApiSecurity, ApiTags } from '@nestjs/swagger';
 
 @Controller('user')
 @ApiSecurity('basic')
@@ -27,8 +27,14 @@ export class UserRouterController {
     const result = await this.userService.getAll(take, skip);
     return {
       ...result,
-      data: result.data.map( element => mapper.map(element, UserDto, UserEntity)),
+      data: mapper.mapArray(result.data, UserDto, UserEntity),
     };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post()
+  async create(@Body() userDto: CreateUserDto) {
+    return this.userService.createUser(userDto);
   }
 
 }

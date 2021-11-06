@@ -24,6 +24,7 @@ export class UserEntity {
   email: string;
 
   @Column()
+  @AutoMap()
   password: string;
 
   @Column({ name: 'agree_term' })
