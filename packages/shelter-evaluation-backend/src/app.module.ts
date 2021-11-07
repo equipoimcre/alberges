@@ -8,6 +8,6 @@ import { AuthModule, UserRouterModule } from './routes';
     UserModule,
     AuthModule,
     UserRouterModule,
-  ]
+  ],
 })
 export class AppModule {}

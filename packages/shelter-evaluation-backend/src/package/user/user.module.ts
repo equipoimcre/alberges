@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UserService } from './service';
-import { UserController } from './controller/';
+import { UserService, UserRoleService, UserPositionService, UserOrganizationService, UserProvinceService } from './service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { OrganizationEntity, ProvinceEntity, UserEntity, UserPositionEntity, UserRoleEntity } from './entity';
 
@@ -14,10 +13,19 @@ import { OrganizationEntity, ProvinceEntity, UserEntity, UserPositionEntity, Use
       OrganizationEntity
     ])
   ],
-  providers: [UserService],
-  controllers: [UserController],
+  providers: [
+    UserService, 
+    UserRoleService, 
+    UserPositionService, 
+    UserOrganizationService, 
+    UserProvinceService,
+  ],
   exports: [
-    UserService,
+    UserService, 
+    UserRoleService, 
+    UserPositionService, 
+    UserOrganizationService, 
+    UserProvinceService,
   ]
 })
 export class UserModule {}
