@@ -24,6 +24,9 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
   }));
+  app.enableCors({
+    origin: 'https://shelter-evaluation.cruzroja.com' //TODO: Add dynamic host
+  });
   await app.listen(3000);
 }
 bootstrap();

@@ -75,6 +75,7 @@ services:
     volumes:
       - ../../packages/shelter-evaluation-front/src:/opt/frontend/src
       - ../../packages/shelter-evaluation-front/node_modules:/opt/frontend/node_modules
+      - ../../packages/shelter-evaluation-front/package.json:/opt/frontend/package.json
     container_name: shelter-evaluation-frontend-prod
     networks:
       - shelter-evaluation-network-gateway
