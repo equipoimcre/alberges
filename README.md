@@ -24,6 +24,12 @@ npm run docker:prod:up # This command laucnh localy production environment
 npm run docker:prod:migration:run # Populate the database
 ```
 
+### Default login
+```
+username: root@shelterevaluation.com
+password: root
+```
+
 ## Frecuently use commands
 
 ### Mysql

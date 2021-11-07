@@ -75,7 +75,7 @@ export class userPopulate1635096332479 implements MigrationInterface {
         const province = await this.storageProvince(queryRunner);
         const root = new UserEntity();
         root.email = 'root@shelterevaluation.com';
-        root.password = 'root';
+        root.password = '$2b$10$UV1oSMt9jebwaHo5BlMmoe4GFjC3USl6dxUoa/AG0fbWDu.eIgpim';
         root.name = 'root';
         root.surname = 'root';
         root.position = position;
