@@ -1,25 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
+import { LoginDto } from 'shelter-evaluation-dto';
+import { StorageService } from '../../../service/storage/storage.service';
+import { of } from 'rxjs';
 
 @Injectable()
 export class AuthService extends BaseService {
 
   private path = 'auth';
+  private STORAGE_KEY_JWT = 'JWT';
 
   constructor(
     private httpClient: HttpClient,
+    private storageService: StorageService,
   ) {
     super();
    }
 
-  login(loginDto: any) {
+  login(loginDto: LoginDto) {
     return this.httpClient.post<{accessToken: string}>(this.getUrl(`${this.path}/login`), loginDto)
       .pipe(
         tap(login => {
-          localStorage.setItem('JWT', login.accessToken);
+          this.storageService.save(this.STORAGE_KEY_JWT, login.accessToken);
         })
+      );
+  }
+
+  validateUserToken() {
+    const token = this.storageService.get(this.STORAGE_KEY_JWT);
+    if (token === null && token === undefined && token === '') {
+      return of(false);
+    }
+    return this.httpClient.get<boolean>(this.getUrl(`${this.path}/validate`))
+      .pipe(
+        map(() => true),
+        catchError(() => of(false)),
       );
   }
 }
