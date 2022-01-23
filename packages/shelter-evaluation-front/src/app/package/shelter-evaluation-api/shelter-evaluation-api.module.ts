@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService } from './service';
+import { AuthService, UserService } from './service';
 import { StorageModule } from '../../service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 
@@ -13,6 +13,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
   ],
   providers: [
     AuthService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

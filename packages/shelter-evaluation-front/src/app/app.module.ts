@@ -7,7 +7,7 @@ import { ShelterEvaluationApiModule } from './package';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

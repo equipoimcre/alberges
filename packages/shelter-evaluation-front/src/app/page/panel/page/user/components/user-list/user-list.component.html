@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <th>Full name</th>
+    <th>Email</th>
+    <th>Position</th>
+    <th>Province</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList" class="table-row">
+      <td class="table-cell text-center">{{user.name}}, {{user.surname}}</td>
+      <td class="table-cell text-center">{{user.email}}</td>
+      <td class="table-cell text-center">{{user.position.name}}</td>
+      <td class="table-cell text-center">{{user.province.name}}</td>
+      <td>
+        <button class="btn btn-blue" (click)="edit(user)">Edit</button>
+        <button class="btn btn-blue" (click)="delete(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

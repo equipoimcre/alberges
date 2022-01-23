@@ -7,7 +7,13 @@ const routes: Routes = [
   {
     path: '',
     component: PanelComponent,
-  }
+    children: [
+      {
+        path: 'user',
+        loadChildren: () => import('./page/user/user.module').then(m => m.UserModule),
+      },
+    ]
+  }  
 ];
 
 @NgModule({

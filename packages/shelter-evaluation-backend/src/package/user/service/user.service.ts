@@ -13,6 +13,10 @@ export class UserService {
     private usersRepository: Repository<UserEntity>,
   ) {}
 
+  findById(id: number) {
+    return this.usersRepository.findOne({id});
+  }
+
   findByEmail(email: string) {
     return this.usersRepository.findOne({email});
   }
@@ -20,6 +24,10 @@ export class UserService {
   createUser(userDto: CreateUserDto) {
     const userEntity = mapper.map(userDto, UserEntity, CreateUserDto);
     return this.usersRepository.insert(userEntity);
+  }
+
+  deleteUser(id: number) {
+    return this.usersRepository.delete(id);
   }
 
   async getAll(take: number, skip: number) {
