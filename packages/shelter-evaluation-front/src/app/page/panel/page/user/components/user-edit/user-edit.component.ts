@@ -9,7 +9,7 @@ import { UserDto } from 'shelter-evaluation-dto';
 })
 export class UserEditComponent implements OnInit {
 
-  public user: UserDto | undefined;
+  public user!: UserDto;
 
   constructor(
     private activateRoute: ActivatedRoute,

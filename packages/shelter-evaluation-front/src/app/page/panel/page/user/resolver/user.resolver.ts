@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { UserDto } from 'shelter-evaluation-dto';
-import { UserService } from 'src/app/package/shelter-evaluation-api/service';
+import { UserService } from '../../../../../package/shelter-evaluation-api/service';
 
 @Injectable({
   providedIn: 'root'

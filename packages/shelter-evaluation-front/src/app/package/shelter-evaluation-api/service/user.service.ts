@@ -4,9 +4,7 @@ import { UserDto } from 'shelter-evaluation-dto';
 import { Paginable } from '../../../interface/paginable';
 import { BaseService } from './base.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService extends BaseService {
 
   path = 'user';

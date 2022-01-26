@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProvinceEntity } from '../entity';
+import { UserPositionEntity } from '../entity';
 
 @Injectable()
 export class UserProvinceService {
 
   constructor(
-    @InjectRepository(ProvinceEntity)
-    private provinceRepository: Repository<ProvinceEntity>,
+    @InjectRepository(UserPositionEntity)
+    private positionRepository: Repository<UserPositionEntity>,
   ) {}
 
   findAll() {
-    return this.provinceRepository.find();
+    return this.positionRepository.find();
   }
 
 }
