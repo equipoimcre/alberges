@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PanelComponent } from './components/';
 import { RouterModule, Routes } from '@angular/router';
+import { PanelMenuComponent } from './components/panel-menu/panel-menu.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    PanelComponent
+    PanelComponent,
+    PanelMenuComponent
   ],
   imports: [
     CommonModule,

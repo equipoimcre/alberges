@@ -1,21 +1,25 @@
-<a routerLink="../create">Create new user</a>
-<table class="table">
+<p class="text-right">
+  <button class="btn btn-blue text-center mb-4">
+    <a routerLink="../create">Create new user</a>
+  </button>
+</p>
+<table class="border-separate w-full bg-white table-auto">
   <thead>
-    <th>Full name</th>
-    <th>Email</th>
-    <th>Position</th>
-    <th>Province</th>
-    <th>Actions</th>
+    <th class="text-left">Full name</th>
+    <th class="text-left">Email</th>
+    <th class="text-left">Position</th>
+    <th class="text-left">Province</th>
+    <th class="text-left">Actions</th>
   </thead>
   <tbody>
     <tr *ngFor="let user of userList" class="table-row">
-      <td class="table-cell text-center">{{user.name}}, {{user.surname}}</td>
-      <td class="table-cell text-center">{{user.email}}</td>
-      <td class="table-cell text-center">{{user.position.name}}</td>
-      <td class="table-cell text-center">{{user.province.name}}</td>
-      <td>
-        <button class="btn btn-blue" (click)="edit(user)">Edit</button>
-        <button class="btn btn-blue" (click)="delete(user)">Delete</button>
+      <td class="table-cell">{{user.name}}, {{user.surname}}</td>
+      <td class="table-cell">{{user.email}}</td>
+      <td class="table-cell">{{user.position.name}}</td>
+      <td class="table-cell">{{user.province.name}}</td>
+      <td class="flex space-x-4">
+        <button class="btn btn-blue flex-grow text-center" (click)="edit(user)">Edit</button>
+        <button class="btn btn-blue flex-grow text-center" (click)="delete(user)">Delete</button>
       </td>
     </tr>
   </tbody>

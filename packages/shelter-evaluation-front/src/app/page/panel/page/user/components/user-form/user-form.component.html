@@ -1,34 +1,34 @@
 <form [formGroup]="userForm" (submit)="submitUser()">
   <label for="name">Name</label>
-  <input type="text" id="name" formControlName="name">
+  <input type="text" id="name" formControlName="name" class="form-input">
   <label for="surnames">Surnames</label>
   <input type="text" id="surname" formControlName="surname">
   <label for="email">Email</label>
-  <input type="email" id="email" formControlName="email">
+  <input type="email" id="email" formControlName="email" class="form-input">
   <div *ngIf="!user">
     <label for="password">Password</label>
-    <input type="text" id="password" formControlName="password">
+    <input type="text" id="password" formControlName="password" class="form-input">
     <label for="repeatPassword">Repeat password</label>
-    <input type="text" id="repeatPassword" formControlName="repeatPassword">
+    <input type="text" id="repeatPassword" formControlName="repeatPassword" class="form-input">
   </div>
   <label for="province">Province</label>
-  <select id="province" formControlName="province">
+  <select id="province" formControlName="province" class="form-select">
     <option *ngFor="let province of provinceList" [value]="province">{{province.name}}</option>
   </select>
   <label for="organization">Organization</label>
-  <select id="organization" formControlName="organization">
+  <select id="organization" formControlName="organization" class="form-select">
     <option *ngFor="let organization of organizationList" [value]="organization">{{organization.name}}</option>
   </select>
   <label for="role">Role</label>
-  <select id="role" formControlName="role">
+  <select id="role" formControlName="role" class="form-select">
     <option *ngFor="let role of roleList" [value]="role">{{role.name}}</option>
   </select>
   <label for="position">Position</label>
-  <select id="position">
+  <select id="position" class="form-select">
     <option *ngFor="let position of positionList" [value]="position">{{position.name}}</option>
   </select>
   <label *ngIf="!user">
-    <input type="checkbox" formControlName="agreeTerm">
+    <input type="checkbox" formControlName="agreeTerm" class="form-input">
     I agree to the Terms of User and Privacy Policy
   </label>
   <button type="submit" *ngIf="!user">Create new user</button>
@@ -37,8 +37,8 @@
 
 <form *ngIf="user" [formGroup]="passwordFrom" (submit)="submitPassword()">
   <label for="password">Password</label>
-  <input type="text" id="password" formControlName="password">
+  <input type="text" id="password" formControlName="password" class="form-input">
   <label for="repeatPassword">Repeat password</label>
-  <input type="text" id="repeatPassword" formControlName="repeatPassword">
+  <input type="text" id="repeatPassword" formControlName="repeatPassword" class="form-input">
   <button type="submit">Change password</button>
 </form>
