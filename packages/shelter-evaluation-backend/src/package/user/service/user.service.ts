@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
-import { mapper } from '../../../utils';
+import { Encrypt, mapper } from '../../../utils';
 import { Repository } from 'typeorm';
 import { UserEntity } from '../entity';
 
@@ -28,6 +28,15 @@ export class UserService {
 
   deleteUser(id: number) {
     return this.usersRepository.delete(id);
+  }
+
+  updateUser(userDto: UserDto) {
+    return this.usersRepository.update(userDto.id, userDto);
+  }
+
+  changePassword(id: number, password: string) {
+    const encrypt = new Encrypt();
+    return this.usersRepository.update(id, {password: encrypt.hash(password)});
   }
 
   async getAll(take: number, skip: number) {

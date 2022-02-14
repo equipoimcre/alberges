@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UseGuards, Request, Post, Body, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards, Request, Post, Body, Delete, Query, Put, Patch } from '@nestjs/common';
 import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
@@ -35,6 +35,18 @@ export class UserRouterController {
   @Post()
   async create(@Body() userDto: CreateUserDto) {
     return this.userService.createUser(userDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put()
+  async updateUser(@Body() UserDto: UserDto) {
+    return this.userService.updateUser(UserDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/password')
+  async changePassword(@Param('id') id: number, @Body() body: {password: string}) {
+    return this.userService.changePassword(id, body.password);
   }
 
   @UseGuards(JwtAuthGuard)
