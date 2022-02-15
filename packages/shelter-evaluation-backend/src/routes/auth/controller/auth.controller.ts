@@ -2,6 +2,7 @@ import { Controller, Post, UseGuards, Request, Get } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { LoginDto } from 'shelter-evaluation-dto';
+import { Public } from 'src/decorator/public.decorator';
 import { JwtAuthGuard } from '../../../guard';
 import { AuthService } from '../service';
 
@@ -13,6 +14,7 @@ export class AuthController {
     private authService: AuthService,
   ) {}
 
+  @Public()
   @UseGuards(AuthGuard('local'))
   @Post('/login')
   @ApiBody({type: LoginDto})

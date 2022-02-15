@@ -4,6 +4,8 @@ import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
 import { JwtAuthGuard } from '../../guard';
 import { ApiSecurity, ApiTags } from '@nestjs/swagger';
+import { Roles } from '../../decorator/role.decorator';
+import { ROLE } from '../../configuration/role';
 
 @Controller('user')
 @ApiSecurity('basic')
@@ -15,6 +17,7 @@ export class UserRouterController {
   ) {}
 
   @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
   @Get()
   async get(@Query('id') id: number) {
     const user = await this.userService.findById(id);
@@ -22,6 +25,7 @@ export class UserRouterController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
   @Get('all')
   async getAll(@Param('take') take: number, @Param('skip') skip: number) {
     const result = await this.userService.getAll(take, skip);
@@ -32,24 +36,28 @@ export class UserRouterController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
   @Post()
   async create(@Body() userDto: CreateUserDto) {
     return this.userService.createUser(userDto);
   }
 
   @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
   @Put()
   async updateUser(@Body() UserDto: UserDto) {
     return this.userService.updateUser(UserDto);
   }
 
   @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
   @Patch(':id/password')
   async changePassword(@Param('id') id: number, @Body() body: {password: string}) {
     return this.userService.changePassword(id, body.password);
   }
 
   @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
   @Delete(':id')
   async delete(@Param('id') id: number) {
     return this.userService.deleteUser(id);
