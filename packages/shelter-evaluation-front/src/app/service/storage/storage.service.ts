@@ -14,6 +14,11 @@ export class StorageService {
     return storage.getItem(key);
   }
 
+  remove(key: string, options = new StorageOptions()) {
+    const storage = this.getStorage(options);
+    storage.removeItem(key);
+  }
+
   private getStorage(options: StorageOptions) {
     if (options.persistant) {
       return localStorage;

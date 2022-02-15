@@ -43,4 +43,8 @@ export class AuthService extends BaseService {
   getToken() {
     return this.storageService.get(this.STORAGE_KEY_JWT);
   }
+
+  removeToken() {
+    this.storageService.remove(this.STORAGE_KEY_JWT);
+  }
 }

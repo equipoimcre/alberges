@@ -39,5 +39,5 @@ password: root
 
 Connect to mysql
 ```bash
-mysql -u $MYSQL_USER -p$MYSQL_PASSWORD
+mysql -u $MYSQL_USER -p $MYSQL_PASSWORD
 ```
