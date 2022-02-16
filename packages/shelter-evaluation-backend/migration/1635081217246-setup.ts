@@ -70,6 +70,7 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'coordinate', type: 'POINT'}),
                 new TableColumn({ name: 'province_id', type: 'INT' }),
                 new TableColumn({ name: 'validate', type: 'BOOLEAN' }),
+                new TableColumn({ name: 'note', type: 'VARCHAR(250)' }),
             ],
         });
         await queryRunner.createTable(shelterTable, true);
@@ -82,6 +83,20 @@ export class setup1635081217246 implements MigrationInterface {
             ],
         });
         await queryRunner.createTable(questionTable, true);
+
+        const responseTable = new Table({
+            name: 'shelter_response',
+            columns: [
+                new TableColumn({ name: 'shelter_id', type: 'INT', isPrimary: true, }),
+                new TableColumn({ name: 'question_id', type: 'INT', isPrimary: true, }),
+                new TableColumn({ name: 'response', type: 'BOOLEAN' }),
+            ],
+            foreignKeys: [
+                { columnNames: ['shelter_id'], referencedTableName: 'shelter', referencedColumnNames: ['id'] },
+                { columnNames: ['question_id'], referencedTableName: 'question', referencedColumnNames: ['id'] },
+            ]
+        });
+        await queryRunner.createTable(responseTable, true);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

@@ -1,6 +1,7 @@
 import { AutoMap } from '@automapper/classes';
 import { ProvinceEntity } from '../../user';
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { ShelterResponseEntity } from './shelter-response.entity';
 
 @Entity({ name: 'shelter' })
 export class ShelterEntity { 
@@ -32,4 +33,11 @@ export class ShelterEntity {
   @Column('boolean', {default: false})
   @AutoMap()
   validate: boolean;
+
+  @Column()
+  @AutoMap()
+  note: string;
+
+  @OneToMany(() => ShelterResponseEntity, shelterResponse => shelterResponse.shelterId)
+  public postToCategories: ShelterResponseEntity[];
 }

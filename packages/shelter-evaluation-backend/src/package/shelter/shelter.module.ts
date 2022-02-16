@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ShelterEntity } from './entity';
+import { ShelterEntity, ShelterResponseEntity } from './entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       ShelterEntity,
+      ShelterResponseEntity,
     ]),
   ]
 })
