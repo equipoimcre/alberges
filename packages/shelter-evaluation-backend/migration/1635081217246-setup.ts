@@ -73,11 +73,21 @@ export class setup1635081217246 implements MigrationInterface {
             ],
         });
         await queryRunner.createTable(shelterTable, true);
+
+        const questionTable = new Table({
+            name: 'question',
+            columns: [
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
+                new TableColumn({ name: 'question', type: 'VARCHAR(250)' }),
+            ],
+        });
+        await queryRunner.createTable(questionTable, true);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('user', true);
         await queryRunner.dropTable('shelter', true);
+        await queryRunner.dropTable('question', true);
         await queryRunner.dropTable('province', true);
         await queryRunner.dropTable('organization', true);
         await queryRunner.dropTable('user_position', true);

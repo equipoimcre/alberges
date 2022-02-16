@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { UserEntity, UserPositionEntity, ShelterEntity, UserRoleEntity, ProvinceEntity, OrganizationEntity } from '../../../../package';
+import { UserEntity, UserPositionEntity, ShelterEntity, UserRoleEntity, ProvinceEntity, OrganizationEntity, QuestionEntity } from '../../../../package';
 
 @Injectable()
 export class DatabaseConfigurationService {
@@ -49,6 +49,7 @@ export class DatabaseConfigurationService {
         ProvinceEntity,
         OrganizationEntity,
         ShelterEntity,
+        QuestionEntity,
       ],
       synchronize: this.syncrhonize,
     }
