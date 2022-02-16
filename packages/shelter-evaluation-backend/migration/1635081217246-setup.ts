@@ -79,7 +79,7 @@ export class setup1635081217246 implements MigrationInterface {
             name: 'question',
             columns: [
                 new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
-                new TableColumn({ name: 'question', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'question', type: 'TEXT' }),
             ],
         });
         await queryRunner.createTable(questionTable, true);
@@ -100,6 +100,7 @@ export class setup1635081217246 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('shelter_response', true);
         await queryRunner.dropTable('user', true);
         await queryRunner.dropTable('shelter', true);
         await queryRunner.dropTable('question', true);

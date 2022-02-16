@@ -1,7 +1,9 @@
 import { AutoMap } from '@automapper/classes';
 import { ProvinceEntity } from '../../user';
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Geometry } from 'geojson'
 import { ShelterResponseEntity } from './shelter-response.entity';
+import { GeometryTransformer } from '../transformer/geometry-transformer';
 
 @Entity({ name: 'shelter' })
 export class ShelterEntity { 
@@ -21,9 +23,11 @@ export class ShelterEntity {
   @Column({
     type: 'geometry',
     spatialFeatureType: 'Point',
+    srid: 4326,
+    transformer: new GeometryTransformer(),
   })
   @AutoMap()
-  coordinate: string;
+  coordinate: Geometry;
 
   @OneToOne(() => ProvinceEntity, province => province.id, { eager: true })
   @JoinColumn({name: 'province_id'})
