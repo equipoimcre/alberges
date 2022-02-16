@@ -2,7 +2,6 @@ import { ROLE } from "../src/configuration/role";
 import { ProvinceEntity, UserEntity, UserPositionEntity, UserRoleEntity } from "src/package";
 import {MigrationInterface, QueryRunner } from "typeorm";
 import { OrganizationEntity } from '../src/package/user/entity/organization.entity';
-import { config } from "node_modules/rxjs/dist/types";
 
 export class userPopulate1635096332479 implements MigrationInterface {
 

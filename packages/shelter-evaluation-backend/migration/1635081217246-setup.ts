@@ -39,7 +39,7 @@ export class setup1635081217246 implements MigrationInterface {
             name: 'user',
             columns: [
                 new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
-                new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'name', type: 'VARCHAR(250)', }),
                 new TableColumn({ name: 'surname', type: 'VARCHAR(250)' }),
                 new TableColumn({ name: 'email', type: 'VARCHAR(250)', isUnique: true }),
                 new TableColumn({ name: 'password', type: 'VARCHAR(250)' }),
@@ -60,14 +60,28 @@ export class setup1635081217246 implements MigrationInterface {
             ],
         });
         await queryRunner.createTable(userTable, true);
+
+        const shelterTable = new Table({
+            name: 'shelter',
+            columns: [
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
+                new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'owner', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'coordinate', type: 'POINT'}),
+                new TableColumn({ name: 'province_id', type: 'INT' }),
+                new TableColumn({ name: 'validate', type: 'BOOLEAN' }),
+            ],
+        });
+        await queryRunner.createTable(shelterTable, true);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('user', true);
+        await queryRunner.dropTable('shelter', true);
         await queryRunner.dropTable('province', true);
         await queryRunner.dropTable('organization', true);
         await queryRunner.dropTable('user_position', true);
-        await queryRunner.dropTable('user_role', true);        
+        await queryRunner.dropTable('user_role', true);     
     }
 
 }

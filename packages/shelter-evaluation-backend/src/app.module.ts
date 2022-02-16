@@ -4,12 +4,14 @@ import { DatabaseModule } from './configuration/database/database.module';
 import { JwtAuthGuard, RolesGuard } from './guard';
 import { UserModule } from './package';
 import { AuthModule, UserRouterModule } from './routes';
+import { ShelterModule } from './package/shelter/shelter.module';
 @Module({
   imports: [
     DatabaseModule,
     UserModule,
     AuthModule,
-    UserRouterModule,    
+    UserRouterModule,
+    ShelterModule,    
   ],
   providers: [
      {
