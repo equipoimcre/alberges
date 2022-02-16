@@ -3,7 +3,7 @@ import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
 import { ShelterEntity } from './shelter.entity';
 import { QuestionEntity } from '../../question';
 
-@Entity({ name: 'shelter' })
+@Entity({ name: 'shelter_response' })
 export class ShelterResponseEntity { 
 
   @PrimaryColumn({name: 'question_id'})
