@@ -13,6 +13,10 @@ const routes: Routes = [
         path: 'user',
         loadChildren: () => import('./page/user/user.module').then(m => m.UserModule),
       },
+      {
+        path: 'shelter',
+        loadChildren: () => import('./page/shelter/shelter.module').then(m => m.ShelterModule),
+      },
     ]
   }  
 ];
