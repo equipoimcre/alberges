@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UserService, UserRoleService, UserPositionService, UserOrganizationService, UserProvinceService } from './service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { OrganizationEntity, ProvinceEntity, UserEntity, UserPositionEntity, UserRoleEntity } from './entity';
+import { CommunityEntity, OrganizationEntity, ProvinceEntity, UserEntity, UserPositionEntity, UserRoleEntity } from './entity';
 
 @Module({
   imports: [
@@ -10,7 +10,8 @@ import { OrganizationEntity, ProvinceEntity, UserEntity, UserPositionEntity, Use
       UserPositionEntity,
       UserRoleEntity,
       ProvinceEntity,
-      OrganizationEntity
+      OrganizationEntity,
+      CommunityEntity,
     ])
   ],
   providers: [

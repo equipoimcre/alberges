@@ -3,12 +3,24 @@ import {MigrationInterface, QueryRunner, Table, TableColumn} from "typeorm";
 export class setup1635081217246 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
+        const communityTable = new Table({
+            name: 'community',
+            columns: [
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true}),
+                new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
+            ]
+        });
+        await queryRunner.createTable(communityTable, true);
         const provinceTable = new Table({
             name: 'province',
             columns: [
-                new TableColumn({ name: 'id', type: 'INT', isPrimary: true, generationStrategy: 'increment', isGenerated: true }),
+                new TableColumn({ name: 'id', type: 'INT', isPrimary: true}),
                 new TableColumn({ name: 'name', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'community_id', type: 'INT'}),
             ],
+            foreignKeys: [
+                { columnNames: ['community_id'], referencedTableName: 'community', referencedColumnNames: ['id'] },
+            ]
         });
         await queryRunner.createTable(provinceTable, true);
         const organizationTable = new Table({
@@ -105,6 +117,7 @@ export class setup1635081217246 implements MigrationInterface {
         await queryRunner.dropTable('shelter', true);
         await queryRunner.dropTable('question', true);
         await queryRunner.dropTable('province', true);
+        await queryRunner.dropTable('community', true);
         await queryRunner.dropTable('organization', true);
         await queryRunner.dropTable('user_position', true);
         await queryRunner.dropTable('user_role', true);     
