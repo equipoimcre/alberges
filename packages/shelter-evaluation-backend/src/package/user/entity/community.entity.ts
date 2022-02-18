@@ -13,7 +13,8 @@ export class CommunityEntity {
   @AutoMap()
   name: string;
 
-  @OneToMany(() => ProvinceEntity, province => province.community)
+  @OneToMany(() => ProvinceEntity, province => province.community, { eager: true })
+  @AutoMap({ typeFn: () => ProvinceEntity })
   public provinceList: ProvinceEntity[];
 
 }

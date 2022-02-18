@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { ApiSecurity } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../../guard';
-import { UserOrganizationService, UserPositionService, UserProvinceService, UserRoleService } from '../../package';
+import { CommunityService, UserOrganizationService, UserPositionService, UserProvinceService, UserRoleService } from '../../package';
 
 @Controller()
 @ApiSecurity('basic')
@@ -12,6 +12,7 @@ export class UserOtherController {
     private userOrganizationService: UserOrganizationService,
     private userProvinceService: UserProvinceService,
     private userPositionService: UserPositionService,
+    private communityService: CommunityService,
   ) {}
 
   @UseGuards(JwtAuthGuard)
@@ -38,4 +39,9 @@ export class UserOtherController {
     return this.userOrganizationService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Get('community/all')
+  getAllCommunity() {
+    return this.communityService.findAll();
+  }
 }
