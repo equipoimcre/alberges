@@ -7,19 +7,15 @@ import { AuthService } from '../../../../package/shelter-evaluation-api/service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
   loginFormModule = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     if (this.loginFormModule.valid) {
@@ -29,8 +25,8 @@ export class LoginComponent {
       };
       this.authService.login(loginDto).subscribe(
         () => this.router.navigate(['panel']),
-        error => console.error(error),
-      )
+        (error) => console.error(error),
+      );
     }
   }
 }

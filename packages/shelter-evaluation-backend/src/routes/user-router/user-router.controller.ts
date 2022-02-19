@@ -1,9 +1,28 @@
-import { Controller, Get, Param, UseGuards, Request, Post, Body, Delete, Query, Put, Patch, HttpCode } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  UseGuards,
+  Request,
+  Post,
+  Body,
+  Delete,
+  Query,
+  Put,
+  Patch,
+  HttpCode,
+} from '@nestjs/common';
 import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
 import { JwtAuthGuard } from '../../guard';
-import { ApiBody, ApiCreatedResponse, ApiProperty, ApiSecurity, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiCreatedResponse,
+  ApiProperty,
+  ApiSecurity,
+  ApiTags,
+} from '@nestjs/swagger';
 import { Roles } from '../../decorator/role.decorator';
 import { ROLE } from '../../configuration/role';
 
@@ -16,16 +35,13 @@ class Password {
 @ApiSecurity('basic')
 @ApiTags('user')
 export class UserRouterController {
-
-  constructor(
-    private userService: UserService,
-  ) {}
+  constructor(private userService: UserService) {}
 
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
   @Get()
   @ApiCreatedResponse({
-    type: UserDto
+    type: UserDto,
   })
   async get(@Query('id') id: number) {
     const user = await this.userService.findById(id);
@@ -48,7 +64,7 @@ export class UserRouterController {
   @Roles(ROLE.ADMINISTRATOR)
   @Post()
   @ApiCreatedResponse({
-    type: UserDto
+    type: UserDto,
   })
   async create(@Body() userDto: CreateUserDto) {
     const user = await this.userService.createUser(userDto);
@@ -68,7 +84,10 @@ export class UserRouterController {
   @HttpCode(204)
   @ApiBody({ type: Password })
   @Patch(':id/password')
-  async changePassword(@Param('id') id: number, @Body() body: {password: string}) {
+  async changePassword(
+    @Param('id') id: number,
+    @Body() body: { password: string },
+  ) {
     await this.userService.changePassword(id, body.password);
   }
 
@@ -78,5 +97,4 @@ export class UserRouterController {
   async delete(@Param('id') id: number) {
     return this.userService.deleteUser(id);
   }
-
 }

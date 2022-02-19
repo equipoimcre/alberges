@@ -11,24 +11,20 @@ const routes: Routes = [
     children: [
       {
         path: 'user',
-        loadChildren: () => import('./page/user/user.module').then(m => m.UserModule),
+        loadChildren: () =>
+          import('./page/user/user.module').then((m) => m.UserModule),
       },
       {
         path: 'shelter',
-        loadChildren: () => import('./page/shelter/shelter.module').then(m => m.ShelterModule),
+        loadChildren: () =>
+          import('./page/shelter/shelter.module').then((m) => m.ShelterModule),
       },
-    ]
-  }  
+    ],
+  },
 ];
 
 @NgModule({
-  declarations: [
-    PanelComponent,
-    PanelMenuComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-  ]
+  declarations: [PanelComponent, PanelMenuComponent],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class PanelModule { }
+export class PanelModule {}

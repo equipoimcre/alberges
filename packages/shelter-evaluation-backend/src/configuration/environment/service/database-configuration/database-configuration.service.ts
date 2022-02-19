@@ -1,14 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { UserEntity, UserPositionEntity, ShelterEntity, UserRoleEntity, ProvinceEntity, OrganizationEntity, QuestionEntity, ShelterResponseEntity, CommunityEntity } from '../../../../package';
+import {
+  UserEntity,
+  UserPositionEntity,
+  ShelterEntity,
+  UserRoleEntity,
+  ProvinceEntity,
+  OrganizationEntity,
+  QuestionEntity,
+  ShelterResponseEntity,
+  CommunityEntity,
+} from '../../../../package';
 
 @Injectable()
 export class DatabaseConfigurationService {
-
-  constructor(
-    private configService: ConfigService,
-  ) {}
+  constructor(private configService: ConfigService) {}
 
   get user() {
     return this.configService.get<string>('DATABASE_USER');
@@ -27,11 +34,13 @@ export class DatabaseConfigurationService {
   }
 
   get port() {
-    return this.configService.get<number>('DATABASE_PORT', {infer: true});
+    return this.configService.get<number>('DATABASE_PORT', { infer: true });
   }
 
   get syncrhonize() {
-    return this.configService.get<string>('DATABASE_SYNCRHONIZE', 'false') === 'true';
+    return (
+      this.configService.get<string>('DATABASE_SYNCRHONIZE', 'false') === 'true'
+    );
   }
 
   get typeOrmConfiguration(): TypeOrmModuleOptions {
@@ -54,6 +63,6 @@ export class DatabaseConfigurationService {
         CommunityEntity,
       ],
       synchronize: this.syncrhonize,
-    }
+    };
   }
 }

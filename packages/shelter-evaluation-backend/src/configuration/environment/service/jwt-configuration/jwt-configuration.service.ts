@@ -3,10 +3,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class JwtConfigurationService {
-
-  constructor(
-    private configService: ConfigService,
-  ) {}
+  constructor(private configService: ConfigService) {}
 
   get secretKey() {
     return this.configService.get<string>('AUTH_SECRET_KEY');
@@ -15,6 +12,4 @@ export class JwtConfigurationService {
   get expireIn() {
     return this.configService.get<string>('AUTH_EXPIRE_IN');
   }
-
-  
 }

@@ -11,7 +11,7 @@ function swagger(app: INestApplication) {
     .addSecurity('basic', {
       type: 'http',
       scheme: 'bearer',
-      bearerFormat: 'JWT'
+      bearerFormat: 'JWT',
     })
     .build();
   const document = SwaggerModule.createDocument(app, config);
@@ -21,11 +21,13 @@ function swagger(app: INestApplication) {
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   swagger(app);
-  app.useGlobalPipes(new ValidationPipe({
-    transform: true,
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  );
   app.enableCors({
-    origin: 'https://shelter-evaluation.cruzroja.com' //TODO: Add dynamic host
+    origin: 'https://shelter-evaluation.cruzroja.com', //TODO: Add dynamic host
   });
   await app.listen(3000);
 }

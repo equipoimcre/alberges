@@ -7,18 +7,17 @@ import { UserEntity } from '../entity';
 
 @Injectable()
 export class UserService {
-
   constructor(
     @InjectRepository(UserEntity)
     private usersRepository: Repository<UserEntity>,
   ) {}
 
   findById(id: number) {
-    return this.usersRepository.findOne({id});
+    return this.usersRepository.findOne({ id });
   }
 
   findByEmail(email: string) {
-    return this.usersRepository.findOne({email});
+    return this.usersRepository.findOne({ email });
   }
 
   createUser(userDto: CreateUserDto) {
@@ -36,7 +35,9 @@ export class UserService {
 
   changePassword(id: number, password: string) {
     const encrypt = new Encrypt();
-    return this.usersRepository.update(id, {password: encrypt.hash(password)});
+    return this.usersRepository.update(id, {
+      password: encrypt.hash(password),
+    });
   }
 
   async getAll(take: number, skip: number) {
@@ -47,6 +48,6 @@ export class UserService {
     return {
       data,
       count,
-    }
+    };
   }
 }

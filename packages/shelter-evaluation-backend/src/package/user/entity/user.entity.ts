@@ -1,5 +1,13 @@
 import { AutoMap } from '@automapper/classes';
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, JoinColumn, OneToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  JoinColumn,
+  OneToOne,
+} from 'typeorm';
 import { OrganizationEntity } from './organization.entity';
 import { ProvinceEntity } from './province.entity';
 import { UserPositionEntity } from './user.positions.entity';
@@ -33,29 +41,33 @@ export class UserEntity {
   @Column({ default: true, name: 'is_active' })
   isActive: boolean;
 
-  @OneToOne(() => ProvinceEntity, province => province.id, { eager: true })
+  @OneToOne(() => ProvinceEntity, (province) => province.id, { eager: true })
   @JoinColumn()
   @AutoMap({ typeFn: () => ProvinceEntity })
   province: ProvinceEntity;
 
-  @OneToOne(() => OrganizationEntity, organization => organization.id, { eager: true })
+  @OneToOne(() => OrganizationEntity, (organization) => organization.id, {
+    eager: true,
+  })
   @JoinColumn()
   @AutoMap({ typeFn: () => OrganizationEntity })
   organization: OrganizationEntity;
 
-  @OneToOne(() => UserRoleEntity, role => role.id, {eager: true})
+  @OneToOne(() => UserRoleEntity, (role) => role.id, { eager: true })
   @JoinColumn()
   @AutoMap({ typeFn: () => UserRoleEntity })
   role: UserRoleEntity;
 
-  @OneToOne(() => UserPositionEntity, position => position.id, { eager: true })
+  @OneToOne(() => UserPositionEntity, (position) => position.id, {
+    eager: true,
+  })
   @JoinColumn()
   @AutoMap({ typeFn: () => UserPositionEntity })
   position: UserPositionEntity;
 
-  @CreateDateColumn({name: 'create_date'})
+  @CreateDateColumn({ name: 'create_date' })
   createDate: Date;
 
-  @UpdateDateColumn({name: 'udpate_date'})
+  @UpdateDateColumn({ name: 'udpate_date' })
   updateDate: Date;
 }

@@ -7,8 +7,8 @@ export const environment = {
   api: {
     shelterEvaluation: {
       host: 'https://api.shelter-evaluation.cruzroja.com',
-    }
-  }
+    },
+  },
 };
 
 /*

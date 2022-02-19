@@ -5,7 +5,6 @@ import { CommunityEntity } from '../entity';
 
 @Injectable()
 export class CommunityService {
-
   constructor(
     @InjectRepository(CommunityEntity)
     private communityRepository: Repository<CommunityEntity>,
@@ -14,5 +13,4 @@ export class CommunityService {
   findAll() {
     return this.communityRepository.find();
   }
-
 }

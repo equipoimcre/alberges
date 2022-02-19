@@ -5,7 +5,6 @@ import { UserRoleEntity } from '../entity';
 
 @Injectable()
 export class UserRoleService {
-
   constructor(
     @InjectRepository(UserRoleEntity)
     private userRoleRepository: Repository<UserRoleEntity>,
@@ -14,5 +13,4 @@ export class UserRoleService {
   findAll() {
     return this.userRoleRepository.find();
   }
-
 }

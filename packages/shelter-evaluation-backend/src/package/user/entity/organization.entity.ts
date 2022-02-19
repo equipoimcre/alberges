@@ -2,8 +2,7 @@ import { AutoMap } from '@automapper/classes';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'organization' })
-export class OrganizationEntity { 
-
+export class OrganizationEntity {
   @PrimaryGeneratedColumn()
   @AutoMap()
   id: number;
@@ -11,5 +10,4 @@ export class OrganizationEntity {
   @Column()
   @AutoMap()
   name: string;
-
 }

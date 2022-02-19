@@ -6,12 +6,9 @@ import { BaseService } from './base.service';
 
 @Injectable()
 export class UserService extends BaseService {
-
   path = 'user';
 
-  constructor(
-    private httpClient: HttpClient,
-  ) {
+  constructor(private httpClient: HttpClient) {
     super();
   }
 
@@ -36,6 +33,8 @@ export class UserService extends BaseService {
   }
 
   changePassword(id: number, password: string) {
-    return this.httpClient.patch<UserDto>(this.getUrl(`${id}/password`), {password})
+    return this.httpClient.patch<UserDto>(this.getUrl(`${id}/password`), {
+      password,
+    });
   }
 }

@@ -1,7 +1,7 @@
-import { AutoMap } from "@automapper/classes";
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
-import { ProvinceDto } from "./province.dto";
+import { AutoMap } from '@automapper/classes';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNumber, IsString } from 'class-validator';
+import { ProvinceDto } from './province.dto';
 
 export class CommunityDto {
   @AutoMap()

@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-shelter-validate',
   templateUrl: './shelter-validate.component.html',
-  styleUrls: ['./shelter-validate.component.scss']
+  styleUrls: ['./shelter-validate.component.scss'],
 })
 export class ShelterValidateComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

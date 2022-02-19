@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { UserCreateComponent, UserEditComponent, UserListComponent, UserFormComponent} from './components';
+import {
+  UserCreateComponent,
+  UserEditComponent,
+  UserListComponent,
+  UserFormComponent,
+} from './components';
 import { ShelterEvaluationApiModule } from '../../../../package';
 import { UserListResolver } from './resolver/user-list.resolver';
 import { UserResolver } from './resolver/user.resolver';
@@ -22,7 +27,7 @@ const routes: Routes = [
     component: UserListComponent,
     resolve: {
       userPaginable: UserListResolver,
-    }
+    },
   },
   {
     path: 'create',
@@ -32,7 +37,7 @@ const routes: Routes = [
       organizationList: OrganizationListResolver,
       roleList: RoleListResolver,
       positionList: PositionListResolver,
-    }
+    },
   },
   {
     path: 'edit/:id',
@@ -43,7 +48,7 @@ const routes: Routes = [
       organizationList: OrganizationListResolver,
       roleList: RoleListResolver,
       positionList: PositionListResolver,
-    }
+    },
   },
 ];
 
@@ -59,6 +64,6 @@ const routes: Routes = [
     ShelterEvaluationApiModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
-  ]
+  ],
 })
-export class UserModule { }
+export class UserModule {}

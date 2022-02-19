@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthService, OrganizationService, PositionService, ProvinceService, RoleService, UserService } from './service';
+import {
+  AuthService,
+  OrganizationService,
+  PositionService,
+  ProvinceService,
+  RoleService,
+  UserService,
+} from './service';
 import { StorageModule } from '../../service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    StorageModule,
-  ],
+  imports: [CommonModule, HttpClientModule, StorageModule],
   providers: [
     AuthService,
     UserService,
@@ -22,7 +25,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
-    }
+    },
   ],
 })
-export class ShelterEvaluationApiModule { }
+export class ShelterEvaluationApiModule {}

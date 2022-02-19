@@ -5,12 +5,9 @@ import { BaseService } from './base.service';
 
 @Injectable()
 export class OrganizationService extends BaseService {
-
   path = 'organization';
 
-  constructor(
-    private httpClient: HttpClient,
-  ) {
+  constructor(private httpClient: HttpClient) {
     super();
   }
 

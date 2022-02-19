@@ -4,11 +4,9 @@ import { UserDto } from 'shelter-evaluation-dto';
 import { Encrypt, mapper } from '../../../utils';
 import { JwtService } from '@nestjs/jwt';
 
-
 @Injectable()
 export class AuthService {
-
-  private encrypt: Encrypt;;
+  private encrypt: Encrypt;
 
   constructor(
     private userService: UserService,

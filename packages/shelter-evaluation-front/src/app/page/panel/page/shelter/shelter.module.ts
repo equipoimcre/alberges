@@ -17,18 +17,15 @@ const routes: Routes = [
   {
     path: 'validate/:id',
     component: ShelterValidateComponent,
-  }
+  },
 ];
 
 @NgModule({
   declarations: [
     ShelterSearchComponent,
     ShelterCreateComponent,
-    ShelterValidateComponent
+    ShelterValidateComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-  ]
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class ShelterModule { }
+export class ShelterModule {}

@@ -3,8 +3,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ProvinceEntity } from './province.entity';
 
 @Entity({ name: 'community' })
-export class CommunityEntity { 
-
+export class CommunityEntity {
   @PrimaryGeneratedColumn()
   @AutoMap()
   id: number;
@@ -13,8 +12,9 @@ export class CommunityEntity {
   @AutoMap()
   name: string;
 
-  @OneToMany(() => ProvinceEntity, province => province.community, { eager: true })
+  @OneToMany(() => ProvinceEntity, (province) => province.community, {
+    eager: true,
+  })
   @AutoMap({ typeFn: () => ProvinceEntity })
   public provinceList: ProvinceEntity[];
-
 }

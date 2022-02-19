@@ -3,7 +3,6 @@ import { StorageOptions } from './storage.options';
 
 @Injectable()
 export class StorageService {
-
   save(key: string, data: any, options = new StorageOptions()) {
     const storage = this.getStorage(options);
     storage.setItem(key, data);
@@ -23,8 +22,7 @@ export class StorageService {
     if (options.persistant) {
       return localStorage;
     } else {
-      return sessionStorage; 
+      return sessionStorage;
     }
   }
-
 }

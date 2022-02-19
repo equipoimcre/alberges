@@ -5,7 +5,6 @@ import { UserPositionEntity } from '../entity';
 
 @Injectable()
 export class UserPositionService {
-
   constructor(
     @InjectRepository(UserPositionEntity)
     private userPositionRepository: Repository<UserPositionEntity>,
@@ -14,5 +13,4 @@ export class UserPositionService {
   findAll() {
     return this.userPositionRepository.find();
   }
-
 }

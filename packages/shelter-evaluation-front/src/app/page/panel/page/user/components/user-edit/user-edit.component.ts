@@ -5,18 +5,14 @@ import { UserDto } from 'shelter-evaluation-dto';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.scss']
+  styleUrls: ['./user-edit.component.scss'],
 })
 export class UserEditComponent implements OnInit {
-
   public user!: UserDto;
 
-  constructor(
-    private activateRoute: ActivatedRoute,
-  ) { }
+  constructor(private activateRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.user = this.activateRoute.snapshot.data.user;
   }
-
 }

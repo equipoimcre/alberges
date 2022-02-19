@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseConfigurationService, JwtConfigurationService } from './service';
+import {
+  DatabaseConfigurationService,
+  JwtConfigurationService,
+} from './service';
 
 @Module({
   imports: [
@@ -8,10 +11,7 @@ import { DatabaseConfigurationService, JwtConfigurationService } from './service
       ignoreEnvFile: true,
     }),
   ],
-  providers: [
-    DatabaseConfigurationService,
-    JwtConfigurationService,
-  ],
+  providers: [DatabaseConfigurationService, JwtConfigurationService],
   exports: [
     ConfigModule,
     DatabaseConfigurationService,

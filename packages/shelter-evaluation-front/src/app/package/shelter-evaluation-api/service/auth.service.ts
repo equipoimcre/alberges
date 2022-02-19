@@ -8,7 +8,6 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class AuthService extends BaseService {
-
   path = 'auth';
   private STORAGE_KEY_JWT = 'JWT';
 
@@ -17,14 +16,15 @@ export class AuthService extends BaseService {
     private storageService: StorageService,
   ) {
     super();
-   }
+  }
 
   login(loginDto: LoginDto) {
-    return this.httpClient.post<{accessToken: string}>(this.getUrl(`login`), loginDto)
+    return this.httpClient
+      .post<{ accessToken: string }>(this.getUrl(`login`), loginDto)
       .pipe(
-        tap(login => {
+        tap((login) => {
           this.storageService.save(this.STORAGE_KEY_JWT, login.accessToken);
-        })
+        }),
       );
   }
 
@@ -33,11 +33,10 @@ export class AuthService extends BaseService {
     if (token === null && token === undefined && token === '') {
       return of(false);
     }
-    return this.httpClient.get<boolean>(this.getUrl(`validate`))
-      .pipe(
-        map(() => true),
-        catchError(() => of(false)),
-      );
+    return this.httpClient.get<boolean>(this.getUrl(`validate`)).pipe(
+      map(() => true),
+      catchError(() => of(false)),
+    );
   }
 
   getToken() {

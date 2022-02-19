@@ -1,10 +1,9 @@
 import { AutoMap } from '@automapper/classes';
-import { Column, Entity,  JoinColumn,  ManyToOne, PrimaryColumn, } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { CommunityEntity } from './community.entity';
 
 @Entity({ name: 'province' })
-export class ProvinceEntity { 
-
+export class ProvinceEntity {
   @PrimaryColumn()
   @AutoMap()
   id: number;
@@ -12,9 +11,8 @@ export class ProvinceEntity {
   @Column()
   @AutoMap()
   name: string;
-  
-  @ManyToOne(() => CommunityEntity, community => community.provinceList)
-  @JoinColumn({name: 'community_id', referencedColumnName: 'id'})
-  community: CommunityEntity;
 
+  @ManyToOne(() => CommunityEntity, (community) => community.provinceList)
+  @JoinColumn({ name: 'community_id', referencedColumnName: 'id' })
+  community: CommunityEntity;
 }

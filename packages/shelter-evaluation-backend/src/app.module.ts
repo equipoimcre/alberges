@@ -13,17 +13,17 @@ import { QuestionModule } from './package/question/question.module';
     AuthModule,
     UserRouterModule,
     ShelterModule,
-    QuestionModule,    
+    QuestionModule,
   ],
   providers: [
-     {
+    {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
     },
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
-    }, 
+    },
   ],
 })
 export class AppModule {}

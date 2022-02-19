@@ -4,9 +4,7 @@ import { UserRouterController } from './user-router.controller';
 import { UserOtherController } from './user-other.controller';
 
 @Module({
-  imports: [
-    UserModule,
-  ],
+  imports: [UserModule],
   controllers: [UserRouterController, UserOtherController],
 })
 export class UserRouterModule {}

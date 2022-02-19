@@ -4,13 +4,12 @@ import { ShelterEntity } from './shelter.entity';
 import { QuestionEntity } from '../../question';
 
 @Entity({ name: 'shelter_response' })
-export class ShelterResponseEntity { 
-
-  @PrimaryColumn({name: 'question_id'})
+export class ShelterResponseEntity {
+  @PrimaryColumn({ name: 'question_id' })
   @AutoMap()
   questionId: number;
 
-  @PrimaryColumn({name: 'shelter_id'})
+  @PrimaryColumn({ name: 'shelter_id' })
   @AutoMap()
   shelterId: number;
 
@@ -18,9 +17,9 @@ export class ShelterResponseEntity {
   @AutoMap()
   response: boolean;
 
-  @ManyToOne(() => ShelterEntity, shelter => shelter.id)
+  @ManyToOne(() => ShelterEntity, (shelter) => shelter.id)
   public post: ShelterEntity;
 
-  @ManyToOne(() => QuestionEntity, question => question.id)
+  @ManyToOne(() => QuestionEntity, (question) => question.id)
   public category: QuestionEntity;
 }

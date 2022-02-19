@@ -1,6 +1,12 @@
 import { Controller, Post, UseGuards, Request, Get } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBody, ApiProperty, ApiResponse, ApiSecurity, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiProperty,
+  ApiResponse,
+  ApiSecurity,
+  ApiTags,
+} from '@nestjs/swagger';
 import { LoginDto } from 'shelter-evaluation-dto';
 import { Public } from 'src/decorator/public.decorator';
 import { JwtAuthGuard } from '../../../guard';
@@ -13,15 +19,12 @@ class AccessToken {
 @Controller('auth')
 @ApiTags('auth')
 export class AuthController {
-
-  constructor(
-    private authService: AuthService,
-  ) {}
+  constructor(private authService: AuthService) {}
 
   @Public()
   @UseGuards(AuthGuard('local'))
   @Post('/login')
-  @ApiBody({type: LoginDto})
+  @ApiBody({ type: LoginDto })
   async loging(@Request() req) {
     return this.authService.login(req.user);
   }
@@ -35,5 +38,4 @@ export class AuthController {
   getProfile(@Request() req) {
     return req.user;
   }
-
 }

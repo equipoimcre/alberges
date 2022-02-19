@@ -1,9 +1,9 @@
-import { AutoMap } from "@automapper/classes";
-import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsString } from "class-validator";
-import { OrganizationDto, ProvinceDto } from "../other";
-import { UserPositionDto } from "./user-position.dto";
-import { UserRoleDto } from "./user-role.dto";
+import { AutoMap } from '@automapper/classes';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail, IsString } from 'class-validator';
+import { OrganizationDto, ProvinceDto } from '../other';
+import { UserPositionDto } from './user-position.dto';
+import { UserRoleDto } from './user-role.dto';
 
 export class BaseUserDto {
   @AutoMap()

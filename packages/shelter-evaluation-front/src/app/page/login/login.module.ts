@@ -9,18 +9,16 @@ const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
-  }
-]
+  },
+];
 
-@NgModule({  
+@NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     ShelterEvaluationApiModule,
   ],
-  declarations: [
-    LoginComponent,
-  ],
+  declarations: [LoginComponent],
 })
-export class LoginModule { }
+export class LoginModule {}

@@ -5,7 +5,6 @@ import { ProvinceEntity } from '../entity';
 
 @Injectable()
 export class UserProvinceService {
-
   constructor(
     @InjectRepository(ProvinceEntity)
     private provinceRepository: Repository<ProvinceEntity>,
@@ -14,5 +13,4 @@ export class UserProvinceService {
   findAll() {
     return this.provinceRepository.find();
   }
-
 }

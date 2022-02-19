@@ -5,7 +5,6 @@ import { OrganizationEntity } from '../entity';
 
 @Injectable()
 export class UserOrganizationService {
-
   constructor(
     @InjectRepository(OrganizationEntity)
     private organizationRepository: Repository<OrganizationEntity>,
@@ -14,5 +13,4 @@ export class UserOrganizationService {
   findAll() {
     return this.organizationRepository.find();
   }
-
 }
