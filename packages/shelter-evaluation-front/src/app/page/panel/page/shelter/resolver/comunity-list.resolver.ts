@@ -4,7 +4,7 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { CommunityDto, OrganizationDto } from 'shelter-evaluation-dto';
+import { CommunityDto } from 'shelter-evaluation-dto';
 import { Communityervice } from '../../../../../package/shelter-evaluation-api/service';
 
 @Injectable()

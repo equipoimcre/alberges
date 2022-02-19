@@ -7,6 +7,7 @@ import {
   OrganizationService,
   PositionService,
   ProvinceService,
+  QuestionService,
   RoleService,
   UserService,
 } from './service';
@@ -23,6 +24,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     OrganizationService,
     PositionService,
     Communityervice,
+    QuestionService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

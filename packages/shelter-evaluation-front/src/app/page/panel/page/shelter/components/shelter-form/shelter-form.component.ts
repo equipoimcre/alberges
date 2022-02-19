@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { CommunityDto, ProvinceDto } from 'shelter-evaluation-dto';
+import { CommunityDto, ProvinceDto, QuestionDto } from 'shelter-evaluation-dto';
 
 @Component({
   selector: 'app-shelter-form',
@@ -20,12 +20,14 @@ export class ShelterFormComponent implements OnInit {
   shelterForm!: FormGroup;
   communityList: CommunityDto[] = [];
   provinceList: ProvinceDto[] = [];
-
+  questionList: QuestionDto[] = [];
+ 
   constructor(private activeRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.initShelterForm();
     this.communityList = this.activeRoute.snapshot.data.communityList;
+    this.questionList = this.activeRoute.snapshot.data.questionList;
+    this.initShelterForm();
   }
 
   submitShelter() {
@@ -64,6 +66,11 @@ export class ShelterFormComponent implements OnInit {
     };
     if (this.validateMode) {
       controls.validate = new FormControl(null, [Validators.required]);
+    }
+    if (this.questionList.length > 0) {
+      this.questionList.forEach(question => {
+        controls[`question-${question.id}`] = new FormControl(false, [Validators.required]);
+      })
     }
     this.shelterForm = new FormGroup(controls);
   }

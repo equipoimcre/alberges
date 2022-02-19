@@ -5,3 +5,4 @@ export * from './organization.service';
 export * from './role.service';
 export * from './position.service';
 export * from './community.service';
+export * from './question.service';
