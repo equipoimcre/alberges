@@ -17,8 +17,8 @@ const routes: Routes = [
     path: 'create',
     component: ShelterCreateComponent,
     resolve: {
-      communityList: CommunityListResolver
-    }
+      communityList: CommunityListResolver,
+    },
   },
   {
     path: 'validate/:id',
@@ -33,9 +33,7 @@ const routes: Routes = [
     ShelterValidateComponent,
     ShelterFormComponent,
   ],
-  providers: [
-    CommunityListResolver,
-  ],
+  providers: [CommunityListResolver],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
 })
 export class ShelterModule {}

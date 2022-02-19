@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CommunityDto} from 'shelter-evaluation-dto';
+import { CommunityDto } from 'shelter-evaluation-dto';
 import { BaseService } from './base.service';
 
 @Injectable()
@@ -14,5 +14,4 @@ export class Communityervice extends BaseService {
   getAll() {
     return this.httpClient.get<CommunityDto[]>(this.getUrl('all'));
   }
-
 }
