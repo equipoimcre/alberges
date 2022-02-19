@@ -1,11 +1,16 @@
-import { Controller, Get, Param, UseGuards, Request, Post, Body, Delete, Query, Put, Patch } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards, Request, Post, Body, Delete, Query, Put, Patch, HttpCode } from '@nestjs/common';
 import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
 import { JwtAuthGuard } from '../../guard';
-import { ApiSecurity, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiCreatedResponse, ApiProperty, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { Roles } from '../../decorator/role.decorator';
 import { ROLE } from '../../configuration/role';
+
+class Password {
+  @ApiProperty()
+  password: string;
+}
 
 @Controller('user')
 @ApiSecurity('basic')
@@ -19,14 +24,18 @@ export class UserRouterController {
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
   @Get()
+  @ApiCreatedResponse({
+    type: UserDto
+  })
   async get(@Query('id') id: number) {
     const user = await this.userService.findById(id);
-    return mapper.map(user, UserDto, UserEntity);
+    return mapper.map(user, UserDto, UserEntity) as UserDto;
   }
 
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
   @Get('all')
+  // TODO: Paginate method
   async getAll(@Param('take') take: number, @Param('skip') skip: number) {
     const result = await this.userService.getAll(take, skip);
     return {
@@ -38,22 +47,29 @@ export class UserRouterController {
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
   @Post()
+  @ApiCreatedResponse({
+    type: UserDto
+  })
   async create(@Body() userDto: CreateUserDto) {
-    return this.userService.createUser(userDto);
+    const user = await this.userService.createUser(userDto);
+    return mapper.map(user, UserDto, UserEntity);
   }
 
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
+  @HttpCode(204)
   @Put()
   async updateUser(@Body() UserDto: UserDto) {
-    return this.userService.updateUser(UserDto);
+    await this.userService.updateUser(UserDto);
   }
 
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
+  @HttpCode(204)
+  @ApiBody({ type: Password })
   @Patch(':id/password')
   async changePassword(@Param('id') id: number, @Body() body: {password: string}) {
-    return this.userService.changePassword(id, body.password);
+    await this.userService.changePassword(id, body.password);
   }
 
   @UseGuards(JwtAuthGuard)

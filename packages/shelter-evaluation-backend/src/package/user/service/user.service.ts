@@ -23,7 +23,7 @@ export class UserService {
 
   createUser(userDto: CreateUserDto) {
     const userEntity = mapper.map(userDto, UserEntity, CreateUserDto);
-    return this.usersRepository.insert(userEntity);
+    return this.usersRepository.save(userEntity);
   }
 
   deleteUser(id: number) {
