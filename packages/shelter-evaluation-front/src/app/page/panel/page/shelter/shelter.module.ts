@@ -4,6 +4,9 @@ import { ShelterSearchComponent } from './components/shelter-search/shelter-sear
 import { ShelterCreateComponent } from './components/shelter-create/shelter-create.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ShelterValidateComponent } from './components/shelter-validate/shelter-validate.component';
+import { ShelterFormComponent } from './components/shelter-form/shelter-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommunityListResolver } from './resolver';
 
 const routes: Routes = [
   {
@@ -13,6 +16,9 @@ const routes: Routes = [
   {
     path: 'create',
     component: ShelterCreateComponent,
+    resolve: {
+      communityList: CommunityListResolver
+    }
   },
   {
     path: 'validate/:id',
@@ -25,7 +31,11 @@ const routes: Routes = [
     ShelterSearchComponent,
     ShelterCreateComponent,
     ShelterValidateComponent,
+    ShelterFormComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  providers: [
+    CommunityListResolver,
+  ],
+  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
 })
 export class ShelterModule {}

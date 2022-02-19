@@ -1,0 +1,23 @@
+<h2 *ngIf="validateMode" class="mb-4">Validate shelter</h2>
+<h2 *ngIf="!validateMode" class="mb-4">Create shelter</h2>
+<form [formGroup]="shelterForm" (submit)="submitShelter()" class="grid mb-4">
+  <div class="flex flex-col lg:flex-row mb-4">
+    <div>
+      <label for="community" class="mx-4">Autonomous community</label>
+      <select id="community" formControlName="communityId" class="form-select" (change)="changeCommunity($any($event.target).value)">
+        <option *ngFor="let community of communityList" [value]="community.id">{{community.name}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="province" class="mx-4">Province</label>
+      <select id="province" formControlName="provinceId" class="form-select" [attr.disabled]="provinceList.length===0 ? true : null">
+        <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="municipality" class="mx-4">Municipality</label>
+      <input type="email" id="municipality" formControlName="municipality" class="form-input">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-blue text-center">Save</button>
+</form>

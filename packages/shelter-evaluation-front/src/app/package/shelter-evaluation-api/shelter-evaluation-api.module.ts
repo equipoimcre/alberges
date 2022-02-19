@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {
   AuthService,
+  Communityervice,
   OrganizationService,
   PositionService,
   ProvinceService,
@@ -21,6 +22,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     RoleService,
     OrganizationService,
     PositionService,
+    Communityervice,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
