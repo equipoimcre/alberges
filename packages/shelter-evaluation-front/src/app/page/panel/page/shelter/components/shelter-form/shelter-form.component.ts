@@ -30,6 +30,7 @@ export class ShelterFormComponent implements OnInit {
 
   submitShelter() {
     if (this.shelterForm.valid) {
+      console.log(this.shelterForm.value);
     } else {
       alert('Fill all data and response all the questions');
     }
@@ -59,6 +60,7 @@ export class ShelterFormComponent implements OnInit {
       name: new FormControl(null, [Validators.required]),
       longitude: new FormControl(null, [Validators.required]),
       latitude: new FormControl(null, [Validators.required]),
+      note: new FormControl(null),
     };
     if (this.validateMode) {
       controls.validate = new FormControl(null, [Validators.required]);

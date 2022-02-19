@@ -16,7 +16,33 @@
     </div>
     <div>
       <label for="municipality" class="mx-4">Municipality</label>
-      <input type="email" id="municipality" formControlName="municipality" class="form-input">
+      <input type="text" id="municipality" formControlName="municipality" class="form-input">
+    </div>
+  </div>
+  <div class="flex flex-col lg:flex-row mb-4">
+    <div>
+      <label for="owner" class="mx-4">Owner</label>
+      <input type="text" id="owner" formControlName="owner" class="form-input">
+    </div>
+    <div>
+      <label for="name" class="mx-4">Name of enplacement</label>
+      <input type="text" id="name" formControlName="name" class="form-input">
+    </div>
+  </div>
+  <div class="flex flex-col lg:flex-row mb-4">
+    <div>
+      <label for="longitude" class="mx-4">Longitued</label>
+      <input type="text" id="longitude" formControlName="longitude" class="form-input">
+    </div>
+    <div>
+      <label for="latitude" class="mx-4">Latitude</label>
+      <input type="text" id="latitude" formControlName="latitude" class="form-input">
+    </div>
+  </div>
+  <div class="flex flex-col lg:flex-row mb-4">
+    <div>
+      <label for="note" class="mx-4">Notes</label>
+      <textarea type="text" id="note" formControlName="note" class="form-input"></textarea>
     </div>
   </div>
   <button type="submit" class="btn btn-blue text-center">Save</button>

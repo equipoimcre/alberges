@@ -82,7 +82,7 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'coordinate', type: 'POINT'}),
                 new TableColumn({ name: 'province_id', type: 'INT' }),
                 new TableColumn({ name: 'validate', type: 'BOOLEAN' }),
-                new TableColumn({ name: 'note', type: 'VARCHAR(250)' }),
+                new TableColumn({ name: 'note', type: 'VARCHAR(250)', isNullable: true }),
             ],
         });
         await queryRunner.createTable(shelterTable, true);
