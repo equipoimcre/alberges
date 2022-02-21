@@ -373,10 +373,11 @@ export class userPopulate1635096332479 implements MigrationInterface {
         const organization = await this.storageOrganizations(queryRunner);
         const position = await this.storagePosition(queryRunner);
         const role = await this.storageRoles(queryRunner);
-        const province = await this.storageProvinceAndCommunity(queryRunner);
+        const communityList = await this.storageCommunity(queryRunner);
+        const province = await this.storageProvinceAndCommunity(queryRunner, communityList);
         await this.createDefaultUser(position, role, organization, province, queryRunner);
         await this.storageQuestions(queryRunner);
-        await this.sotorageShelter(queryRunner, province);
+        await this.sotorageShelter(queryRunner, province, communityList[0]);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
@@ -420,24 +421,27 @@ export class userPopulate1635096332479 implements MigrationInterface {
         return administrator;
     }
 
-    private async storageProvinceAndCommunity(queryRunner: QueryRunner) {
-        const communityEntityList: CommunityEntity[] = [];
-        for (let community of this.communityList) {
-          const communityEntity = new CommunityEntity();
-          communityEntity.id = community.id;
-          communityEntity.name = community.name;
-          communityEntityList.push(await queryRunner.manager.save(communityEntity));
-        }
+    private async storageCommunity(queryRunner: QueryRunner) {
+      const communityEntityList: CommunityEntity[] = [];
+      for (let community of this.communityList) {
+        const communityEntity = new CommunityEntity();
+        communityEntity.id = community.id;
+        communityEntity.name = community.name;
+        communityEntityList.push(await queryRunner.manager.save(communityEntity));
+      }
+      return communityEntityList;
+    }
 
-        let provinceEntityAux: ProvinceEntity;
-        for (let province of this.provinceList) {
-            const provinceEntity = new ProvinceEntity();
-            provinceEntity.id = province.id;
-            provinceEntity.name = province.name;
-            provinceEntity.community = communityEntityList.find(community => community.id === province.communityId);
-            provinceEntityAux = await queryRunner.manager.save(provinceEntity);
-        }
-        return provinceEntityAux;
+    private async storageProvinceAndCommunity(queryRunner: QueryRunner, communityEntityList: CommunityEntity[]) {
+      let provinceEntityAux: ProvinceEntity;
+      for (let province of this.provinceList) {
+          const provinceEntity = new ProvinceEntity();
+          provinceEntity.id = province.id;
+          provinceEntity.name = province.name;
+          provinceEntity.community = communityEntityList.find(community => community.id === province.communityId);
+          provinceEntityAux = await queryRunner.manager.save(provinceEntity);
+      }
+      return provinceEntityAux;
     }
 
     private async createDefaultUser(
@@ -467,7 +471,7 @@ export class userPopulate1635096332479 implements MigrationInterface {
         }
     }
 
-    private async sotorageShelter(queryRunner: QueryRunner, province: ProvinceEntity) {
+    private async sotorageShelter(queryRunner: QueryRunner, province: ProvinceEntity, community: CommunityEntity) {
         const shelter = new ShelterEntity();
         shelter.name = 'Root house';
         shelter.owner = 'root';
@@ -478,6 +482,8 @@ export class userPopulate1635096332479 implements MigrationInterface {
         shelter.province = province;
         shelter.validate = false;
         shelter.note = 'Root is super user';
+        shelter.municipality = 'test';
+        shelter.community = community;
         return await queryRunner.manager.save(shelter);
     }
 

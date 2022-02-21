@@ -1,3 +1,5 @@
 export class StorageOptions {
-  public persistant: boolean = false;
+  constructor(
+    public persistant: boolean = false
+  ) {}
 }

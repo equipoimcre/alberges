@@ -15,6 +15,6 @@ export class CommunityEntity {
   @OneToMany(() => ProvinceEntity, (province) => province.community, {
     eager: true,
   })
-  @AutoMap({ typeFn: () => ProvinceEntity })
+  @AutoMap({ typeFn: () => ProvinceEntity, depth: 1 })
   public provinceList: ProvinceEntity[];
 }

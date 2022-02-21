@@ -6,3 +6,4 @@ export * from './role.service';
 export * from './position.service';
 export * from './community.service';
 export * from './question.service';
+export * from './shelter.service';

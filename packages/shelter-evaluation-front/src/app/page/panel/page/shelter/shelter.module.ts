@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShelterValidateComponent } from './components/shelter-validate/shelter-validate.component';
 import { ShelterFormComponent } from './components/shelter-form/shelter-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CommunityListResolver, QuestionListResolver } from './resolver';
+import { CommunityListResolver, QuestionListResolver, ShelterResolver } from './resolver';
 
 const routes: Routes = [
   {
@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'validate/:id',
     component: ShelterValidateComponent,
+    resolve: {
+      shelter: ShelterResolver,
+      questionList: QuestionListResolver,
+    },
   },
 ];
 
@@ -34,7 +38,7 @@ const routes: Routes = [
     ShelterValidateComponent,
     ShelterFormComponent,
   ],
-  providers: [CommunityListResolver, QuestionListResolver],
+  providers: [CommunityListResolver, QuestionListResolver, ShelterResolver],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
 })
 export class ShelterModule {}

@@ -1,5 +1,5 @@
 import { AutoMap } from '@automapper/classes';
-import { Column, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { ShelterEntity } from './shelter.entity';
 import { QuestionEntity } from '../../question';
 
@@ -18,8 +18,11 @@ export class ShelterResponseEntity {
   response: boolean;
 
   @ManyToOne(() => ShelterEntity, (shelter) => shelter.id)
-  public post: ShelterEntity;
+  @JoinColumn({ name: 'shelter_id', referencedColumnName: 'id' })
+  shelter: ShelterEntity;
+
 
   @ManyToOne(() => QuestionEntity, (question) => question.id)
-  public category: QuestionEntity;
+  @JoinColumn({ name: 'question_id', referencedColumnName: 'id' })
+  question: QuestionEntity;
 }

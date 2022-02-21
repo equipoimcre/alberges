@@ -1,5 +1,5 @@
 import { AutoMap } from '@automapper/classes';
-import { ProvinceEntity } from '../../user';
+import { CommunityEntity, ProvinceEntity } from '../../user';
 import {
   Column,
   Entity,
@@ -32,13 +32,19 @@ export class ShelterEntity {
     srid: 4326,
     transformer: new GeometryTransformer(),
   })
-  @AutoMap()
   coordinate: Geometry;
 
+  @OneToOne(() => CommunityEntity, (community) => community.id, { eager: true })
+  @JoinColumn({ name: 'community_id', referencedColumnName: 'id' })
+  community: CommunityEntity;
+
   @OneToOne(() => ProvinceEntity, (province) => province.id, { eager: true })
-  @JoinColumn({ name: 'province_id' })
-  @AutoMap({ typeFn: () => ProvinceEntity })
+  @JoinColumn({ name: 'province_id', referencedColumnName: 'id' })
   province: ProvinceEntity;
+
+  @Column()
+  @AutoMap()
+  municipality: string;
 
   @Column('boolean', { default: false })
   @AutoMap()
@@ -50,7 +56,9 @@ export class ShelterEntity {
 
   @OneToMany(
     () => ShelterResponseEntity,
-    (shelterResponse) => shelterResponse.shelterId,
+    shelterResponse => shelterResponse.shelter,
+    {eager: true}
   )
-  public postToCategories: ShelterResponseEntity[];
+  @AutoMap({typeFn: () => ShelterResponseEntity})
+  shelterResponseList: ShelterResponseEntity[];
 }
