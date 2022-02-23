@@ -72,6 +72,11 @@ export class ShelterSearchComponent implements OnInit {
     }
   }
 
+  reset() {
+    this.formFilters.reset();
+    this.filter();
+  }
+
   private initFormFilters() {
     this.formFilters = new FormGroup({
       name: new FormControl(this.activatedRouted.snapshot.queryParams.name),
