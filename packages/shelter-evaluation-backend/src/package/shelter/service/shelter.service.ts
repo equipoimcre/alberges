@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ShelterDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../../utils';
-import { Connection, Repository } from 'typeorm';
+import { Connection, Repository, FindConditions, Like } from 'typeorm';
 import { ShelterEntity } from '../entity';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class ShelterService {
   ) {}
 
   findById(id: number) {
-    return this.shelterRepository.findOne(id);
+    return this.shelterRepository.findOne(id, { relations: ['community', 'province'] });
   }
 
   validate(id: number, body: {validate: boolean}) {
@@ -44,4 +44,34 @@ export class ShelterService {
     }
   }
 
+  async filter(take: number, skip: number, filters: any) {
+    const where: FindConditions<ShelterEntity> = {};
+
+    if (filters.name) {
+      where.name = Like(`%${filters.name}%`);
+    }
+
+    if (filters.communityId) {
+      where.community = {
+        id: filters.communityId,
+      }
+    }
+
+    if (filters.provinceId) {
+      where.province = {
+        id: filters.provinceId,
+      }
+    }
+
+    const [data, count] = await this.shelterRepository.findAndCount({
+      take: take || 10,
+      skip: skip || 0,
+      relations: ['community', 'province'],
+      where,
+    });
+    return {
+      data,
+      count,
+    };
+  }
 }

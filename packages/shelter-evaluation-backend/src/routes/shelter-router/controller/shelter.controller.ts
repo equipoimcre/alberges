@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { ApiCreatedResponse, ApiSecurity, ApiTags } from '@nestjs/swagger';
+import { filter } from 'rxjs';
 import { ShelterDto } from 'shelter-evaluation-dto';
 import { ShelterService } from '../../../package/shelter/service/shelter.service';
 
@@ -18,6 +19,14 @@ export class ShelterController {
     return this.shelterService.insert(shelterDto);
   }
 
+  @Get()
+  findWithFilter(@Query('take') take: number, @Query('skip') skip: number, @Query() query: any) {
+    const filters = Object.assign({}, query)
+    delete filters.take;
+    delete filters.skip;
+    return this.shelterService.filter(take, skip, filters);
+  }
+
   @ApiCreatedResponse({
     type: ShelterDto,
   })
@@ -33,4 +42,5 @@ export class ShelterController {
   pathShelter(@Param('id') id: number, @Body() body: {validate: boolean}) {
     return this.shelterService.validate(id, body)
   }
+
 }

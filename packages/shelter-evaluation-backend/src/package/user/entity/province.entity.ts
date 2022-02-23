@@ -13,6 +13,6 @@ export class ProvinceEntity {
   name: string;
 
   @ManyToOne(() => CommunityEntity, (community) => community.provinceList)
-  @JoinColumn({ name: 'community_id', referencedColumnName: 'id' })
+  @JoinColumn({ name: 'community_id'})
   community: CommunityEntity;
 }

@@ -34,12 +34,12 @@ export class ShelterEntity {
   })
   coordinate: Geometry;
 
-  @OneToOne(() => CommunityEntity, (community) => community.id, { eager: true })
-  @JoinColumn({ name: 'community_id', referencedColumnName: 'id' })
+  @OneToOne(() => CommunityEntity, (community) => community.id)
+  @JoinColumn({ name: 'community_id' })
   community: CommunityEntity;
 
-  @OneToOne(() => ProvinceEntity, (province) => province.id, { eager: true })
-  @JoinColumn({ name: 'province_id', referencedColumnName: 'id' })
+  @OneToOne(() => ProvinceEntity, (province) => province.id)
+  @JoinColumn({ name: 'province_id' })
   province: ProvinceEntity;
 
   @Column()

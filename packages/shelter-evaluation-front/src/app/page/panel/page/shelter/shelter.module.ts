@@ -12,6 +12,9 @@ const routes: Routes = [
   {
     path: 'search',
     component: ShelterSearchComponent,
+    resolve: {
+      communityList: CommunityListResolver,
+    }
   },
   {
     path: 'create',

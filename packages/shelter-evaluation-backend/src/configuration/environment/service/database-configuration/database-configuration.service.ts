@@ -51,6 +51,7 @@ export class DatabaseConfigurationService {
       username: this.user,
       password: this.password,
       database: this.collection,
+      logging: true,
       entities: [
         UserEntity,
         UserPositionEntity,

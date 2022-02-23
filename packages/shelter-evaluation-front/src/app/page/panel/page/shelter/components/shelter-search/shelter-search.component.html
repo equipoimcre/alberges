@@ -1,1 +1,37 @@
-<p>shelter-search works!</p>
+<form [formGroup]="formFilters" (submit)="filter()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="province">Province</label>
+    <select id="province" formControlName="provinceId" class="form-select">
+      <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
+    </select>
+  </div>
+  <div>
+    <label for="community">Autonomous community</label>
+    <select id="community" formControlName="communityId" class="form-select">
+      <option *ngFor="let community of communityList" [value]="community.id">{{community.name}}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-blue text-center">Filter</button>
+</form>
+
+<div *ngIf="paginableShelter.data.length > 0">
+  <ul>
+    <li *ngFor="let shelter of paginableShelter.data">
+      {{shelter.name}}
+    </li>
+  </ul>
+  <div>
+    <button (click)="goToPage(1)">1</button>
+    <div *ngIf="lastPage >= 3">
+      <small>...</small>
+      <button (click)="goToPage(i)" *ngFor="let i of getNextPages(); let index = index">{{i}}</button>
+      <small>...</small>
+    </div>
+    <button (click)="goToPage(lastPage)" *ngIf="lastPage > 1">{{lastPage}}</button>
+  </div>
+</div>
