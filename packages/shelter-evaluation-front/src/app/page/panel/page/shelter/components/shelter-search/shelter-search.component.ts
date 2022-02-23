@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { CommunityDto, ProvinceDto, ShelterDto } from 'shelter-evaluation-dto';
 import { Paginable } from 'src/app/interface/paginable';
 import { ShelterService } from 'src/app/package/shelter-evaluation-api/service';
@@ -19,12 +20,14 @@ export class ShelterSearchComponent implements OnInit {
   communityList: CommunityDto[] = [];
 
   currentPage = 1;
-  quantityOfElementsToSearch = 5;
-  totalPagesToShow = 10;
+  pageList: number[] = [];
+  quantityOfElementsToSearch = 10;
   
   constructor(
     private activatedRouted: ActivatedRoute,
     private shelterService: ShelterService,
+    private serviceDetector: DeviceDetectorService,
+    private router: Router,
   ) {}
 
   get lastPage() {
@@ -38,6 +41,9 @@ export class ShelterSearchComponent implements OnInit {
     const provinceList = this.communityList.map( community => community.provinceList);
     this.provinceList = Array.prototype.concat.apply([], provinceList);
     this.initFormFilters();
+    if (Object.keys(this.activatedRouted.snapshot.queryParams).length > 0) {
+      this.filter();
+    }
   }
 
   filter() {
@@ -50,37 +56,64 @@ export class ShelterSearchComponent implements OnInit {
     this.requestShelters();
   }
 
-  getNextPages() {
-    const nextPageList = [];
-    let minusCounter = 0;
-    for (let i = 0; i < this.totalPagesToShow; i++) {
-      const nextPage = this.currentPage + i + 1;
-      if (nextPage < this.lastPage) {
-        nextPageList.push(nextPage);
-      } else if (this.currentPage - minusCounter > 1) {
-        nextPageList.unshift(this.currentPage - minusCounter);
-        minusCounter++;
-      }
+  backPage() {
+    const backPage = this.currentPage - 1;
+    if (backPage > 0) {
+      this.currentPage--;
+      this.requestShelters();
+    }    
+  }
+
+  nextPage() {
+    const nextPapage = this.currentPage + 1;
+    if (nextPapage <= this.lastPage) {
+      this.currentPage++;
+      this.requestShelters();
     }
-    return nextPageList;
   }
 
   private initFormFilters() {
     this.formFilters = new FormGroup({
-      name: new FormControl(),
-      provinceId: new FormControl(),
-      communityId: new FormControl(),
+      name: new FormControl(this.activatedRouted.snapshot.queryParams.name),
+      provinceId: new FormControl(this.activatedRouted.snapshot.queryParams.provinceId),
+      communityId: new FormControl(this.activatedRouted.snapshot.queryParams.communityId),
     });
   }
 
   private requestShelters() {
-    this.shelterService.filter({
+    const params = {
       ...this.formFilters.value,
       take: this.quantityOfElementsToSearch,
       skip: this.quantityOfElementsToSearch * this.currentPage - this.quantityOfElementsToSearch,
-    }).subscribe(
-      response => this.paginableShelter = response,
+    };
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRouted,
+        queryParams: params,
+        queryParamsHandling: 'merge'
+      });
+    this.shelterService.filter(params).subscribe(
+      response => {
+        this.paginableShelter = response;
+        this.calculatePageList();
+      },
       error => alert(JSON.stringify(error)),
     )
+  }
+
+  private calculatePageList() {
+    this.pageList = [];
+    let minusCounter = 0;
+    const totalPagesToShow = this.serviceDetector.isMobile() ? 3 : 5;
+    for (let i = 0; i < totalPagesToShow; i++) {
+      const nextPage = this.currentPage + i;
+      if (nextPage < this.lastPage) {
+        this.pageList.push(nextPage);
+      } else if (this.currentPage - minusCounter > 1) {
+        this.pageList.unshift(this.currentPage - minusCounter);
+        minusCounter++;
+      }
+    }
   }
 }
