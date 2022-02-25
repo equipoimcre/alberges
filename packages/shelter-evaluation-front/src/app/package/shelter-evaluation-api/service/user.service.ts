@@ -14,7 +14,7 @@ export class UserService extends BaseService {
   }
 
   getUserById(id: number) {
-    return this.httpClient.get<UserDto>(this.getUrl(`?id=${id}`));
+    return this.httpClient.get<UserDto>(this.getUrl(`${id}`));
   }
 
   paginable(filters?: any) {

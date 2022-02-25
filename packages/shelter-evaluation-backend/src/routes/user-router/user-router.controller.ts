@@ -49,11 +49,11 @@ export class UserRouterController {
 
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
-  @Get()
+  @Get(':id')
   @ApiCreatedResponse({
     type: UserDto,
   })
-  async get(@Query('id') id: number) {
+  async get(@Param('id') id: number) {
     const user = await this.userService.findById(id);
     return mapper.map(user, UserDto, UserEntity) as UserDto;
   }
