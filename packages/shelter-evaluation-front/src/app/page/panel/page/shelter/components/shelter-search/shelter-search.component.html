@@ -4,7 +4,6 @@
       <label for="name" class="flex-1">Name</label>
       <input type="text" class="flex-1" formControlName="name">
     </div>
-  
     <div class="flex flex-col">
       <label for="province" class="flex-1">Province</label>
       <select id="province" class="flex-1" formControlName="provinceId" class="form-select">
@@ -22,9 +21,7 @@
     <button class="btn btn-blue w-full text-center mt-4 md:w-auto" (click)="reset()">Reset</button>
     <button type="submit" class="btn btn-blue w-full text-center mt-4 md:w-auto">Filter</button>
   </div>
-  
 </form>
-
 <div *ngIf="paginableShelter.data.length > 0">
   <ul class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols3 mb-4">
     <li *ngFor="let shelter of paginableShelter.data" class="bg-white p-4">
@@ -33,17 +30,5 @@
       <p>Province: {{shelter.province.name}}</p>
     </li>
   </ul>
-  <div class="flex gap-1 md:gap-4 justify-end">
-    <button (click)="goToPage(1)" class="bg-white p-2 px-4"><<</button>
-    <button (click)="backPage()" class="bg-white p-2 px-4"><</button>
-    <button 
-      class="bg-white p-2 px-4"
-      [ngClass]="{'text-blue-400': this.currentPage === i}"
-      *ngFor="let i of pageList"
-      (click)="goToPage(i)" >
-      {{i}}
-    </button>
-    <button (click)="nextPage()" class="bg-white p-2 px-4">></button>
-    <button (click)="goToPage(lastPage)" class="bg-white p-2 px-4">>></button>
-  </div>
+  <app-pagination #pagination [elementsPerPage]="elementsPerPage" [totalElements]="paginableShelter.count" (navigateToPage)="requestShelters($event)"></app-pagination>
 </div>

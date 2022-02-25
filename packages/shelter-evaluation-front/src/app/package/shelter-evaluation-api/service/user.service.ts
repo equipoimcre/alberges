@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { filter } from 'rxjs/operators';
 import { UserDto } from 'shelter-evaluation-dto';
 import { Paginable } from '../../../interface/paginable';
 import { BaseService } from './base.service';
@@ -16,8 +17,16 @@ export class UserService extends BaseService {
     return this.httpClient.get<UserDto>(this.getUrl(`?id=${id}`));
   }
 
-  getAllUser() {
-    return this.httpClient.get<Paginable<UserDto>>(this.getUrl('all'));
+  paginable(filters?: any) {
+    const params: any = {}
+    if (filters) {
+      Object.keys(filters).forEach(key => {
+        if (filters[key] !== null) {
+          params[key] = filters[key];
+        }
+      })
+    }
+    return this.httpClient.get<Paginable<UserDto>>(this.getUrl(''), { params });
   }
 
   createUser(user: UserDto) {

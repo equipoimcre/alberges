@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserDto } from 'shelter-evaluation-dto';
+import { PaginationComponent } from '../../../../../../components';
+import { Paginable } from '../../../../../../interface/paginable';
 import { UserService } from '../../../../../../package/shelter-evaluation-api/service';
 
 @Component({
@@ -9,16 +12,27 @@ import { UserService } from '../../../../../../package/shelter-evaluation-api/se
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
-  public userList: UserDto[] = [];
+
+  @ViewChild(PaginationComponent)
+  pagination: PaginationComponent | undefined;
+  
+  userPaginable: Paginable<UserDto> = {count: 0, data: []};
+  elementsPerPage = 10;
+
+  userForm!: FormGroup;
 
   constructor(
-    private activateRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private router: Router,
   ) {}
 
   ngOnInit(): void {
-    this.userList = this.activateRoute.snapshot.data.userPaginable.data;
+    this.userPaginable = this.activatedRoute.snapshot.data.userPaginable;
+    this.initUserForm();
+    if (Object.keys(this.activatedRoute.snapshot.queryParams).length > 0) {
+      this.filter();
+    }
   }
 
   edit(user: UserDto) {
@@ -29,13 +43,51 @@ export class UserListComponent implements OnInit {
     //TODO: Add push up notification
     this.userService.deleteUser(user.id).subscribe(
       (response) => {
-        const index = this.userList.findIndex(
+        const index = this.userPaginable.data.findIndex(
           (userAux) => userAux.id === user.id,
         );
-        this.userList.splice(index, 1);
-        console.log(response);
+        this.userPaginable.data.splice(index, 1);
       },
       (error) => console.error(error),
     );
+  }
+
+  filter() {
+    if (this.pagination) {
+      this.pagination.navigateToFirstPage();
+    }
+    this.requestUser();
+  }
+
+  reset() {
+    this.userForm.reset();
+    this.filter();
+  }
+
+  requestUser(page: number  = 1) {
+    const params = {
+      ...this.userForm.value,
+      take: this.elementsPerPage,
+      skip: this.elementsPerPage * page - this.elementsPerPage,
+    };
+    this.router.navigate(
+      [], 
+      {
+        relativeTo: this.activatedRoute,
+        queryParams: params,
+        queryParamsHandling: 'merge'
+      });
+    this.userService.paginable(params).subscribe(
+      response => this.userPaginable = response,
+      error => alert(JSON.stringify(error)),
+    );
+  }
+
+  private initUserForm() {
+    this.userForm = new FormGroup({
+      name: new FormControl(this.activatedRoute.snapshot.queryParams.name),
+      surname: new FormControl(this.activatedRoute.snapshot.queryParams.surname),
+      email: new FormControl(this.activatedRoute.snapshot.queryParams.email),
+    })
   }
 }

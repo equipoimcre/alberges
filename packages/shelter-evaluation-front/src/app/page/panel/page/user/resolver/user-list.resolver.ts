@@ -20,6 +20,6 @@ export class UserListResolver implements Resolve<Paginable<UserDto>> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<Paginable<UserDto>> {
-    return this.userService.getAllUser();
+    return this.userService.paginable();
   }
 }

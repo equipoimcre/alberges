@@ -7,6 +7,7 @@ import { ShelterValidateComponent } from './components/shelter-validate/shelter-
 import { ShelterFormComponent } from './components/shelter-form/shelter-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommunityListResolver, QuestionListResolver, ShelterResolver } from './resolver';
+import { PaginationModule } from '../../../../components';
 
 const routes: Routes = [
   {
@@ -39,9 +40,9 @@ const routes: Routes = [
     ShelterSearchComponent,
     ShelterCreateComponent,
     ShelterValidateComponent,
-    ShelterFormComponent,
+    ShelterFormComponent,   
   ],
   providers: [CommunityListResolver, QuestionListResolver, ShelterResolver],
-  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, PaginationModule,],
 })
 export class ShelterModule {}

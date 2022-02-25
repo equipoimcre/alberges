@@ -15,6 +15,7 @@ import { ProvinceListResolver } from './resolver/province-list.resolver';
 import { OrganizationListResolver } from './resolver/organization-list.resolver';
 import { RoleListResolver } from './resolver/role-list.resolver';
 import { PositionListResolver } from './resolver/position-list.resolver';
+import { PaginationModule } from '../../../../components';
 
 const routes: Routes = [
   {
@@ -64,6 +65,7 @@ const routes: Routes = [
     ShelterEvaluationApiModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    PaginationModule,
   ],
 })
 export class UserModule {}

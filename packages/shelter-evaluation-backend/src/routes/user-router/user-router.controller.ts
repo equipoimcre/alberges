@@ -3,7 +3,6 @@ import {
   Get,
   Param,
   UseGuards,
-  Request,
   Post,
   Body,
   Delete,
@@ -40,24 +39,23 @@ export class UserRouterController {
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
   @Get()
+  async getAll(@Query('take') take: number, @Query('skip') skip: number, @Query() params: any) {
+    const result = await this.userService.getAll(take, skip, params);
+    return {
+      ...result,
+      data: mapper.mapArray(result.data, UserDto, UserEntity),
+    };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
+  @Get()
   @ApiCreatedResponse({
     type: UserDto,
   })
   async get(@Query('id') id: number) {
     const user = await this.userService.findById(id);
     return mapper.map(user, UserDto, UserEntity) as UserDto;
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Roles(ROLE.ADMINISTRATOR)
-  @Get('all')
-  // TODO: Paginate method
-  async getAll(@Param('take') take: number, @Param('skip') skip: number) {
-    const result = await this.userService.getAll(take, skip);
-    return {
-      ...result,
-      data: mapper.mapArray(result.data, UserDto, UserEntity),
-    };
   }
 
   @UseGuards(JwtAuthGuard)

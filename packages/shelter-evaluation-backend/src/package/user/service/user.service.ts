@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
 import { Encrypt, mapper } from '../../../utils';
-import { Repository } from 'typeorm';
+import { FindConditions, Like, Repository } from 'typeorm';
 import { UserEntity } from '../entity';
 
 @Injectable()
@@ -40,10 +40,25 @@ export class UserService {
     });
   }
 
-  async getAll(take: number, skip: number) {
+  async getAll(take: number, skip: number, filters: any) {
+    const where: FindConditions<UserEntity> = {};
+
+    if (filters.name) {
+      where.name = Like(`%${filters.name}%`);
+    }
+
+    if (filters.surname) {
+      where.surname = Like(`%${filters.surname}%`);
+    }
+
+    if (filters.email) {
+      where.email = Like(`%${filters.email}%`);
+    }
+
     const [data, count] = await this.usersRepository.findAndCount({
       take: take || 10,
       skip: skip || 0,
+      where,
     });
     return {
       data,

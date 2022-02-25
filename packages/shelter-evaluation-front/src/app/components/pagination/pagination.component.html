@@ -1,0 +1,13 @@
+<div class="flex gap-1 md:gap-4 justify-end">
+  <button (click)="goToPage(1)" class="bg-white p-2 px-4"><<</button>
+  <button (click)="backPage()" class="bg-white p-2 px-4"><</button>
+  <button 
+    class="bg-white p-2 px-4"
+    [ngClass]="{'text-blue-400': this.currentPage === i}"
+    *ngFor="let i of pageList"
+    (click)="goToPage(i)" >
+    {{i}}
+  </button>
+  <button (click)="nextPage()" class="bg-white p-2 px-4">></button>
+  <button (click)="goToPage(lastPage)" class="bg-white p-2 px-4">>></button>
+</div>

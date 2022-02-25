@@ -1,26 +1,41 @@
-<p class="text-right">
-  <button class="btn btn-blue text-center mb-4">
-    <a routerLink="../create">Create new user</a>
-  </button>
-</p>
-<table class="border-separate w-full bg-white table-auto">
-  <thead>
-    <th class="text-left">Full name</th>
-    <th class="text-left">Email</th>
-    <th class="text-left">Position</th>
-    <th class="text-left">Province</th>
-    <th class="text-left">Actions</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of userList" class="table-row">
-      <td class="table-cell">{{user.name}}, {{user.surname}}</td>
-      <td class="table-cell">{{user.email}}</td>
-      <td class="table-cell">{{user.position.name}}</td>
-      <td class="table-cell">{{user.province.name}}</td>
-      <td class="flex space-x-4">
-        <button class="btn btn-blue flex-grow text-center" (click)="edit(user)">Edit</button>
-        <button class="btn btn-blue flex-grow text-center" (click)="delete(user)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="bg-white p-4 mb-4">
+  <form [formGroup]="userForm" (submit)="filter()" class="bg-white p-4 mb-4">
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-col">
+        <label class="flex-1">Name</label>
+        <input type="text" class="flex-1" formControlName="name">
+      </div>
+      <div class="flex flex-col">
+        <label class="flex-1">Surname</label>
+        <input type="text" class="flex-1" formControlName="surname">
+      </div>
+      <div class="flex flex-col">
+        <label class="flex-1">Email</label>
+        <input type="text" class="flex-1" formControlName="email">
+      </div>
+    </div>
+    <div class="block gap-4 flex justify-end">
+      <button class="btn btn-blue w-full text-center mt-4 md:w-auto" (click)="reset()">Reset</button>
+      <button type="submit" class="btn btn-blue w-full text-center mt-4 md:w-auto">Filter</button>
+    </div>
+  </form>
+  <p class="text-right">
+    <button class="btn btn-blue text-center mb-4">
+      <a routerLink="../create">Create new user</a>
+    </button>
+  </p>
+</div>
+
+<ul class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-8">
+  <li *ngFor="let user of userPaginable.data" class="bg-white p-4">
+    <p><span>Full name</span>: {{user.name}}, {{user.surname}}</p>
+    <p><span>Email</span>: {{user.email}}</p>
+    <p><span>Position</span>: {{user.position.name}}</p>
+    <p><span>Actions</span>: {{user.province.name}}</p>
+    <div>
+      <button class="btn btn-blue flex-grow text-center" (click)="edit(user)">Edit</button>
+      <button class="btn btn-blue flex-grow text-center" (click)="delete(user)">Delete</button>
+    </div>
+  </li>
+</ul>
+<app-pagination #pagination [elementsPerPage]="elementsPerPage" [totalElements]="userPaginable.count" (navigateToPage)="requestUser($event)"></app-pagination>
