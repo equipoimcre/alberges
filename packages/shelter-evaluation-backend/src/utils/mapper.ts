@@ -13,7 +13,6 @@ import {
   ShelterResponseDto
 } from 'shelter-evaluation-dto';
 import { ProvinceEntity } from '../package/user/entity/province.entity';
-import { UserRoleEntity } from '../package/user/entity/user.role.entity';
 import { UserPositionEntity } from '../package/user/entity/user.positions.entity';
 import { OrganizationEntity } from '../package/user/entity/organization.entity';
 import { UserEntity } from '../package/user/entity/user.entity';
@@ -22,6 +21,7 @@ import { CommunityEntity } from '../package/user/entity/community.entity';
 import { QuestionEntity } from '../package/question/entity/question.entity';
 import { ShelterEntity } from '../package/shelter/entity/shelter.entity';
 import { ShelterResponseEntity } from '../package/shelter/entity/shelter-response.entity';
+import { RoleEntity } from '../package/role/entity/role.entity';
 
 export const mapper = createMapper({
   name: 'userEntityToUserDto',
@@ -29,7 +29,7 @@ export const mapper = createMapper({
 });
 
 mapper.createMap(ProvinceDto, ProvinceEntity)
-mapper.createMap(UserRoleDto, UserRoleEntity);
+mapper.createMap(UserRoleDto, RoleEntity);
 mapper.createMap(UserPositionDto, UserPositionEntity);
 mapper.createMap(OrganizationDto, OrganizationEntity);
 mapper.createMap(UserDto, UserEntity);
@@ -50,7 +50,7 @@ mapper.createMap(ShelterDto, ShelterEntity).forMember(
   );
 
 mapper.createMap(ProvinceEntity, ProvinceDto)
-mapper.createMap(UserRoleEntity, UserRoleDto);
+mapper.createMap(RoleEntity, UserRoleDto);
 mapper.createMap(UserPositionEntity, UserPositionDto);
 mapper.createMap(OrganizationEntity, OrganizationDto);
 mapper.createMap(UserEntity, UserDto);

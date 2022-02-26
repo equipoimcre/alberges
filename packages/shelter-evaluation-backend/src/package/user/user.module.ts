@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import {
   UserService,
-  UserRoleService,
   UserPositionService,
   UserOrganizationService,
   UserProvinceService,
@@ -14,23 +13,22 @@ import {
   ProvinceEntity,
   UserEntity,
   UserPositionEntity,
-  UserRoleEntity,
 } from './entity';
+import { RoleModule } from '../role';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
       UserEntity,
       UserPositionEntity,
-      UserRoleEntity,
       ProvinceEntity,
       OrganizationEntity,
       CommunityEntity,
     ]),
+    RoleModule,
   ],
   providers: [
     UserService,
-    UserRoleService,
     UserPositionService,
     UserOrganizationService,
     UserProvinceService,
@@ -38,7 +36,6 @@ import {
   ],
   exports: [
     UserService,
-    UserRoleService,
     UserPositionService,
     UserOrganizationService,
     UserProvinceService,

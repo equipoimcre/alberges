@@ -5,7 +5,6 @@ import {
   OrganizationDto,
   ProvinceDto,
   UserPositionDto,
-  UserRoleDto,
 } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { JwtAuthGuard } from '../../guard';
@@ -14,13 +13,10 @@ import {
   CommunityService,
   OrganizationEntity,
   ProvinceEntity,
-  UserEntity,
   UserOrganizationService,
   UserPositionEntity,
   UserPositionService,
   UserProvinceService,
-  UserRoleEntity,
-  UserRoleService,
 } from '../../package';
 
 @Controller()
@@ -28,22 +24,13 @@ import {
 @ApiTags('other')
 export class UserOtherController {
   constructor(
-    private userRoleService: UserRoleService,
     private userOrganizationService: UserOrganizationService,
     private userProvinceService: UserProvinceService,
     private userPositionService: UserPositionService,
     private communityService: CommunityService,
   ) {}
 
-  @UseGuards(JwtAuthGuard)
-  @Get('role/all')
-  @ApiCreatedResponse({
-    type: [UserRoleDto],
-  })
-  async getAllRole() {
-    const roleList = await this.userRoleService.findAll();
-    return mapper.mapArray(roleList, UserRoleDto, UserRoleEntity);
-  }
+  
 
   @UseGuards(JwtAuthGuard)
   @Get('position/all')

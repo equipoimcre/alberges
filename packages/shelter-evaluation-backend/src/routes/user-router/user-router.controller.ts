@@ -11,7 +11,7 @@ import {
   Patch,
   HttpCode,
 } from '@nestjs/common';
-import { CreateUserDto, UserDto } from 'shelter-evaluation-dto';
+import { CreateUserDto, ROLE, UserDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../utils';
 import { UserEntity, UserService } from '../../package';
 import { JwtAuthGuard } from '../../guard';
@@ -23,7 +23,6 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { Roles } from '../../decorator/role.decorator';
-import { ROLE } from '../../configuration/role';
 
 class Password {
   @ApiProperty()

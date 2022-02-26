@@ -4,6 +4,8 @@ import { DatabaseModule } from './configuration/database/database.module';
 import { JwtAuthGuard, RolesGuard } from './guard';
 import { AuthModule, QuestionRouterModule, UserRouterModule } from './routes';
 import { ShelterRouterModule } from './routes/shelter-router/shelter-router.module';
+import { RoleRouterModule } from './routes/role-router/role-router.module';
+import { RoleModule } from './package/role/role.module';
 @Module({
   imports: [
     DatabaseModule,
@@ -11,6 +13,8 @@ import { ShelterRouterModule } from './routes/shelter-router/shelter-router.modu
     UserRouterModule,
     QuestionRouterModule,
     ShelterRouterModule,
+    RoleRouterModule,
+    RoleModule,
   ],
   providers: [
     {

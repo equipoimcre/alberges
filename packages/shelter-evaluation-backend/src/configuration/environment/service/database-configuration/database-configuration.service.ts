@@ -5,12 +5,12 @@ import {
   UserEntity,
   UserPositionEntity,
   ShelterEntity,
-  UserRoleEntity,
   ProvinceEntity,
   OrganizationEntity,
   QuestionEntity,
   ShelterResponseEntity,
   CommunityEntity,
+  RoleEntity,
 } from '../../../../package';
 
 @Injectable()
@@ -55,7 +55,7 @@ export class DatabaseConfigurationService {
       entities: [
         UserEntity,
         UserPositionEntity,
-        UserRoleEntity,
+        RoleEntity,
         ProvinceEntity,
         OrganizationEntity,
         ShelterEntity,

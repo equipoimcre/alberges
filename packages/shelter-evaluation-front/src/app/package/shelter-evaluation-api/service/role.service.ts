@@ -14,4 +14,8 @@ export class RoleService extends BaseService {
   getAll() {
     return this.httpClient.get<UserRoleDto[]>(this.getUrl('all'));
   }
+
+  getCurrent() {
+    return this.httpClient.get<UserRoleDto>(this.getUrl('current'));
+  }
 }

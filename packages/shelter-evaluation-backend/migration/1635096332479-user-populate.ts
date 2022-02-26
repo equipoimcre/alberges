@@ -1,9 +1,8 @@
-import { ROLE } from "../src/configuration/role";
-import { ProvinceEntity, QuestionEntity, ShelterEntity, UserEntity, UserPositionEntity, UserRoleEntity } from "src/package";
+import { ProvinceEntity, QuestionEntity, ShelterEntity, UserEntity, UserPositionEntity, RoleEntity } from "src/package";
 import { MigrationInterface, QueryRunner } from "typeorm";
 import { OrganizationEntity } from '../src/package/user/entity/organization.entity';
 import { CommunityEntity } from "src/package/user/entity/community.entity";
-import { json } from "stream/consumers";
+import { ROLE } from "shelter-evaluation-dto";
 
 export class userPopulate1635096332479 implements MigrationInterface {
 
@@ -408,10 +407,10 @@ export class userPopulate1635096332479 implements MigrationInterface {
     }
 
     private async storageRoles(queryRunner: QueryRunner) {
-        let administrator: UserRoleEntity;
+        let administrator: RoleEntity;
         for (let key of Object.keys(ROLE)) {
             const role = ROLE[key];
-            const roleEntity = new UserRoleEntity();
+            const roleEntity = new RoleEntity();
             roleEntity.name = role;
             const auxRole = await queryRunner.manager.save(roleEntity);
             if (auxRole.name === ROLE.ADMINISTRATOR) {
@@ -447,7 +446,7 @@ export class userPopulate1635096332479 implements MigrationInterface {
     private async createDefaultUser(
         position: UserPositionEntity, 
         organization: OrganizationEntity, 
-        role: UserRoleEntity, 
+        role: RoleEntity, 
         province: ProvinceEntity,
         queryRunner: QueryRunner
     ) {

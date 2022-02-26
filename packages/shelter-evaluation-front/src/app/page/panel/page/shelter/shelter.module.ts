@@ -8,11 +8,17 @@ import { ShelterFormComponent } from './components/shelter-form/shelter-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommunityListResolver, QuestionListResolver, ShelterResolver } from './resolver';
 import { PaginationModule } from '../../../../components';
+import { RoleGuard } from '../../../../guard';
+import { ROLE } from '../../../../common';
 
 const routes: Routes = [
   {
     path: 'search',
     component: ShelterSearchComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [ ROLE.ADMINISTRATOR, ROLE.EVALUATOR, ROLE.VALIDATOR ], 
+    },
     resolve: {
       communityList: CommunityListResolver,
     }
@@ -20,6 +26,10 @@ const routes: Routes = [
   {
     path: 'create',
     component: ShelterCreateComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [ ROLE.ADMINISTRATOR, ROLE.LOCALIZATOR, ], 
+    },
     resolve: {
       communityList: CommunityListResolver,
       questionList: QuestionListResolver,
@@ -28,6 +38,10 @@ const routes: Routes = [
   {
     path: 'validate/:id',
     component: ShelterValidateComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [ ROLE.ADMINISTRATOR, ROLE.VALIDATOR, ], 
+    },
     resolve: {
       shelter: ShelterResolver,
       questionList: QuestionListResolver,
@@ -42,7 +56,7 @@ const routes: Routes = [
     ShelterValidateComponent,
     ShelterFormComponent,   
   ],
-  providers: [CommunityListResolver, QuestionListResolver, ShelterResolver],
+  providers: [CommunityListResolver, QuestionListResolver, ShelterResolver, RoleGuard],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, PaginationModule,],
 })
 export class ShelterModule {}

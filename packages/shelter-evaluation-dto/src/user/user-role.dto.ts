@@ -1,6 +1,7 @@
 import { AutoMap } from '@automapper/classes';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber, IsString } from 'class-validator';
+import { ROLE } from '../role';
 
 export class UserRoleDto {
   @AutoMap()
@@ -10,5 +11,5 @@ export class UserRoleDto {
   @AutoMap()
   @IsString()
   @ApiProperty()
-  public name: string;
+  public name: ROLE;
 }

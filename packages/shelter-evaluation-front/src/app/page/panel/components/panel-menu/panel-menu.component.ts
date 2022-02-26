@@ -1,14 +1,41 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/package/shelter-evaluation-api/service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserRoleDto } from 'shelter-evaluation-dto';
+import { ROLE } from '../../../../common';
+import { AuthService } from '../../../../package/shelter-evaluation-api/service';
 
 @Component({
   selector: 'app-panel-menu',
   templateUrl: './panel-menu.component.html',
   styleUrls: ['./panel-menu.component.scss'],
 })
-export class PanelMenuComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+export class PanelMenuComponent implements OnInit {
+
+  currentRole!: UserRoleDto;
+
+  urlList = [
+    {
+      url: 'user',
+      title: 'User',
+      roles: [ ROLE.ADMINISTRATOR ],
+    },
+    {
+      url: 'shelter/search',
+      title: 'Search shelter',
+      roles: [ ROLE.ADMINISTRATOR, ROLE.EVALUATOR, ROLE.VALIDATOR ],
+    },
+    {
+      url: 'shelter/create',
+      title: 'Create shelter',
+      roles: [ ROLE.ADMINISTRATOR, ROLE.LOCALIZATOR, ],
+    },
+  ];
+
+  constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  
+  ngOnInit(): void {
+    this.currentRole = this.activatedRoute.snapshot.data.currentRole;
+  }
 
   public logOut() {
     this.authService.removeToken();

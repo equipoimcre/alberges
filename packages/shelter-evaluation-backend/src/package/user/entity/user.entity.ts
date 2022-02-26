@@ -1,4 +1,5 @@
 import { AutoMap } from '@automapper/classes';
+import { RoleEntity } from '../../role';
 import {
   Entity,
   Column,
@@ -11,7 +12,6 @@ import {
 import { OrganizationEntity } from './organization.entity';
 import { ProvinceEntity } from './province.entity';
 import { UserPositionEntity } from './user.positions.entity';
-import { UserRoleEntity } from './user.role.entity';
 
 @Entity({ name: 'user' })
 export class UserEntity {
@@ -53,10 +53,10 @@ export class UserEntity {
   @AutoMap({ typeFn: () => OrganizationEntity })
   organization: OrganizationEntity;
 
-  @OneToOne(() => UserRoleEntity, (role) => role.id, { eager: true })
+  @OneToOne(() => RoleEntity, (role) => role.id, { eager: true })
   @JoinColumn()
-  @AutoMap({ typeFn: () => UserRoleEntity })
-  role: UserRoleEntity;
+  @AutoMap({ typeFn: () => RoleEntity })
+  role: RoleEntity;
 
   @OneToOne(() => UserPositionEntity, (position) => position.id, {
     eager: true,

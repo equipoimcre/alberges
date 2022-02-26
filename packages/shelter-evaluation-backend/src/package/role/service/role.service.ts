@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserRoleEntity } from '../entity';
+import { RoleEntity } from '../entity';
 
 @Injectable()
-export class UserRoleService {
+export class RoleService {
   constructor(
-    @InjectRepository(UserRoleEntity)
-    private userRoleRepository: Repository<UserRoleEntity>,
+    @InjectRepository(RoleEntity)
+    private userRoleRepository: Repository<RoleEntity>,
   ) {}
 
   findAll() {
