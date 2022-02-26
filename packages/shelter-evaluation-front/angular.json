@@ -19,8 +19,8 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "es": {
-            "translation": "locale/messages.es.xlf",
+          "es-ES": {
+            "translation": "locale/messages.es-ES.xlf",
             "baseHref": ""
           }
         }
@@ -111,6 +111,20 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "locale",
+              "genDir": "locale",
+              "defaultLanguage": "en-US",
+              "languages": [
+                "es-ES"
+              ]
+            }
           }
         }
       }

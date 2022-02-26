@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="es-ES">
+    <body>
+      <trans-unit id="common.username" datatype="html">
+        <source> Username </source><target state="new"> Nombre usario </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit><trans-unit id="common.password" datatype="html">
+        <source> Password </source><target state="new"> Password </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.sign.in" datatype="html">
+        <source> Sign In </source><target state="new"> Sign In </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.forgot.password" datatype="html">
+        <source> Forgot Password? </source><target state="new"> Forgot Password? </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.log.out" datatype="html">
+        <source>Log out</source><target state="new">Log out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menu.user" datatype="html">
+        <source>User</source><target state="new">User</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menu.search.shelter" datatype="html">
+        <source>Search shelter</source><target state="new">Search shelter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="menu.create.shelter" datatype="html">
+        <source>Create shelter</source><target state="new">Create shelter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.title.already.validate" datatype="html">
+        <source>Shelter already validate</source><target state="new">Shelter already validate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.title.validate" datatype="html">
+        <source>Validate shelter</source><target state="new">Validate shelter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.title.create" datatype="html">
+        <source>Create shelter</source><target state="new">Create shelter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.community" datatype="html">
+        <source>Autonomous community</source><target state="new">Autonomous community</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.province" datatype="html">
+        <source>Province</source><target state="new">Province</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.municipality" datatype="html">
+        <source>Municipality</source><target state="new">Municipality</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.owner" datatype="html">
+        <source>Owner</source><target state="new">Owner</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.name.of.enplacement" datatype="html">
+        <source>Name of enplacement</source><target state="new">Name of enplacement</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.longitude" datatype="html">
+        <source>Longitued</source><target state="new">Longitued</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.latitude" datatype="html">
+        <source>Latitude</source><target state="new">Latitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.notes" datatype="html">
+        <source>Notes</source><target state="new">Notes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.title.question" datatype="html">
+        <source>Questions</source><target state="new">Questions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.button.save" datatype="html">
+        <source>Save</source><target state="new">Save</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.button.validate" datatype="html">
+        <source>Validate</source><target state="new">Validate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.alert.validate" datatype="html">
+        <source>Shelter validated</source><target state="new">Shelter validated</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.alert.created" datatype="html">
+        <source>Shelter created successfully</source><target state="new">Shelter created successfully</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.alert.fill" datatype="html">
+        <source>Fill all data and response all the questions</source><target state="new">Fill all data and response all the questions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.name" datatype="html">
+        <source>Name</source><target state="new">Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.reset" datatype="html">
+        <source>Reset</source><target state="new">Reset</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.filter" datatype="html">
+        <source>Filter</source><target state="new">Filter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.title.update" datatype="html">
+        <source>Update user</source><target state="new">Update user</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.title.create" datatype="html">
+        <source>Create user</source><target state="new">Create user</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.field.surname" datatype="html">
+        <source>Surnames</source><target state="new">Surnames</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.email" datatype="html">
+        <source>Email</source><target state="new">Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.field.repeat.password" datatype="html">
+        <source>Repeat password</source><target state="new">Repeat password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.field.organization" datatype="html">
+        <source>Organization</source><target state="new">Organization</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.role" datatype="html">
+        <source>Role</source><target state="new">Role</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.position" datatype="html">
+        <source>Position</source><target state="new">Position</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.field.agree" datatype="html">
+        <source>I agree to the Terms of User and Privacy Policy</source><target state="new">I agree to the Terms of User and Privacy Policy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.button.create" datatype="html">
+        <source>Create new user</source><target state="new">Create new user</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.button.update" datatype="html">
+        <source>Update user</source><target state="new">Update user</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.title.change.pasword" datatype="html">
+        <source>Change password</source><target state="new">Change password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.form.field.button.password" datatype="html">
+        <source>Change password</source><target state="new">Change password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.alert.updated" datatype="html">
+        <source>Update user succeed</source><target state="new">Update user succeed</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.alert.invalid.form" datatype="html">
+        <source>Form is not valid</source><target state="new">Form is not valid</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.alert.changes.password" datatype="html">
+        <source>Change password succeed</source><target state="new">Change password succeed</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="user.full.name" datatype="html">
+        <source>Full name</source><target state="new">Full name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.positions" datatype="html">
+        <source>Position</source><target state="new">Position</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.actions" datatype="html">
+        <source>Actions</source><target state="new">Actions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.edit" datatype="html">
+        <source>Edit</source><target state="new">Edit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.delete" datatype="html">
+        <source>Delete</source><target state="new">Delete</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
