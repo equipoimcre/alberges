@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ShelterDto } from 'shelter-evaluation-dto';
+import { ROLE, ShelterDto, UserRoleDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../../utils';
 import { Connection, Repository, FindConditions, Like } from 'typeorm';
 import { ShelterEntity } from '../entity';
@@ -44,7 +44,7 @@ export class ShelterService {
     }
   }
 
-  async filter(take: number, skip: number, filters: any) {
+  async filter(take: number, skip: number, filters: any, role: UserRoleDto) {
     const where: FindConditions<ShelterEntity> = {};
 
     if (filters.name) {
@@ -61,6 +61,10 @@ export class ShelterService {
       where.province = {
         id: filters.provinceId,
       }
+    }
+
+    if (role.name !== ROLE.ADMINISTRATOR) {
+      where.validate = role.name === ROLE.VALIDATOR ? false : true;
     }
 
     const [data, count] = await this.shelterRepository.findAndCount({
