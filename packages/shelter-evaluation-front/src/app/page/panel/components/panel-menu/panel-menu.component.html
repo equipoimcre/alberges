@@ -4,7 +4,7 @@
   </div>
   <ul class="hidden whitespace-pre-wrap space-x-8 order-3 lg:flex lg:order-2">
     <li *ngFor="let url of urlList"><a [routerLink]="url.url" *ngIf="url.roles.includes(currentRole.name)">{{url.title}}</a></li>
-    <li><button (click)="logOut()">Log out</button></li>
+    <li><button (click)="logOut()" i18n="@@common.log.out">Log out</button></li>
   </ul>
   <div class="flex lg:hidden">
     <div class="space-y-2">

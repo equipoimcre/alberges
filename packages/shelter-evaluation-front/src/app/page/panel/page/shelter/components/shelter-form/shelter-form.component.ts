@@ -52,7 +52,7 @@ export class ShelterFormComponent implements OnInit {
     if (this.validateMode && this.shelterDto) {
       this.shelterService.validate(this.shelterDto.id!).subscribe(
         () => {
-          alert('Shelter validated')
+          alert($localize `:@@shelter.alert.validate:Shelter validated`)
         },
         error => alert(JSON.stringify(error)),
       )
@@ -78,13 +78,13 @@ export class ShelterFormComponent implements OnInit {
           response => {
             this.shelterForm.reset();
             this.storageService.remove(this.STORAGE_KEY, new StorageOptions(true));
-            alert('Shelter created successfully');
+            alert($localize `:@@shelter.alert.created:Shelter created successfully`);
             
           },
           errror => alert(JSON.stringify(errror)),
         )
       } else {
-        alert('Fill all data and response all the questions');
+        alert($localize `:@@shelter.alert.fill:Fill all data and response all the questions`);
       }
     }    
   }

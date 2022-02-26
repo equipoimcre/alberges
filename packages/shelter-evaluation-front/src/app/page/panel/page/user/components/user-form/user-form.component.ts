@@ -68,12 +68,12 @@ export class UserFormComponent implements OnInit {
             ...user,
           })
           .subscribe(
-            () => alert('Update user succeed'),
+            () => alert($localize `:@@user.alert.updated:Update user succeed`),
             (error) => alert(error.message.join('\n')),
           );
       }
     } else {
-      alert('Form is not valid');
+      alert($localize `:@@user.alert.invalid.form:Form is not valid`);
     }
   }
 
@@ -87,7 +87,7 @@ export class UserFormComponent implements OnInit {
       this.userService
         .changePassword(this.user.id, this.passwordFrom.value.password)
         .subscribe(
-          () => alert('Change password succeed'),
+          () => alert($localize `:@@user.alert.changes.password:Change password succeed`),
           (error) => alert(error.message.join('\n')),
         );
     } else {

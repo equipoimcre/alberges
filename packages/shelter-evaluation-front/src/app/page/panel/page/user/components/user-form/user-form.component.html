@@ -1,48 +1,48 @@
 <div class="bg-white p-4 mb-4">
-  <h2 *ngIf="user" class="mb-4">Update user</h2>
-  <h2 *ngIf="!user" class="mb-4">Create user</h2>
+  <h2 *ngIf="user" class="mb-4" i18n="@@user.form.title.update">Update user</h2>
+  <h2 *ngIf="!user" class="mb-4" i18n="@@user.form.title.create">Create user</h2>
   <form [formGroup]="userForm" (submit)="submitUser()" class="grid mb-4">
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <div class="flex flex-col">
-        <label for="name">Name</label>
+        <label for="name" i18n="@@common.name">Name</label>
         <input type="text" id="name" formControlName="name" class="form-input">
       </div>
       <div class="flex flex-col">
-        <label for="surnames">Surnames</label>
+        <label for="surnames" i18n="@@user.form.field.surname">Surnames</label>
         <input type="text" id="surname" formControlName="surname">
       </div>
       <div class="flex flex-col">
-        <label for="email">Email</label>
+        <label for="email" i18n="@@common.email">Email</label>
         <input type="email" id="email" formControlName="email" class="form-input">
       </div>
       <div *ngIf="!user" class="flex flex-col">
-        <label for="password">Password</label>
+        <label for="password" i18n="@@common.password">Password</label>
         <input type="password" id="password" formControlName="password" class="form-input">
       </div>
       <div *ngIf="!user" class="flex flex-col">
-        <label for="repeatPassword">Repeat password</label>
+        <label for="repeatPassword" i18n="@@user.form.field.repeat.password">Repeat password</label>
         <input type="password" id="repeatPassword" formControlName="repeatPassword" class="form-input">
       </div>      
       <div class="flex flex-col">
-        <label for="province">Province</label>
+        <label for="province" i18n="@@common.province">Province</label>
         <select id="province" formControlName="province" class="form-select">
           <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
         </select>
       </div>
       <div class="flex flex-col">
-        <label for="organization">Organization</label>
+        <label for="organization" i18n="@@user.form.field.organization">Organization</label>
         <select id="organization" formControlName="organization" class="form-select">
           <option *ngFor="let organization of organizationList" [value]="organization.id">{{organization.name}}</option>
         </select>     
       </div>
       <div class="flex flex-col">
-        <label for="role">Role</label>
+        <label for="role" i18n="@@common.role">Role</label>
         <select id="role" formControlName="role" class="form-select">
           <option *ngFor="let role of roleList" [value]="role.id">{{role.name}}</option>
         </select>
       </div>
       <div class="flex flex-col">
-        <label for="position">Position</label>
+        <label for="position" i18n="@@common.position">Position</label>
         <select id="position" class="form-select" formControlName="position">
           <option *ngFor="let position of positionList" [value]="position.id">{{position.name}}</option>
         </select>
@@ -50,27 +50,27 @@
     </div>
     <label *ngIf="!user" class="mt-4">
       <input type="checkbox" formControlName="agreeTerm" class="form-input">
-      I agree to the Terms of User and Privacy Policy
+      <span i18n="@@user.form.field.agree">I agree to the Terms of User and Privacy Policy</span>
     </label>
     <div class="mt-4">
-      <button type="submit" *ngIf="!user" class="btn btn-blue text-center w-full">Create new user</button>
-      <button type="submit" *ngIf="user" class="btn btn-blue text-center w-full">Update user</button>
+      <button type="submit" *ngIf="!user" class="btn btn-blue text-center w-full" i18n="@@user.form.button.create">Create new user</button>
+      <button type="submit" *ngIf="user" class="btn btn-blue text-center w-full" i18n="@@user.form.button.update">Update user</button>
     </div>
   </form>
 </div>
 <div *ngIf="user" class="bg-white p-4 mb-4">
-  <h2>Change password</h2>
+  <h2 i18n="@@user.form.title.change.pasword">Change password</h2>
   <form  [formGroup]="passwordFrom" (submit)="submitPassword()" class="grid mb-4">
     <div class="flex flex-col lg:flex-row mb-4">
       <div>
-        <label for="password">Password</label>
+        <label for="password"  i18n="@@common.password">Password</label>
         <input type="password" id="password" formControlName="password" class="form-input">
       </div>
       <div>
-        <label for="repeatPassword">Repeat password</label>
+        <label for="repeatPassword" i18n="@@user.form.field.repeat.password">Repeat password</label>
         <input type="password" id="repeatPassword" formControlName="repeatPassword" class="form-input">
       </div>
     </div>    
-    <button type="submit" class="btn btn-blue text-center">Change password</button>
+    <button type="submit" class="btn btn-blue text-center" i18n="@@user.form.field.button.password">Change password</button>
   </form>
 </div>

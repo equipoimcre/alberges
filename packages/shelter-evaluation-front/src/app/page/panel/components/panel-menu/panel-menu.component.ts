@@ -16,17 +16,17 @@ export class PanelMenuComponent implements OnInit {
   urlList = [
     {
       url: 'user',
-      title: 'User',
+      title: $localize `:@@menu.user:User`,
       roles: [ ROLE.ADMINISTRATOR ],
     },
     {
       url: 'shelter/search',
-      title: 'Search shelter',
+      title: $localize `:@@menu.search.shelter:Search shelter`,
       roles: [ ROLE.ADMINISTRATOR, ROLE.EVALUATOR, ROLE.VALIDATOR ],
     },
     {
       url: 'shelter/create',
-      title: 'Create shelter',
+      title: $localize `:@@menu.create.shelter:Create shelter`,
       roles: [ ROLE.ADMINISTRATOR, ROLE.LOCALIZATOR, ],
     },
   ];
