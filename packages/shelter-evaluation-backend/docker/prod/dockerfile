@@ -1,0 +1,36 @@
+FROM node:14.17.3 as build
+
+COPY shelter-evaluation-dto /opt/shelter-evaluation-dto
+
+WORKDIR /opt/backend
+COPY shelter-evaluation-backend /opt/backend
+
+RUN rm package-lock.json
+RUN npm link ../shelter-evaluation-dto
+RUN npm install
+RUN npm i -g @nestjs/cli@7.2.0
+
+RUN npm run build
+
+FROM node:14.17.3
+
+# Database environment
+ENV DATABSE_HOST localhost
+ENV DATABASE_PORT 3306
+ENV DATABASE_USER root
+ENV DATABASE_PASSWORD root
+ENV DATABASE_COLLECTION test
+ENV DATABASE_SYNCRHONIZE false
+
+WORKDIR /opt/backend
+
+COPY shelter-evaluation-dto /opt/shelter-evaluation-dto
+RUN npm link ../shelter-evaluation-dto
+
+COPY --from=build /opt/backend/dist /opt/backend/dist
+COPY --from=build /opt/backend/node_modules /opt/backend/node_modules
+COPY --from=build /opt/backend/package.json /opt/backend/package.json
+
+RUN npm install typeorm@0.2.38
+
+CMD node dist/src/main

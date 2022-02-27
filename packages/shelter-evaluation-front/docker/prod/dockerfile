@@ -1,0 +1,19 @@
+FROM node:14.17.3 as build
+
+COPY shelter-evaluation-dto /opt/shelter-evaluation-dto
+
+WORKDIR /opt/frontend
+COPY shelter-evaluation-front /opt/frontend
+
+RUN rm package-lock.json
+RUN npm link ../shelter-evaluation-dto
+RUN npm install
+RUN npm install -g @angular/cli@9.1.7
+
+RUN npm run build -- --configuration production --localize
+
+FROM nginx:1.21.3
+
+COPY --from=build /opt/frontend/dist/shelter-evaluation-front /usr/share/nginx/html
+COPY shelter-evaluation-front/docker/prod/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY shelter-evaluation-front/docker/prod/nginx/nginx.conf /etc/nginx/nginx.conf

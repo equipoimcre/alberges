@@ -27,7 +27,10 @@ async function bootstrap() {
     }),
   );
   app.enableCors({
-    origin: 'https://shelter-evaluation.cruzroja.com', //TODO: Add dynamic host
+    origin: [
+      `http://${process.env.GATEWAY_HOST}`,
+      `https://${process.env.GATEWAY_HOST}`
+    ],
   });
   await app.listen(3000);
 }

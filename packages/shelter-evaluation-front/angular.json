@@ -21,7 +21,6 @@
         "locales": {
           "es-ES": {
             "translation": "locale/messages.es-ES.xlf",
-            "baseHref": ""
           }
         }
       },
@@ -49,8 +48,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

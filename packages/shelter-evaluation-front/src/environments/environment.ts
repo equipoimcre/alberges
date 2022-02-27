@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api: {
     shelterEvaluation: {
-      host: 'https://api.shelter-evaluation.cruzroja.com',
+      host: 'https://local.app.api.shelter-evaluation.cruzroja.com',
     },
   },
 };

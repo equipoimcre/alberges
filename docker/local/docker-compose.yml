@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  shelter-evaluation-database:
+    container_name: shelter-evaluation-database-local
+  shelter-evaluation-gateway:
+    container_name: shelter-evaluation-gateway-local
+    image: shelter-evaluation-gateway-local
+  shelter-evaluation-backend:
+    container_name: shelter-evaluation-backend-local
+    image: shelter-evaluation-backend-local
+    build:
+      dockerfile: shelter-evaluation-backend/docker/local/dockerfile
+    ports:
+      - 9229:9229
+    volumes:
+      - ../../packages/shelter-evaluation-backend/src:/opt/backend/src
+      - ../../packages/shelter-evaluation-backend/node_modules:/opt/backend/node_modules
+      - ../../packages/shelter-evaluation-backend/package.json:/opt/backend/package.json
+      - ../../packages/shelter-evaluation-backend/migration:/opt/backend/migration
+      - ../../packages/shelter-evaluation-dto:/opt/shelter-evaluation-dto
+      - ../../packages/shelter-evaluation-backend/dist:/opt/backend/dist
+  shelter-evaluation-frontend:
+    container_name: shelter-evaluation-frontend-local
+    image: shelter-evaluation-frontend-local
+    build:
+      dockerfile: shelter-evaluation-front/docker/local/dockerfile
+    volumes:
+      - ../../packages/shelter-evaluation-front/src:/opt/frontend/src
+      - ../../packages/shelter-evaluation-front/node_modules:/opt/frontend/node_modules
+      - ../../packages/shelter-evaluation-front/package.json:/opt/frontend/package.json
+      - ../../packages/shelter-evaluation-dto:/opt/shelter-evaluation-dto
+    
+

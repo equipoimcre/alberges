@@ -19,7 +19,6 @@ RUN sed -i 's/HOST_NAME/'$BACKEND_HOSTNAME'/g' /etc/nginx/sites-available/backen
 RUN sed -i 's/UPSTREAM/'$BACKEND_UPSTREAM'/g' /etc/nginx/sites-available/backend.conf
 RUN sed -i 's/HOST_NAME/'$FRONTEND_HOSTNAME'/g' /etc/nginx/sites-available/frontend.conf
 RUN sed -i 's/UPSTREAM/'$FRONTEND_UPSTREAM'/g' /etc/nginx/sites-available/frontend.conf
-RUN cat /etc/nginx/sites-available/frontend.conf
 RUN ln -s /etc/nginx/sites-available/*.conf /etc/nginx/sites-enabled
 
 CMD ["nginx", "-g", "daemon off;"]
