@@ -1,6 +1,8 @@
 version: "3.7"
 
 services:
+  mailhog:
+    container_name: shelter-evaluation-mailhog-local
   shelter-evaluation-database:
     container_name: shelter-evaluation-database-local
   shelter-evaluation-gateway:

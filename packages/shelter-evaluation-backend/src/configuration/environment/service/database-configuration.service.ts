@@ -11,7 +11,7 @@ import {
   ShelterResponseEntity,
   CommunityEntity,
   RoleEntity,
-} from '../../../../package';
+} from '../../../package';
 
 @Injectable()
 export class DatabaseConfigurationService {

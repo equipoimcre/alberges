@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import {
   DatabaseConfigurationService,
   JwtConfigurationService,
+  SmtpConfigurationService,
 } from './service';
 
 @Module({
@@ -11,11 +12,12 @@ import {
       ignoreEnvFile: true,
     }),
   ],
-  providers: [DatabaseConfigurationService, JwtConfigurationService],
+  providers: [DatabaseConfigurationService, JwtConfigurationService, SmtpConfigurationService],
   exports: [
     ConfigModule,
     DatabaseConfigurationService,
     JwtConfigurationService,
+    SmtpConfigurationService,
   ],
 })
 export class ConfigurationModule {}

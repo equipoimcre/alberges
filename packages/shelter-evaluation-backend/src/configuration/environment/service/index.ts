@@ -1,2 +1,3 @@
-export * from './database-configuration/database-configuration.service';
-export * from './jwt-configuration/jwt-configuration.service';
+export * from './database-configuration.service';
+export * from './jwt-configuration.service';
+export * from './smtp-configuration.service';

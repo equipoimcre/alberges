@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Request, Get } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Get, Query, HttpCode, HttpException, HttpStatus, Body } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import {
   ApiBody,
@@ -19,14 +19,33 @@ class AccessToken {
 @Controller('auth')
 @ApiTags('auth')
 export class AuthController {
+  
   constructor(private authService: AuthService) {}
 
   @Public()
   @UseGuards(AuthGuard('local'))
   @Post('/login')
   @ApiBody({ type: LoginDto })
-  async loging(@Request() req) {
+  loging(@Request() req) {
     return this.authService.login(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @HttpCode(204)
+  @Post('reset-password')
+  async resetPassword(@Body() body: { password: string }, @Request() request ) {
+    await this.authService.resetPassword(body.password, request.user);
+  }
+
+  @Public()
+  @HttpCode(204)
+  @Post('reset-password-communication')
+  async resetPasswordCommunication(@Query('email') email: string ) {
+    try {
+      await this.authService.resetPasssowrdCommunitcation(email);
+    } catch (error) {
+      throw new HttpException('Forbidden', HttpStatus.NOT_FOUND);
+    }
   }
 
   @UseGuards(JwtAuthGuard)
