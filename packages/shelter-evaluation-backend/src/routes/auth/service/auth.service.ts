@@ -53,7 +53,7 @@ export class AuthService {
       from: this.smtpConfigurationService.noReplay,
       to: email,
       subject: 'Reset password',
-      text: `https://${process.env.GATEWAY_HOST}/reset-password/${token}`,
+      text: `https://${process.env.GATEWAY_HOST}/password/reset/${token}`,
     });
   }
 }

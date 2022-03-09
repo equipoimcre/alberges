@@ -3,12 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guard';
 import { AlreadyLoginGuard } from './guard/already-login.guard';
 
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'login',
-  },
+const routes: Routes = [  
   {
     path: 'login',
     canActivate: [AlreadyLoginGuard],
@@ -22,10 +17,15 @@ const routes: Routes = [
       import('./page').then((m) => m.PanelModule),
   },
   {
-    path: '',
+    path: 'password',
     canActivate: [AlreadyLoginGuard],
     loadChildren: () =>
       import('./page').then((m) => m.ResetPasswordModule),
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login',
   },
 ];
 

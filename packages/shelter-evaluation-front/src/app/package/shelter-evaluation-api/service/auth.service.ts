@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -45,5 +45,14 @@ export class AuthService extends BaseService {
 
   removeToken() {
     this.storageService.remove(this.STORAGE_KEY_JWT);
+  }
+
+  requestResetPassword(email: string) {
+    return this.httpClient.post(this.getUrl(`reset-password-communication?email=${email}`), null);
+  }
+
+  resetPassword(password: string, token: string) {
+    const headers = new HttpHeaders({'Authorization': `Bearer ${token}`});
+    return this.httpClient.post(this.getUrl('reset-password'), {password}, {headers});
   }
 }
