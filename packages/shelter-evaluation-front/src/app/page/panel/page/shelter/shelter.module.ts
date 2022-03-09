@@ -10,6 +10,7 @@ import { CommunityListResolver, QuestionListResolver, ShelterResolver } from './
 import { PaginationModule } from '../../../../components';
 import { RoleGuard } from '../../../../guard';
 import { ROLE } from '../../../../common';
+import { ShelterInfoComponent } from './components/shelter-info/shelter-info.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,18 @@ const routes: Routes = [
       questionList: QuestionListResolver,
     },
   },
+  {
+    path: 'info/:id',
+    component: ShelterInfoComponent,
+    canActivate: [RoleGuard],
+    data: {
+      roles: [ ROLE.ADMINISTRATOR, ROLE.EVALUATOR, ], 
+    },
+    resolve: {
+      shelter: ShelterResolver,
+      questionList: QuestionListResolver,
+    },
+  },
 ];
 
 @NgModule({
@@ -54,7 +67,8 @@ const routes: Routes = [
     ShelterSearchComponent,
     ShelterCreateComponent,
     ShelterValidateComponent,
-    ShelterFormComponent,   
+    ShelterFormComponent,
+    ShelterInfoComponent,   
   ],
   providers: [CommunityListResolver, QuestionListResolver, ShelterResolver, RoleGuard],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, PaginationModule,],

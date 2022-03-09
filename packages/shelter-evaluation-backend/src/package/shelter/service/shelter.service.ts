@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ROLE, ShelterDto, UserRoleDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../../utils';
@@ -28,8 +28,7 @@ export class ShelterService {
     await queryRunner.connect();
     await queryRunner.startTransaction();
     try {
-      queryRunner.manager.save(shelterEntity);
-      const storedShelterEntity = await this.shelterRepository.save(shelterEntity);
+      const storedShelterEntity = await queryRunner.manager.save(shelterEntity);
       for (let shelterResponse of shelterEntity.shelterResponseList) {
         shelterResponse.shelterId = storedShelterEntity.id;
         await queryRunner.manager.save(shelterResponse);
@@ -39,6 +38,7 @@ export class ShelterService {
     } catch (error) {
       console.log(error);
       await queryRunner.rollbackTransaction();
+      throw new HttpException('Bad request', HttpStatus.BAD_REQUEST);
     }finally {
       await queryRunner.release();
     }

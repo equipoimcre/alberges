@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommunityDto, ProvinceDto, ShelterDto } from 'shelter-evaluation-dto';
+import { CommunityDto, ProvinceDto, ShelterDto, UserRoleDto } from 'shelter-evaluation-dto';
+import { ROLE } from '../../../../../../common';
 import { PaginationComponent } from '../../../../../../components';
 import { Paginable } from '../../../../../../interface/paginable';
 import { ShelterService } from '../../../../../../package/shelter-evaluation-api/service';
@@ -14,7 +15,7 @@ import { ShelterService } from '../../../../../../package/shelter-evaluation-api
 export class ShelterSearchComponent implements OnInit {
   
   formFilters!: FormGroup;
-
+  role: UserRoleDto | undefined;
   paginableShelter: Paginable<ShelterDto> = {count: 0, data: []};
   provinceList: ProvinceDto[] = [];
   communityList: CommunityDto[] = [];
@@ -31,6 +32,7 @@ export class ShelterSearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.role = this.activatedRoute.parent?.parent?.snapshot?.data.currentRole;
     this.communityList = this.activatedRoute.snapshot.data.communityList;
     const provinceList = this.communityList.map( community => community.provinceList);
     this.provinceList = Array.prototype.concat.apply([], provinceList);
@@ -73,6 +75,11 @@ export class ShelterSearchComponent implements OnInit {
     )
   }
 
+  getPaht(id: number) {
+    const isValidator = this.role!.name === ROLE.VALIDATOR;
+    return `/panel/shelter/${isValidator ? 'validate' : 'info'}/` + id;
+  }
+
   private initFormFilters() {
     this.formFilters = new FormGroup({
       name: new FormControl(this.activatedRoute.snapshot.queryParams.name),
@@ -80,4 +87,5 @@ export class ShelterSearchComponent implements OnInit {
       communityId: new FormControl(this.activatedRoute.snapshot.queryParams.communityId),
     });
   }
+  
 }

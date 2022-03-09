@@ -13,13 +13,19 @@ const routes: Routes = [
     path: 'login',
     canActivate: [AlreadyLoginGuard],
     loadChildren: () =>
-      import('./page/login/login.module').then((m) => m.LoginModule),
+      import('./page').then((m) => m.LoginModule),
   },
   {
     path: 'panel',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./page/panel/panel.module').then((m) => m.PanelModule),
+      import('./page').then((m) => m.PanelModule),
+  },
+  {
+    path: '',
+    canActivate: [AlreadyLoginGuard],
+    loadChildren: () =>
+      import('./page').then((m) => m.ResetPasswordModule),
   },
 ];
 

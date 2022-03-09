@@ -1,47 +1,44 @@
 <div class="bg-white p-4 mb-4">
-  <div *ngIf="shelterDto && shelterDto.validate">
-    <h2 i18n="@@shelter.form.title.already.validate">Shelter already validate</h2>
-  </div>
-  <div *ngIf="!shelterDto || shelterDto && !shelterDto.validate">
+  <div *ngIf="!shelterDto || shelterDto">
     <h2 *ngIf="validateMode" class="mb-4" i18n="@@shelter.form.title.validate">Validate shelter</h2>
     <h2 *ngIf="!validateMode" class="mb-4" i18n="@@shelter.form.title.create">Create shelter</h2>
     <form [formGroup]="shelterForm" (submit)="submitShelter()" class="grid mb-4">
       <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <div class="flex flex-col">
           <label for="community" class="mx-4" i18n="@@common.community">Autonomous community</label>
-          <select id="community" formControlName="communityId" class="form-select" [attr.disabled]="validateMode ? true : null">
-            <option *ngFor="let community of communityList" [value]="community.id" [attr.disabled]="validateMode ? true : null">{{community.name}}</option>
+          <select id="community" formControlName="communityId" class="form-select" [attr.disabled]="validateMode || displayMode ? true : null">
+            <option *ngFor="let community of communityList" [value]="community.id" [attr.disabled]="validateMode || displayMode ? true : null">{{community.name}}</option>
           </select>
         </div>
         <div class="flex flex-col">
           <label for="province" class="mx-4" i18n="@@common.province">Province</label>
-          <select id="province" formControlName="provinceId" class="form-select" [attr.disabled]="provinceList.length===0 || validateMode ? true : null">
+          <select id="province" formControlName="provinceId" class="form-select" [attr.disabled]="provinceList.length===0 || validateMode || displayMode ? true : null">
             <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
           </select>
         </div>
         <div class="flex flex-col">
           <label for="municipality" class="mx-4" i18n="@@shelter.form.field.municipality">Municipality</label>
-          <input type="text" id="municipality" formControlName="municipality" class="form-input" [attr.disabled]="validateMode ? true : null">
+          <input type="text" id="municipality" formControlName="municipality" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null">
         </div>
         <div class="flex flex-col">
           <label for="owner" class="mx-4" i18n="@@shelter.form.field.owner">Owner</label>
-          <input type="text" id="owner" formControlName="owner" class="form-input" [attr.disabled]="validateMode ? true : null">
+          <input type="text" id="owner" formControlName="owner" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null">
         </div>
         <div class="flex flex-col">
           <label for="name" class="mx-4" i18n="@@shelter.form.field.name.of.enplacement">Name of enplacement</label>
-          <input type="text" id="name" formControlName="name" class="form-input" [attr.disabled]="validateMode ? true : null">
+          <input type="text" id="name" formControlName="name" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null">
         </div>
         <div class="flex flex-col">
           <label for="longitude" class="mx-4" i18n="@@shelter.form.field.longitude">Longitued</label>
-          <input type="text" id="longitude" formControlName="longitude" class="form-input" [attr.disabled]="validateMode ? true : null">
+          <input type="text" id="longitude" formControlName="longitude" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null">
         </div>
         <div class="flex flex-col">
           <label for="latitude" class="mx-4" i18n="@@shelter.form.field.latitude">Latitude</label>
-          <input type="text" id="latitude" formControlName="latitude" class="form-input" [attr.disabled]="validateMode ? true : null">
+          <input type="text" id="latitude" formControlName="latitude" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null">
         </div>
         <div class="flex flex-col">
           <label for="note" class="mx-4" i18n="@@shelter.form.field.notes">Notes</label>
-          <textarea type="text" id="note" formControlName="note" class="form-input" [attr.disabled]="validateMode ? true : null"></textarea>
+          <textarea type="text" id="note" formControlName="note" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null"></textarea>
         </div>
       </div>
       <div *ngIf="questionList.length > 0">
@@ -49,12 +46,16 @@
         <table>
           <tr *ngFor="let question of questionList;let i = index">
             <td class="py-2">{{question.question}}</td>
-            <td class="py-2"><input type="checkbox" [id]="'question-' + question.id" [formControlName]="'question-' + question.id" class="form-input" [attr.disabled]="validateMode ? true : null"></td>
+            <td class="py-2">
+              <input type="checkbox" [id]="'question-' + question.id" [formControlName]="'question-' + question.id" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null">
+            </td>
           </tr>
         </table>
       </div>
-      <button type="submit" class="btn btn-blue text-center" *ngIf="!validateMode" i18n="@@shelter.form.button.save">Save</button>
-      <button type="submit" class="btn btn-blue text-center" *ngIf="validateMode" i18n="@@shelter.form.button.validate">Validate</button>
+      <div *ngIf="!displayMode">
+        <button type="submit" class="btn btn-blue text-center w-full" *ngIf="!validateMode" i18n="@@shelter.form.button.save">Save</button>
+        <button type="submit" class="btn btn-blue text-center w-full" *ngIf="validateMode" i18n="@@shelter.form.button.validate">Validate</button>
+      </div>
     </form>
   </div>
 </div>

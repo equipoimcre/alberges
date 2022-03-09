@@ -19,6 +19,8 @@ import { StorageService } from '../../../../../../service/storage/storage.servic
 export class ShelterFormComponent implements OnInit {
   @Input()
   public validateMode = false;
+  @Input()
+  public displayMode = false;
 
   shelterForm!: FormGroup;
   communityList: CommunityDto[] = [];
@@ -39,9 +41,10 @@ export class ShelterFormComponent implements OnInit {
     this.questionList = this.activeRoute.snapshot.data.questionList;
     this.shelterDto = this.activeRoute.snapshot.data.shelter;
     this.initShelterForm();
-    if (this.validateMode === false) {
+    if (this.validateMode === false && this.displayMode === false) {
       this.storeAllChanges();
       this.fillFormIFThereIsData();
+      this.getLocation();
     } else if (this.shelterDto) {
       this.communityList = [this.shelterDto.community];
       this.changeCommunity(this.shelterDto.community.id.toString());
@@ -165,5 +168,17 @@ export class ShelterFormComponent implements OnInit {
       this.storageService.save(this.STORAGE_KEY, JSON.stringify(val), new StorageOptions(true))
     });
     this.shelterForm.controls.communityId.valueChanges.subscribe(val => this.changeCommunity(val));
+  }
+
+  private getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.shelterForm.setValue({
+          ...this.shelterForm.value,
+          longitude: position.coords.longitude,
+          latitude: position.coords.latitude,
+        });
+      });
+    }
   }
 }

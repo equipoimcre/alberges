@@ -25,9 +25,11 @@
 <div *ngIf="paginableShelter.data.length > 0">
   <ul class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols3 mb-4">
     <li *ngFor="let shelter of paginableShelter.data" class="bg-white p-4">
-      <p><span i18n="@@common.name">Name</span>: {{shelter.name}}</p>
-      <p><span i18n="@@common.community">Community</span>: {{shelter.community.name}}</p>
-      <p><span i18n="@@common.province">Province</span>: {{shelter.province.name}}</p>
+      <a [routerLink]="getPaht(shelter.id!)">
+        <p><span i18n="@@common.name">Name</span>: {{shelter.name}}</p>
+        <p><span i18n="@@common.community">Community</span>: {{shelter.community.name}}</p>
+        <p><span i18n="@@common.province">Province</span>: {{shelter.province.name}}</p>
+      </a>
     </li>
   </ul>
   <app-pagination #pagination [elementsPerPage]="elementsPerPage" [totalElements]="paginableShelter.count" (navigateToPage)="requestShelters($event)"></app-pagination>
