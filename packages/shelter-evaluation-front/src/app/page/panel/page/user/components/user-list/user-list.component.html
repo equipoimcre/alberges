@@ -34,7 +34,8 @@
     <p><span i18n="@@common.actions">Actions</span>: {{user.province.name}}</p>
     <div>
       <button class="btn btn-blue flex-grow text-center" (click)="edit(user)" i18n="@@common.edit">Edit</button>
-      <button class="btn btn-blue flex-grow text-center" (click)="delete(user)" i18n="@@common.delete">Delete</button>
+      <button *ngIf="user.isActive" class="btn btn-blue flex-grow text-center" (click)="delete(user)" i18n="@@common.delete">Delete</button>
+      <button *ngIf="!user.isActive" class="btn btn-blue flex-grow text-center" (click)="active(user)" i18n="@@common.active">Active</button>
     </div>
   </li>
 </ul>

@@ -25,7 +25,7 @@ export class LoginComponent {
       };
       this.authService.login(loginDto).subscribe(
         () => this.router.navigate(['panel']),
-        (error) => console.error(error),
+        (error) => alert($localize `:login.alert.error:Login error`),
       );
     }
   }

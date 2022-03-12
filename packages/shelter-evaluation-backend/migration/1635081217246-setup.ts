@@ -85,6 +85,9 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'community_id', type: 'INT' }),
                 new TableColumn({ name: 'validate', type: 'BOOLEAN' }),
                 new TableColumn({ name: 'note', type: 'VARCHAR(250)', isNullable: true }),
+                new TableColumn({ name: 'create_date', type: 'datetime', default: 'CURRENT_TIMESTAMP' }),
+                new TableColumn({ name: 'udpate_date', type: 'datetime', default: 'CURRENT_TIMESTAMP' }),
+                new TableColumn({ name: 'is_active', type: 'tinyint(4)', default: true }),
             ],
             foreignKeys: [
                 { columnNames: ['community_id'], referencedTableName: 'community', referencedColumnNames: ['id'] },

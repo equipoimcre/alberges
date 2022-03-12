@@ -2,11 +2,13 @@ import { AutoMap } from '@automapper/classes';
 import { CommunityEntity, ProvinceEntity } from '../../user';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Geometry } from 'geojson';
 import { ShelterResponseEntity } from './shelter-response.entity';
@@ -61,4 +63,13 @@ export class ShelterEntity {
   )
   @AutoMap({typeFn: () => ShelterResponseEntity})
   shelterResponseList: ShelterResponseEntity[];
+
+  @CreateDateColumn({ name: 'create_date' })
+  createDate: Date;
+
+  @UpdateDateColumn({ name: 'udpate_date' })
+  updateDate: Date;
+
+  @Column({ default: true, name: 'is_active' })
+  isActive: boolean;
 }

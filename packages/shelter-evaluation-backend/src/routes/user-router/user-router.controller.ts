@@ -79,6 +79,14 @@ export class UserRouterController {
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
   @HttpCode(204)
+  @Delete('active/:id')
+  async active(@Param('id') id: number) {
+    await this.userService.active(id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Roles(ROLE.ADMINISTRATOR)
+  @HttpCode(204)
   @ApiBody({ type: Password })
   @Patch(':id/password')
   async changePassword(
@@ -90,8 +98,9 @@ export class UserRouterController {
 
   @UseGuards(JwtAuthGuard)
   @Roles(ROLE.ADMINISTRATOR)
+  @HttpCode(204)
   @Delete(':id')
   async delete(@Param('id') id: number) {
-    return this.userService.deleteUser(id);
+    await this.userService.deleteUser(id);
   }
 }

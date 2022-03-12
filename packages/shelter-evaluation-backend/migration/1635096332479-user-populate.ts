@@ -1,7 +1,7 @@
-import { ProvinceEntity, QuestionEntity, ShelterEntity, UserEntity, UserPositionEntity, RoleEntity } from "src/package";
+import { ProvinceEntity, QuestionEntity, ShelterEntity, UserEntity, UserPositionEntity, RoleEntity } from "../src/package";
 import { MigrationInterface, QueryRunner } from "typeorm";
 import { OrganizationEntity } from '../src/package/user/entity/organization.entity';
-import { CommunityEntity } from "src/package/user/entity/community.entity";
+import { CommunityEntity } from "../src/package/user/entity/community.entity";
 import { ROLE } from "shelter-evaluation-dto";
 
 export class userPopulate1635096332479 implements MigrationInterface {

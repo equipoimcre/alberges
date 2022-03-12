@@ -30,4 +30,6 @@ export class BaseUserDto {
   @ApiProperty()
   @AutoMap({ typeFn: () => OrganizationDto })
   public organization: OrganizationDto;
+  @AutoMap()
+  readonly isActive: boolean;
 }

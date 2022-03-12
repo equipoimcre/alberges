@@ -37,6 +37,10 @@ export class UserService extends BaseService {
     return this.httpClient.delete(this.getUrl(id.toString()));
   }
 
+  active(id: number) {
+    return this.httpClient.delete(this.getUrl('active/' + id.toString()));
+  }
+
   updateUser(userDto: UserDto) {
     return this.httpClient.put<UserDto>(this.getUrl(''), userDto);
   }

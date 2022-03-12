@@ -26,7 +26,11 @@ export class UserService {
   }
 
   deleteUser(id: number) {
-    return this.usersRepository.delete(id);
+    return this.usersRepository.update(id, {isActive: false});
+  }
+
+  active(id: number) {
+    return this.usersRepository.update(id, {isActive: true});
   }
 
   updateUser(userDto: UserDto) {

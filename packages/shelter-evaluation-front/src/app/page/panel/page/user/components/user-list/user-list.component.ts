@@ -40,14 +40,15 @@ export class UserListComponent implements OnInit {
   }
 
   delete(user: UserDto) {
-    //TODO: Add push up notification
     this.userService.deleteUser(user.id).subscribe(
-      (response) => {
-        const index = this.userPaginable.data.findIndex(
-          (userAux) => userAux.id === user.id,
-        );
-        this.userPaginable.data.splice(index, 1);
-      },
+      () => this.filter(),
+      (error) => console.error(error),
+    );
+  }
+
+  active(user: UserDto) {
+    this.userService.active(user.id).subscribe(
+      () => this.filter(),
       (error) => console.error(error),
     );
   }

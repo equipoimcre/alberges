@@ -35,6 +35,8 @@ mapper.createMap(OrganizationDto, OrganizationEntity);
 mapper.createMap(UserDto, UserEntity);
 mapper.createMap(CommunityDto, CommunityEntity);
 mapper.createMap(ShelterResponseDto, ShelterResponseEntity)
+  .forMember( destination => destination.shelter, ignore())
+  .forMember( destination => destination.question, ignore());
 mapper.createMap(QuestionDto, QuestionEntity);
 mapper.createMap(ShelterDto, ShelterEntity).forMember(
     d => d.community,
@@ -55,7 +57,7 @@ mapper.createMap(UserPositionEntity, UserPositionDto);
 mapper.createMap(OrganizationEntity, OrganizationDto);
 mapper.createMap(UserEntity, UserDto);
 mapper.createMap(CommunityEntity, CommunityDto);
-mapper.createMap(ShelterResponseEntity, ShelterResponseDto)
+mapper.createMap(ShelterResponseEntity, ShelterResponseDto);
 mapper.createMap(QuestionEntity, QuestionDto);
 mapper.createMap(ShelterEntity, ShelterDto).forMember(
   d => d.community,

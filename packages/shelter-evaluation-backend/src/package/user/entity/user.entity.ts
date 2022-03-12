@@ -39,6 +39,7 @@ export class UserEntity {
   agreeTerm: boolean;
 
   @Column({ default: true, name: 'is_active' })
+  @AutoMap()
   isActive: boolean;
 
   @OneToOne(() => ProvinceEntity, (province) => province.id, { eager: true })
