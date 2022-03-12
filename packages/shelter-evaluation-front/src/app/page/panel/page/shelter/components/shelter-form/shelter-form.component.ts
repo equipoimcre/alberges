@@ -172,13 +172,17 @@ export class ShelterFormComponent implements OnInit {
 
   private getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.shelterForm.setValue({
-          ...this.shelterForm.value,
-          longitude: position.coords.longitude,
-          latitude: position.coords.latitude,
-        });
-      });
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.shelterForm.setValue({
+            ...this.shelterForm.value,
+            longitude: position.coords.longitude,
+            latitude: position.coords.latitude,
+          });
+        },
+        () => {},
+        { enableHighAccuracy: true }
+      );
     }
   }
 }

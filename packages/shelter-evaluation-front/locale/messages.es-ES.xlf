@@ -9,7 +9,7 @@
           <context context-type="linenumber">6,8</context>
         </context-group>
       </trans-unit><trans-unit id="common.password" datatype="html">
-        <source> Password </source><target state="new"> Password </target>
+        <source> Password </source><target state="new"> Contraseña </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
           <context context-type="linenumber">17,19</context>
@@ -24,70 +24,70 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.sign.in" datatype="html">
-        <source> Sign In </source><target state="new"> Sign In </target>
+        <source> Sign In </source><target state="new"> Iniciar sesión </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
           <context context-type="linenumber">34,36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.forgot.password" datatype="html">
-        <source> Forgot Password? </source><target state="new"> Forgot Password? </target>
+        <source> Forgot Password? </source><target state="new"> ¿Ha olvidado la contraseña? </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
           <context context-type="linenumber">37,39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.log.out" datatype="html">
-        <source>Log out</source><target state="new">Log out</target>
+        <source>Log out</source><target state="new">Cerrar sesión</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="menu.user" datatype="html">
-        <source>User</source><target state="new">User</target>
+        <source>User</source><target state="new">Usuario</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.ts</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="menu.search.shelter" datatype="html">
-        <source>Search shelter</source><target state="new">Search shelter</target>
+        <source>Search shelter</source><target state="new">Buscar albergue</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.ts</context>
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="menu.create.shelter" datatype="html">
-        <source>Create shelter</source><target state="new">Create shelter</target>
+        <source>Create shelter</source><target state="new">Crear alberge</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.ts</context>
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.title.already.validate" datatype="html">
-        <source>Shelter already validate</source><target state="new">Shelter already validate</target>
+        <source>Shelter already validate</source><target state="new">El alberge ya ha isdo validado</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.title.validate" datatype="html">
-        <source>Validate shelter</source><target state="new">Validate shelter</target>
+        <source>Validate shelter</source><target state="new">Validar albergue</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.title.create" datatype="html">
-        <source>Create shelter</source><target state="new">Create shelter</target>
+        <source>Create shelter</source><target state="new">Crear alberge</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.community" datatype="html">
-        <source>Autonomous community</source><target state="new">Autonomous community</target>
+        <source>Autonomous community</source><target state="new">Comunidad autonoma</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">11</context>
@@ -102,7 +102,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.province" datatype="html">
-        <source>Province</source><target state="new">Province</target>
+        <source>Province</source><target state="new">Provincia</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">17</context>
@@ -121,91 +121,91 @@
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.municipality" datatype="html">
-        <source>Municipality</source><target state="new">Municipality</target>
+        <source>Municipality</source><target state="new">Municipio</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.owner" datatype="html">
-        <source>Owner</source><target state="new">Owner</target>
+        <source>Owner</source><target state="new">Propietario</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.name.of.enplacement" datatype="html">
-        <source>Name of enplacement</source><target state="new">Name of enplacement</target>
+        <source>Name of enplacement</source><target state="new">Nombre del lugar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.longitude" datatype="html">
-        <source>Longitued</source><target state="new">Longitued</target>
+        <source>Longitued</source><target state="new">Longitud</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.latitude" datatype="html">
-        <source>Latitude</source><target state="new">Latitude</target>
+        <source>Latitude</source><target state="new">Latitud</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.notes" datatype="html">
-        <source>Notes</source><target state="new">Notes</target>
+        <source>Notes</source><target state="new">Notas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.title.question" datatype="html">
-        <source>Questions</source><target state="new">Questions</target>
+        <source>Questions</source><target state="new">Preguntas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.button.save" datatype="html">
-        <source>Save</source><target state="new">Save</target>
+        <source>Save</source><target state="new">Guardar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.button.validate" datatype="html">
-        <source>Validate</source><target state="new">Validate</target>
+        <source>Validate</source><target state="new">Validar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.alert.validate" datatype="html">
-        <source>Shelter validated</source><target state="new">Shelter validated</target>
+        <source>Shelter validated</source><target state="new">Alberge validado</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
           <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.alert.created" datatype="html">
-        <source>Shelter created successfully</source><target state="new">Shelter created successfully</target>
+        <source>Shelter created successfully</source><target state="new">Alberge creado correctamente</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
           <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.alert.fill" datatype="html">
-        <source>Fill all data and response all the questions</source><target state="new">Fill all data and response all the questions</target>
+        <source>Fill all data and response all the questions</source><target state="new">Rellene los datos y responda las preguntas</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
           <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.name" datatype="html">
-        <source>Name</source><target state="new">Name</target>
+        <source>Name</source><target state="new">Nombre</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
           <context context-type="linenumber">4</context>
@@ -224,7 +224,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.reset" datatype="html">
-        <source>Reset</source><target state="new">Reset</target>
+        <source>Reset</source><target state="new">Reiniciar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
           <context context-type="linenumber">21</context>
@@ -235,7 +235,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.filter" datatype="html">
-        <source>Filter</source><target state="new">Filter</target>
+        <source>Filter</source><target state="new">Filtrar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
           <context context-type="linenumber">22</context>
@@ -250,21 +250,21 @@
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.title.update" datatype="html">
-        <source>Update user</source><target state="new">Update user</target>
+        <source>Update user</source><target state="new">Actualizar usuario</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.title.create" datatype="html">
-        <source>Create user</source><target state="new">Create user</target>
+        <source>Create user</source><target state="new">Crear usuario</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.surname" datatype="html">
-        <source>Surnames</source><target state="new">Surnames</target>
+        <source>Surnames</source><target state="new">Apellidos</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">11</context>
@@ -275,7 +275,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.email" datatype="html">
-        <source>Email</source><target state="new">Email</target>
+        <source>Email</source><target state="new">Correo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">15</context>
@@ -290,7 +290,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.repeat.password" datatype="html">
-        <source>Repeat password</source><target state="new">Repeat password</target>
+        <source>Repeat password</source><target state="new">Repetir contraseña</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">23</context>
@@ -301,7 +301,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.organization" datatype="html">
-        <source>Organization</source><target state="new">Organization</target>
+        <source>Organization</source><target state="new">Organizacion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">33</context>
@@ -315,98 +315,98 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.position" datatype="html">
-        <source>Position</source><target state="new">Position</target>
+        <source>Position</source><target state="new">Posicion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.agree" datatype="html">
-        <source>I agree to the Terms of User and Privacy Policy</source><target state="new">I agree to the Terms of User and Privacy Policy</target>
+        <source>I agree to the Terms of User and Privacy Policy</source><target state="new">Acepto los terminos de usuario y las politicas de privacidad</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.button.create" datatype="html">
-        <source>Create new user</source><target state="new">Create new user</target>
+        <source>Create new user</source><target state="new">Crear usuario nuevo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.button.update" datatype="html">
-        <source>Update user</source><target state="new">Update user</target>
+        <source>Update user</source><target state="new">Actualizar usuario</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.title.change.pasword" datatype="html">
-        <source>Change password</source><target state="new">Change password</target>
+        <source>Change password</source><target state="new">Cambiar contraseña</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.button.password" datatype="html">
-        <source>Change password</source><target state="new">Change password</target>
+        <source>Change password</source><target state="new">Cambiar contraseña</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
           <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.alert.updated" datatype="html">
-        <source>Update user succeed</source><target state="new">Update user succeed</target>
+        <source>Update user succeed</source><target state="new">Usuario actualizado correctamente</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.ts</context>
           <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.alert.invalid.form" datatype="html">
-        <source>Form is not valid</source><target state="new">Form is not valid</target>
+        <source>Form is not valid</source><target state="new">Formulario no es valido</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.ts</context>
           <context context-type="linenumber">76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.alert.changes.password" datatype="html">
-        <source>Change password succeed</source><target state="new">Change password succeed</target>
+        <source>Change password succeed</source><target state="new">Cambio de contraseña correcto</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.ts</context>
           <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.full.name" datatype="html">
-        <source>Full name</source><target state="new">Full name</target>
+        <source>Full name</source><target state="new">Nombre completo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.positions" datatype="html">
-        <source>Position</source><target state="new">Position</target>
+        <source>Position</source><target state="new">Posicion</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.actions" datatype="html">
-        <source>Actions</source><target state="new">Actions</target>
+        <source>Actions</source><target state="new">Acciones</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.edit" datatype="html">
-        <source>Edit</source><target state="new">Edit</target>
+        <source>Edit</source><target state="new">Editar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.delete" datatype="html">
-        <source>Delete</source><target state="new">Delete</target>
+        <source>Delete</source><target state="new">Borrar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">37</context>

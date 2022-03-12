@@ -121,7 +121,7 @@ export class UserFormComponent implements OnInit {
     if (!this.user) {
       formGroup.password = new FormControl(null, [Validators.required]);
       formGroup.repeatPassword = new FormControl(null, [Validators.required]);
-      formGroup.agreeTerm = new FormControl(null, [Validators.required]);
+      formGroup.agreeTerm = new FormControl(null, [Validators.requiredTrue]);
     } else {
       this.passwordFrom = new FormGroup({
         password: new FormControl(null, [Validators.required]),
