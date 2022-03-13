@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { tileLayer, map, Map, featureGroup, marker }from 'leaflet';
+import { tileLayer, map, Map, featureGroup, marker, Marker }from 'leaflet';
 import {LeafletLayer} from 'deck.gl-leaflet';
 import {MapView} from '@deck.gl/core';
 import {GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
@@ -20,6 +20,7 @@ export class ShelterMapComponent implements AfterViewInit {
   map!: Map;
 
   private _paginableShelter: Paginable<ShelterDto> = {count: 0, data: []};
+  private markerList: Marker<any>[] = [];
 
   constructor(private deviceDetectorService: DeviceDetectorService) {}
 
@@ -55,9 +56,13 @@ export class ShelterMapComponent implements AfterViewInit {
   }
 
   private addMarkers() {
+    this.markerList.forEach(marker => marker.remove())
+    this.markerList = [];
     const group = featureGroup();
     this._paginableShelter.data.forEach(shelter => {
-      group.addLayer(marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]));
+      const markerAux = marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]);
+      this.markerList.push(markerAux)
+      group.addLayer(markerAux);
     })
     this.map.addLayer(group);
   }
