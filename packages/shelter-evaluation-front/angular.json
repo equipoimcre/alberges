@@ -20,7 +20,7 @@
         "sourceLocale": "en-US",
         "locales": {
           "es-ES": {
-            "translation": "locale/messages.es-ES.xlf",
+            "translation": "locale/messages.es-ES.xlf"
           }
         }
       },
@@ -39,7 +39,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },

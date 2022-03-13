@@ -31,6 +31,7 @@ services:
       - ../../packages/shelter-evaluation-front/src:/opt/frontend/src
       - ../../packages/shelter-evaluation-front/node_modules:/opt/frontend/node_modules
       - ../../packages/shelter-evaluation-front/package.json:/opt/frontend/package.json
+      - ../../packages/shelter-evaluation-front/angular.json:/opt/frontend/angular.json
       - ../../packages/shelter-evaluation-dto:/opt/shelter-evaluation-dto
     
 

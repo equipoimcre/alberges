@@ -11,6 +11,7 @@ import { PaginationModule } from '../../../../components';
 import { RoleGuard } from '../../../../guard';
 import { ROLE } from '../../../../common';
 import { ShelterInfoComponent } from './components/shelter-info/shelter-info.component';
+import { ShelterMapComponent } from './components/shelter-map/shelter-map.component';
 
 const routes: Routes = [
   {
@@ -68,7 +69,8 @@ const routes: Routes = [
     ShelterCreateComponent,
     ShelterValidateComponent,
     ShelterFormComponent,
-    ShelterInfoComponent,   
+    ShelterInfoComponent,
+    ShelterMapComponent,   
   ],
   providers: [CommunityListResolver, QuestionListResolver, ShelterResolver, RoleGuard],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, PaginationModule,],

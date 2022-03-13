@@ -1,28 +1,28 @@
-<form [formGroup]="formFilters" (submit)="filter()" class="bg-white p-4 mb-4">
-  <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="flex flex-col">
-      <label for="name" class="flex-1" i18n="@@common.name">Name</label>
-      <input type="text" class="flex-1" formControlName="name">
+<div class="flex flex-col h-screen">
+  <form [formGroup]="formFilters" (submit)="filter()" class="bg-white p-4 mb-4">
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-col">
+        <label for="name" class="flex-1" i18n="@@common.name">Name</label>
+        <input type="text" class="flex-1" formControlName="name">
+      </div>
+      <div class="flex flex-col">
+        <label for="province" class="flex-1" i18n="@@common.province">Province</label>
+        <select id="province" class="flex-1" formControlName="provinceId" class="form-select">
+          <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
+        </select>
+      </div>
+      <div class="flex flex-col">
+        <label for="community" class="flex-1" i18n="@@common.community">Community</label>
+        <select id="community" class="flex-1" formControlName="communityId" class="form-select">
+          <option *ngFor="let community of communityList" [value]="community.id">{{community.name}}</option>
+        </select>
+      </div>
     </div>
-    <div class="flex flex-col">
-      <label for="province" class="flex-1" i18n="@@common.province">Province</label>
-      <select id="province" class="flex-1" formControlName="provinceId" class="form-select">
-        <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
-      </select>
+    <div class="block gap-4 flex justify-end">
+      <button class="btn btn-blue w-full text-center mt-4 md:w-auto" (click)="reset()" i18n="@@common.reset">Reset</button>
+      <button type="submit" class="btn btn-blue w-full text-center mt-4 md:w-auto" i18n="@@common.filter">Filter</button>
     </div>
-    <div class="flex flex-col">
-      <label for="community" class="flex-1" i18n="@@common.community">Community</label>
-      <select id="community" class="flex-1" formControlName="communityId" class="form-select">
-        <option *ngFor="let community of communityList" [value]="community.id">{{community.name}}</option>
-      </select>
-    </div>
-  </div>
-  <div class="block gap-4 flex justify-end">
-    <button class="btn btn-blue w-full text-center mt-4 md:w-auto" (click)="reset()" i18n="@@common.reset">Reset</button>
-    <button type="submit" class="btn btn-blue w-full text-center mt-4 md:w-auto" i18n="@@common.filter">Filter</button>
-  </div>
-</form>
-<div *ngIf="paginableShelter.data.length > 0">
+  </form>
   <ul class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols3 mb-4">
     <li *ngFor="let shelter of paginableShelter.data" class="bg-white p-4">
       <a [routerLink]="getPaht(shelter.id!)">
@@ -32,5 +32,6 @@
       </a>
     </li>
   </ul>
+  <app-shelter-map [paginableShelter]="paginableShelter" class="flex-grow"></app-shelter-map>
   <app-pagination #pagination [elementsPerPage]="elementsPerPage" [totalElements]="paginableShelter.count" (navigateToPage)="requestShelters($event)"></app-pagination>
 </div>
