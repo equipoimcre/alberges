@@ -27,7 +27,7 @@ export class ShelterController {
     const filters = Object.assign({}, query)
     delete filters.take;
     delete filters.skip;
-    return this.shelterService.filter(take, skip, filters, req.user.role);
+    return this.shelterService.filter(take, skip, filters, req.user);
   }
 
   @ApiCreatedResponse({

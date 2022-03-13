@@ -5,13 +5,13 @@
         <label for="name" class="flex-1" i18n="@@common.name">Name</label>
         <input type="text" class="flex-1" formControlName="name">
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-col" *ngIf="isAdmin()">
         <label for="province" class="flex-1" i18n="@@common.province">Province</label>
         <select id="province" class="flex-1" formControlName="provinceId" class="form-select">
           <option *ngFor="let province of provinceList" [value]="province.id">{{province.name}}</option>
         </select>
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-col" *ngIf="isAdmin()">
         <label for="community" class="flex-1" i18n="@@common.community">Community</label>
         <select id="community" class="flex-1" formControlName="communityId" class="form-select">
           <option *ngFor="let community of communityList" [value]="community.id">{{community.name}}</option>

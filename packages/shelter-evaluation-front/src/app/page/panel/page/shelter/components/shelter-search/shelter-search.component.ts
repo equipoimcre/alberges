@@ -80,6 +80,10 @@ export class ShelterSearchComponent implements OnInit {
     return `/panel/shelter/${isValidator ? 'validate' : 'info'}/` + id;
   }
 
+  isAdmin() {
+    return this.role!.name === ROLE.ADMINISTRATOR;
+  }
+
   private initFormFilters() {
     this.formFilters = new FormGroup({
       name: new FormControl(this.activatedRoute.snapshot.queryParams.name),

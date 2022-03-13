@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ROLE, ShelterDto, UserRoleDto } from 'shelter-evaluation-dto';
+import { ROLE, ShelterDto, UserDto, UserRoleDto } from 'shelter-evaluation-dto';
 import { mapper } from '../../../utils';
 import { Connection, Repository, FindConditions, Like } from 'typeorm';
 import { ShelterEntity } from '../entity';
@@ -44,27 +44,33 @@ export class ShelterService {
     }
   }
 
-  async filter(take: number, skip: number, filters: any, role: UserRoleDto) {
+  async filter(take: number, skip: number, filters: any, user: UserDto) {
     const where: FindConditions<ShelterEntity> = {};
 
     if (filters.name) {
       where.name = Like(`%${filters.name}%`);
     }
 
-    if (filters.communityId) {
-      where.community = {
-        id: filters.communityId,
+    if (user.role.name === ROLE.ADMINISTRATOR) {
+      if (filters.communityId) {
+        where.community = {
+          id: filters.communityId,
+        }
       }
-    }
-
-    if (filters.provinceId) {
+  
+      if (filters.provinceId) {
+        where.province = {
+          id: filters.provinceId,
+        }
+      }
+    } else {
       where.province = {
-        id: filters.provinceId,
+        id: user.province.id,
       }
     }
 
-    if (role.name !== ROLE.ADMINISTRATOR) {
-      where.validate = role.name === ROLE.VALIDATOR ? false : true;
+    if (user.role.name !== ROLE.ADMINISTRATOR) {
+      where.validate = user.role.name === ROLE.VALIDATOR ? false : true;
     }
 
     const [data, count] = await this.shelterRepository.findAndCount({
