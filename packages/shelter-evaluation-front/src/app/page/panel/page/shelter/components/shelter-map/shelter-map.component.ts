@@ -55,15 +55,17 @@ export class ShelterMapComponent implements AfterViewInit {
       this.map.addLayer(deckLayer);
   }
 
-  private addMarkers() {
-    this.markerList.forEach(marker => marker.remove())
-    this.markerList = [];
-    const group = featureGroup();
-    this._paginableShelter.data.forEach(shelter => {
-      const markerAux = marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]);
-      this.markerList.push(markerAux)
-      group.addLayer(markerAux);
-    })
-    this.map.addLayer(group);
+  private addMarkers() {    
+    if (this._paginableShelter.data.length > 0) {
+      this.markerList.forEach(marker => marker.remove())
+      this.markerList = [];
+      const group = featureGroup();
+      this._paginableShelter.data.forEach(shelter => {
+        const markerAux = marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]);
+        this.markerList.push(markerAux)
+        group.addLayer(marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]));
+      })
+      this.map.addLayer(group);
+    }
   }
 }
