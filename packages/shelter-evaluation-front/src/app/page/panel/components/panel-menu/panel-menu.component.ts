@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserRoleDto } from 'shelter-evaluation-dto';
 import { ROLE } from '../../../../common';
@@ -31,6 +31,9 @@ export class PanelMenuComponent implements OnInit {
     },
   ];
 
+  @ViewChild('menu')
+  menu!: ElementRef<HTMLElement>;
+
   constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {}
   
   ngOnInit(): void {
@@ -40,5 +43,13 @@ export class PanelMenuComponent implements OnInit {
   public logOut() {
     this.authService.removeToken();
     this.router.navigateByUrl('');
+  }
+
+  toggleMenu() {
+    if (this.menu.nativeElement.classList.contains('hidden')) {
+      this.menu.nativeElement.classList.remove('hidden');
+    } else {
+      this.menu.nativeElement.classList.add('hidden');
+    }    
   }
 }
