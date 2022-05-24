@@ -26,7 +26,7 @@ npm run docker:prod:migration:run # Populate the database
 
 ### Default login
 
-Access url: https://shelter-evaluation.cruzroja.com/login
+Access url: https://local.app.shelter-evaluation.cruzroja.com/login
 
 ```
 username: root@shelterevaluation.com

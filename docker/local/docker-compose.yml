@@ -17,7 +17,6 @@ services:
       - 9229:9229
     volumes:
       - ../../packages/shelter-evaluation-backend/src:/opt/backend/src
-      - ../../packages/shelter-evaluation-backend/node_modules:/opt/backend/node_modules
       - ../../packages/shelter-evaluation-backend/package.json:/opt/backend/package.json
       - ../../packages/shelter-evaluation-backend/migration:/opt/backend/migration
       - ../../packages/shelter-evaluation-dto:/opt/shelter-evaluation-dto
@@ -29,7 +28,6 @@ services:
       dockerfile: shelter-evaluation-front/docker/local/dockerfile
     volumes:
       - ../../packages/shelter-evaluation-front/src:/opt/frontend/src
-      - ../../packages/shelter-evaluation-front/node_modules:/opt/frontend/node_modules
       - ../../packages/shelter-evaluation-front/package.json:/opt/frontend/package.json
       - ../../packages/shelter-evaluation-front/angular.json:/opt/frontend/angular.json
       - ../../packages/shelter-evaluation-dto:/opt/shelter-evaluation-dto
