@@ -23,7 +23,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm",
-    "migrate": "npm run typeorm -- migration:run",
+    "migrate": "mv dist/src/utils/mapper.js dist/src/utils/mapper.txt && touch dist/src/utils/mapper.js && npm run typeorm -- migration:run && rm dist/src/utils/mapper.js && mv dist/src/utils/mapper.txt dist/src/utils/mapper.js",
     "migrate:revert": "npm run typeorm -- migration:revert",
     "tsc": "tsc"
   },
