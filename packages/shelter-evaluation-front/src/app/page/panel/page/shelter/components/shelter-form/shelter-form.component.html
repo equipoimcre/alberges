@@ -77,6 +77,76 @@
             [ngClass]="{'input-error': !this.shelterForm.controls.latitude.valid && this.shelterForm.controls.latitude.touched }">
         </div>
         <div class="flex flex-col">
+          <label for="surface" class="mx-4" i18n="@@shelter.form.field.surface">Inside surface of the building:</label>
+          <input 
+            type="text" 
+            id="surface" 
+            formControlName="surface" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.surface.valid && this.shelterForm.controls.surface.touched }">
+        </div>
+        <div class="flex flex-col">
+          <label for="exteriorSurface" class="mx-4" i18n="@@shelter.form.field.exteriorSurface">Available exterior surface (removing road access):</label>
+          <input 
+            type="text" 
+            id="exteriorSurface" 
+            formControlName="exteriorSurface" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.exteriorSurface.valid && this.shelterForm.controls.exteriorSurface.touched }">
+        </div>
+        <div class="flex flex-col">
+          <label for="bathroomSurface" class="mx-4" i18n="@@shelter.form.field.bathroomSurface">Bathroom surface:</label>
+          <input 
+            type="text" 
+            id="bathroomSurface"
+            formControlName="bathroomSurface" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.bathroomSurface.valid && this.shelterForm.controls.bathroomSurface.touched }">
+        </div>
+        <div class="flex flex-col">
+          <label for="showerQuantity" class="mx-4" i18n="@@shelter.form.field.showerQuantity">How many showers are available?</label>
+          <input 
+            type="text" 
+            id="showerQuantity"
+            formControlName="showerQuantity" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.showerQuantity.valid && this.shelterForm.controls.showerQuantity.touched }">
+        </div>
+        <div class="flex flex-col">
+          <label for="sinkQuantity" class="mx-4" i18n="@@shelter.form.field.sinkQuantity">How many sinks are available?</label>
+          <input 
+            type="text" 
+            id="sinkQuantity"
+            formControlName="sinkQuantity" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.sinkQuantity.valid && this.shelterForm.controls.sinkQuantity.touched }">
+        </div>
+        <div class="flex flex-col">
+          <label for="toiletQuantity" class="mx-4" i18n="@@shelter.form.field.toiletQuantity">How many toilets are available?</label>
+          <input 
+            type="text" 
+            id="toiletQuantity"
+            formControlName="toiletQuantity" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.toiletQuantity.valid && this.shelterForm.controls.toiletQuantity.touched }">
+        </div>
+        <div class="flex flex-col">
+          <label for="washingMachineQuantity" class="mx-4" i18n="@@shelter.form.field.washingMachineQuantity">How many washers/dryers are available?</label>
+          <input 
+            type="text" 
+            id="washingMachineQuantity"
+            formControlName="washingMachineQuantity" 
+            class="form-input" 
+            [attr.disabled]="validateMode || displayMode ? true : null"
+            [ngClass]="{'input-error': !this.shelterForm.controls.washingMachineQuantity.valid && this.shelterForm.controls.washingMachineQuantity.touched }">
+        </div>
+        <div class="flex flex-col">
           <label for="note" class="mx-4" i18n="@@shelter.form.field.notes">Notes</label>
           <textarea 
             type="text" 

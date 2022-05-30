@@ -72,4 +72,26 @@ export class ShelterEntity {
 
   @Column({ default: true, name: 'is_active' })
   isActive: boolean;
+
+  @Column()
+  surface: number;
+
+  @Column({name: 'exterior_surface'})
+  exteriorSurface: number;
+
+  @Column({name: 'bathroom_surface'})
+  bathroomSurface: number;
+
+  @Column({name: 'shower_quantity'})
+  showerQuantity: number;
+
+  @Column({name: 'sink_quantity'})
+  sinkQuantity: number;
+
+  @Column({name: 'toilet_quantity'})
+  toiletQuantity: number;
+
+  @Column({name: 'washing_machine_quantity'})
+  washingMachineQuantity: number;
+
 }

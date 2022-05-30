@@ -75,7 +75,14 @@ export class ShelterFormComponent implements OnInit {
           coordinate: {
             type: 'Point',
             coordinates: [formValues.latitude, formValues.longitude]
-          },        
+          },
+          bathroomSurface: formValues.bathroomSurface,
+          exteriorSurface: formValues.exteriorSurface,
+          showerQuantity: formValues.showerQuantity,
+          sinkQuantity: formValues.sinkQuantity,
+          surface: formValues.surface,
+          toiletQuantity: formValues.toiletQuantity,
+          washingMachineQuantity: formValues.washingMachineQuantity
         }
         this.shelterService.create(shelterDto).subscribe(
           response => {
@@ -121,6 +128,13 @@ export class ShelterFormComponent implements OnInit {
       longitude: new FormControl((this.shelterDto?.coordinate as any)?.coordinates[0], [Validators.required]),
       latitude: new FormControl((this.shelterDto?.coordinate as any)?.coordinates[1], [Validators.required]),
       note: new FormControl(this.shelterDto?.note),
+      bathroomSurface: new FormControl(this.shelterDto?.bathroomSurface, [Validators.required]),
+      exteriorSurface: new FormControl(this.shelterDto?.exteriorSurface, [Validators.required]),
+      showerQuantity: new FormControl(this.shelterDto?.showerQuantity, [Validators.required]),
+      sinkQuantity: new FormControl(this.shelterDto?.sinkQuantity, [Validators.required]),
+      surface: new FormControl(this.shelterDto?.surface, [Validators.required]),
+      toiletQuantity: new FormControl(this.shelterDto?.toiletQuantity, [Validators.required]),
+      washingMachineQuantity: new FormControl(this.shelterDto?.washingMachineQuantity, [Validators.required]),
     };
     if (this.validateMode) {
       controls.validate = new FormControl(this.shelterDto?.validate, [Validators.required]);
@@ -158,7 +172,10 @@ export class ShelterFormComponent implements OnInit {
     if (data) {
       const json = JSON.parse(data);
       Object.keys(json).forEach(key => {
-        this.shelterForm.controls[key].setValue(json[key]);
+        const control =  this.shelterForm.controls[key];
+        if (control) {
+          control.setValue(json[key]);
+        }
       })
     }
   }

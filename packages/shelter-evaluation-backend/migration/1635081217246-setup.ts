@@ -1,3 +1,4 @@
+import { type } from "os";
 import {MigrationInterface, QueryRunner, Table, TableColumn} from "typeorm";
 
 export class setup1635081217246 implements MigrationInterface {
@@ -88,6 +89,13 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'create_date', type: 'datetime', default: 'CURRENT_TIMESTAMP' }),
                 new TableColumn({ name: 'udpate_date', type: 'datetime', default: 'CURRENT_TIMESTAMP' }),
                 new TableColumn({ name: 'is_active', type: 'tinyint(4)', default: true }),
+                new TableColumn({ name: 'surface', type: 'FLOAT' }),
+                new TableColumn({ name: 'exterior_surface', type: 'FLOAT' }),
+                new TableColumn({ name: 'bathroom_surface', type: 'FLOAT' }),
+                new TableColumn({ name: 'shower_quantity', type: 'INT' }),
+                new TableColumn({ name: 'sink_quantity', type: 'INT' }),
+                new TableColumn({ name: 'toilet_quantity', type: 'INT' }),
+                new TableColumn({ name: 'washing_machine_quantity', type: 'INT' }),
             ],
             foreignKeys: [
                 { columnNames: ['community_id'], referencedTableName: 'community', referencedColumnNames: ['id'] },

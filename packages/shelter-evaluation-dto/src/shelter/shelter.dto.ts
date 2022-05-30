@@ -38,4 +38,25 @@ export class ShelterDto {
   @ApiProperty()
   @AutoMap({typeFn: () => ShelterResponseDto})
   shelterResponseList: ShelterResponseDto[];  
+  @ApiProperty()
+  @IsNumber()
+  surface: number;
+  @ApiProperty()
+  @IsNumber()
+  exteriorSurface: number;
+  @ApiProperty()
+  @IsNumber()
+  bathroomSurface: number;
+  @ApiProperty()
+  @IsNumber()
+  showerQuantity: number;
+  @ApiProperty()
+  @IsNumber()
+  sinkQuantity: number;
+  @ApiProperty()
+  @IsNumber()
+  toiletQuantity: number;
+  @ApiProperty()
+  @IsNumber()
+  washingMachineQuantity: number;
 }
