@@ -40,23 +40,67 @@ export class ShelterDto {
   shelterResponseList: ShelterResponseDto[];  
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   surface: number;
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   exteriorSurface: number;
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   bathroomSurface: number;
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   showerQuantity: number;
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   sinkQuantity: number;
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   toiletQuantity: number;
   @ApiProperty()
   @IsNumber()
+  @AutoMap()
   washingMachineQuantity: number;
+  @AutoMap()
+  cacSurface?: number;
+  @AutoMap()
+  showerQuantityCac?: number;
+  @AutoMap()
+  potableShowerSpaceQuantityCac?: number;
+  @AutoMap()
+  toiletQuantityCac?: number;
+  @AutoMap()
+  howManySurfaceForToiletCac?: number;
+  @AutoMap()
+  howManyWashingMachineCanInstallCac?: number;
+  @AutoMap()
+  thereAreTolietFor20PersonCac?: number;
+  @AutoMap()
+  potableWashingMachineSurfaceCac?: number;
+  @AutoMap()
+  apSurface?: number;
+  @AutoMap()
+  showerQuantitysAp?: number;
+  @AutoMap()
+  portableShowerSpaceQuantityAp?: number;
+  @AutoMap()
+  toiletQuantityAp?: number;
+  @AutoMap()
+  howManySurfaceForToiletsAp?: number;
+  @AutoMap()
+  howManyWashingMachineCanInstallAp?: number;
+  @AutoMap()
+  thereAreTolietFor20PersonAp?: number;
+  @AutoMap()
+  potableWashingMachineSurfaceAP?: number;
+  @AutoMap()
+  sufarceWahsingMachineAp?: number;
+  @AutoMap()
+  sufarceWahsingMachineCac?: number;
+
 }

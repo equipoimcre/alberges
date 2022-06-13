@@ -489,6 +489,24 @@ export class userPopulate1635096332479 implements MigrationInterface {
         shelter.sinkQuantity = 1;
         shelter.toiletQuantity = 1;
         shelter.washingMachineQuantity = 100;
+        shelter.cacSurface = 0;
+        shelter.showerQuantityCac = 0;
+        shelter.potableShowerSpaceQuantityCac = 0;
+        shelter.toiletQuantityCac = 0;
+        shelter.howManySurfaceForToiletCac = 0;
+        shelter.howManyWashingMachineCanInstallCac = 0;
+        shelter.thereAreTolietFor20PersonCac = 0;
+        shelter.potableWashingMachineSurfaceCac = 0;
+        shelter.apSurface = 0;
+        shelter.showerQuantitysAp = 0;
+        shelter.portableShowerSpaceQuantityAp = 0;
+        shelter.toiletQuantityAp = 0;
+        shelter.howManySurfaceForToiletsAp = 0;
+        shelter.howManyWashingMachineCanInstallAp = 0;
+        shelter.thereAreTolietFor20PersonAp = 0;
+        shelter.potableWashingMachineSurfaceAP = 0;
+        shelter.sufarceWahsingMachineCac = 0;
+        shelter.sufarceWahsingMachineAp = 0;
         return await queryRunner.manager.save(shelter);
     }
 
