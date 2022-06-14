@@ -20,8 +20,8 @@ npm run prepare
 ### Runing the project localy
 
 ```bash
-npm run docker:prod:up # This command laucnh localy production environment
-npm run docker:prod:migration:run # Populate the database
+npm run docker:local:up # This command laucnh localy production environment
+npm run docker:local:migration:run # Populate the database
 ```
 
 ### Default login

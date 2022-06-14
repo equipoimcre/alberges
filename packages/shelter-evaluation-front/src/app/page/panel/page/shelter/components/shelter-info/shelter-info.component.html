@@ -1,1 +1,59 @@
 <app-shelter-form [displayMode]="true"></app-shelter-form>
+<div *ngIf="shelterDto" class="bg-white p-4 mb-4">
+  <table class="table-auto text-left w-full">
+    <thead>
+      <tr>
+        <th></th>      
+        <th>cac</th>      
+        <th>ap</th>      
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th i18n="@@shelter.info.surface">Calculate accommodation capacity (indicative): 45 m2/person, taking the interior surface of the building.</th>
+        <th>{{shelterDto.cacSurface}}</th>
+        <th>{{shelterDto.apSurface}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.quantity">There is at least 1 shower for every 20 people staying, or space to install portable showers (calculate 2 m2/shower)</th>
+        <th>{{shelterDto.showerQuantityCac}}</th>
+        <th>{{shelterDto.showerQuantitysAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">How many m2 are available to install laptops?</th>
+        <th>{{shelterDto.potableShowerSpaceQuantityCac}}</th>
+        <th>{{shelterDto.portableShowerSpaceQuantityAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">How many m2 are available to install laptops?</th>
+        <th>{{shelterDto.toiletQuantityCac}}</th>
+        <th>{{shelterDto.toiletQuantityAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">There is more than 1 sink/20 people, or space to install them.</th>
+        <th>{{shelterDto.howManySurfaceForToiletCac}}</th>
+        <th>{{shelterDto.howManySurfaceForToiletsAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">How many m2 are available to install sinks?</th>
+        <th>{{shelterDto.sufarceWahsingMachineCac}}</th>
+        <th>{{shelterDto.sufarceWahsingMachineAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">Space available for laundry (water and electricity connections for washers and dryers 1/100 people)</th>
+        <th>{{shelterDto.howManyWashingMachineCanInstallCac}}</th>
+        <th>{{shelterDto.howManyWashingMachineCanInstallAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">There is 1 toilet for every 20 people staying or space to install portable toilets (calculate 1.5 m2/toilet)</th>
+        <th>{{shelterDto.thereAreTolietFor20PersonCac}}</th>
+        <th>{{shelterDto.thereAreTolietFor20PersonAp}}</th>
+      </tr>
+      <tr>
+        <th i18n="@@shelter.info.shower.space">How many m2 are available to install portable toilets?</th>
+        <th>{{shelterDto.potableWashingMachineSurfaceCac}}</th>
+        <th>{{shelterDto.potableWashingMachineSurfaceAP}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

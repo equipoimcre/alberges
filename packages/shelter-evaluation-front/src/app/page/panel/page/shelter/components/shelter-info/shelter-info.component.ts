@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ShelterDto } from 'shelter-evaluation-dto';
 
 @Component({
   selector: 'app-shelter-info',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShelterInfoComponent implements OnInit {
 
-  constructor() { }
+  shelterDto: ShelterDto | undefined;
+
+  constructor(
+    private activeRoute: ActivatedRoute, 
+  ) { }
 
   ngOnInit(): void {
+    this.shelterDto = this.activeRoute.snapshot.data.shelter;
   }
 
 }
