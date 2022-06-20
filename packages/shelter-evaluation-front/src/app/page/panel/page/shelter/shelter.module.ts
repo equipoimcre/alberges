@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommunityListResolver, QuestionListResolver, ShelterResolver } from './resolver';
 import { PaginationModule } from '../../../../components';
 import { RoleGuard } from '../../../../guard';
-import { ROLE } from '../../../../common';
+import { ROLE, YesNoPipe } from '../../../../common';
 import { ShelterInfoComponent } from './components/shelter-info/shelter-info.component';
 import { ShelterMapComponent } from './components/shelter-map/shelter-map.component';
 
@@ -70,7 +70,8 @@ const routes: Routes = [
     ShelterValidateComponent,
     ShelterFormComponent,
     ShelterInfoComponent,
-    ShelterMapComponent,   
+    ShelterMapComponent,
+    YesNoPipe, 
   ],
   providers: [CommunityListResolver, QuestionListResolver, ShelterResolver, RoleGuard],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, PaginationModule,],
