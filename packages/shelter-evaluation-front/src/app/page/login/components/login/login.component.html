@@ -14,9 +14,7 @@
           formControlName="username">
       </div>
       <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password" i18n="@@common.password">
-          Password
-        </label>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password" i18n="@@common.password">Password</label>
         <input 
           class="input" 
           [ngClass]="{'input-error': !this.loginFormModule.controls.password.valid && this.loginFormModule.controls.password.touched}"

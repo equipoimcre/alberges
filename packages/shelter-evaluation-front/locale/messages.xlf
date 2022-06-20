@@ -2,6 +2,20 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="common.yes" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/common/pipe/yes-no.pipe.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.no" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/common/pipe/yes-no.pipe.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="common.username" datatype="html">
         <source> Username </source>
         <context-group purpose="location">
@@ -10,39 +24,55 @@
         </context-group>
       </trans-unit>
       <trans-unit id="common.password" datatype="html">
-        <source> Password </source>
+        <source>Password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
-          <context context-type="linenumber">17,19</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.sign.in" datatype="html">
         <source> Sign In </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
-          <context context-type="linenumber">34,36</context>
+          <context context-type="linenumber">32,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.forgot.password" datatype="html">
         <source> Forgot Password? </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context>
-          <context context-type="linenumber">37,39</context>
+          <context context-type="linenumber">35,37</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="5983924061576933135" datatype="html">
+        <source>Login error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/login/components/login/login.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <note priority="1" from="description">login.alert.error</note>
       </trans-unit>
       <trans-unit id="common.log.out" datatype="html">
         <source>Log out</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/components/panel-menu/panel-menu.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="menu.user" datatype="html">
@@ -66,154 +96,266 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="shelter.form.title.already.validate" datatype="html">
-        <source>Shelter already validate</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="shelter.form.title.validate" datatype="html">
         <source>Validate shelter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.title.create" datatype="html">
         <source>Create shelter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.community" datatype="html">
-        <source>Autonomous community</source>
+        <source>Community</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.province" datatype="html">
         <source>Province</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.municipality" datatype="html">
         <source>Municipality</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.owner" datatype="html">
         <source>Owner</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.name.of.enplacement" datatype="html">
         <source>Name of enplacement</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.longitude" datatype="html">
         <source>Longitued</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.latitude" datatype="html">
         <source>Latitude</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.surface" datatype="html">
+        <source>Inside surface of the building:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.exteriorSurface" datatype="html">
+        <source>Available exterior surface (removing road access):</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.bathroomSurface" datatype="html">
+        <source>Bathroom surface:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.showerQuantity" datatype="html">
+        <source>How many showers are available?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.sinkQuantity" datatype="html">
+        <source>How many sinks are available?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.toiletQuantity" datatype="html">
+        <source>How many toilets are available?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.form.field.washingMachineQuantity" datatype="html">
+        <source>How many washers/dryers are available?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
+          <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.field.notes" datatype="html">
         <source>Notes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.title.question" datatype="html">
         <source>Questions</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">161</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.button.save" datatype="html">
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">177</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.form.button.validate" datatype="html">
         <source>Validate</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">178</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.alert.validate" datatype="html">
         <source>Shelter validated</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.alert.created" datatype="html">
         <source>Shelter created successfully</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="shelter.alert.fill" datatype="html">
         <source>Fill all data and response all the questions</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.is" datatype="html">
+        <source>Is valid ?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.surface" datatype="html">
+        <source>Calculate accommodation capacity (indicative): 45 m2/person, taking the interior surface of the building.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.quantity" datatype="html">
+        <source>There is at least 1 shower for every 20 people staying, or space to install portable showers (calculate 2 m2/shower)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.space" datatype="html">
+        <source>How many m2 are available to install laptops?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.toilet" datatype="html">
+        <source>If there is a space available for laundry with water and electricity connections, how many washers/dryers could be installed?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.toilet.surface" datatype="html">
+        <source>There is more than 1 sink/20 people, or space to install them.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.sink" datatype="html">
+        <source>How many m2 are available to install sinks?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.sink.surface" datatype="html">
+        <source>Space available for laundry (water and electricity connections for washers and dryers 1/100 people)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.toilet20" datatype="html">
+        <source>There is 1 toilet for every 20 people staying or space to install portable toilets (calculate 1.5 m2/toilet)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shelter.info.shower.washing.surface" datatype="html">
+        <source>How many m2 are available to install portable toilets?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.name" datatype="html">
         <source>Name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
@@ -228,7 +370,7 @@
         <source>Reset</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
@@ -239,15 +381,11 @@
         <source>Filter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-search/shelter-search.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">19</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
-          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.title.update" datatype="html">
@@ -265,10 +403,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.surname" datatype="html">
-        <source>Surnames</source>
+        <source>Surname</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
@@ -279,7 +417,7 @@
         <source>Email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
@@ -289,72 +427,84 @@
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/request-password/request-password.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.repeat.password" datatype="html">
         <source>Repeat password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.organization" datatype="html">
         <source>Organization</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.role" datatype="html">
         <source>Role</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.position" datatype="html">
         <source>Position</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.agree" datatype="html">
         <source>I agree to the Terms of User and Privacy Policy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">77</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.button.create" datatype="html">
         <source>Create new user</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.button.update" datatype="html">
         <source>Update user</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.title.change.pasword" datatype="html">
         <source>Change password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">86</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.form.field.button.password" datatype="html">
         <source>Change password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-form/user-form.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="user.alert.updated" datatype="html">
@@ -412,6 +562,75 @@
           <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">37</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="common.active" datatype="html">
+        <source>Active</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/panel/page/user/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reset.password" datatype="html">
+        <source>Reset password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/request-password/request-password.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.send" datatype="html">
+        <source> Send </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/request-password/request-password.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8250726620447839249" datatype="html">
+        <source>Email was sent to your mailbox</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/request-password/request-password.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">request.password.alert.success</note>
+      </trans-unit>
+      <trans-unit id="2923750137623497565" datatype="html">
+        <source>Couldn&apos;t send email retry again later</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/request-password/request-password.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">request.password.alert.error</note>
+      </trans-unit>
+      <trans-unit id="5108418000757845610" datatype="html">
+        <source>Password changed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">reset.password.alert.success</note>
+      </trans-unit>
+      <trans-unit id="6830777510243678489" datatype="html">
+        <source>Error trying to update the password try it later</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <note priority="1" from="description">reset.password.alert.error</note>
+      </trans-unit>
+      <trans-unit id="6997601413877806322" datatype="html">
+        <source>Password have to be the same</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/page/reset-password/components/reset-password/reset-password.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">reset.password.alert.duplicate.password</note>
       </trans-unit>
     </body>
   </file>
