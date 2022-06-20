@@ -3,7 +3,7 @@
   <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="es-ES">
     <body>
       <trans-unit id="common.yes" datatype="html">
-        <source>Yes</source><target state="new">Yes</target>
+        <source>Yes</source><target state="new">Si</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/common/pipe/yes-no.pipe.ts</context>
           <context context-type="linenumber">8</context>
@@ -34,7 +34,7 @@
         <source> Forgot Password? </source><target state="new"> ¿Ha olvidado la contraseña? </target>
         
       <context-group purpose="location"><context context-type="sourcefile">src/app/page/login/components/login/login.component.html</context><context context-type="linenumber">35</context></context-group></trans-unit><trans-unit id="5983924061576933135" datatype="html">
-        <source>Login error</source><target state="new">Login error</target>
+        <source>Login error</source><target state="new">Error login</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/login/components/login/login.component.ts</context>
           <context context-type="linenumber">28</context>
@@ -108,43 +108,43 @@
         <source>Latitude</source><target state="new">Latitud</target>
         
       <context-group purpose="location"><context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context><context context-type="linenumber">70</context></context-group></trans-unit><trans-unit id="shelter.form.field.surface" datatype="html">
-        <source>Inside surface of the building:</source><target state="new">Inside surface of the building:</target>
+        <source>Inside surface of the building:</source><target state="new">Superficie interior del edificio:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.form.field.exteriorSurface" datatype="html">
-        <source>Available exterior surface (removing road access):</source><target state="new">Available exterior surface (removing road access):</target>
+        <source>Available exterior surface (removing road access):</source><target state="new">Superficie exterior disponible (eliminando el acceso rodado):</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.form.field.bathroomSurface" datatype="html">
-        <source>Bathroom surface:</source><target state="new">Bathroom surface:</target>
+        <source>Bathroom surface:</source><target state="new">Superficie del baño:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.form.field.showerQuantity" datatype="html">
-        <source>How many showers are available?</source><target state="new">How many showers are available?</target>
+        <source>How many showers are available?</source><target state="new">¿Cuántas duchas hay disponibles?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">110</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.form.field.sinkQuantity" datatype="html">
-        <source>How many sinks are available?</source><target state="new">How many sinks are available?</target>
+        <source>How many sinks are available?</source><target state="new">¿Cuántos lavabos hay disponibles?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.form.field.toiletQuantity" datatype="html">
-        <source>How many toilets are available?</source><target state="new">How many toilets are available?</target>
+        <source>How many toilets are available?</source><target state="new">¿Cuántos baños hay disponibles?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">130</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.form.field.washingMachineQuantity" datatype="html">
-        <source>How many washers/dryers are available?</source><target state="new">How many washers/dryers are available?</target>
+        <source>How many washers/dryers are available?</source><target state="new">¿Cuántas lavadoras/secadoras hay disponibles?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.html</context>
           <context context-type="linenumber">140</context>
@@ -178,61 +178,61 @@
         <source>Fill all data and response all the questions</source><target state="new">Rellene los datos y responda las preguntas</target>
         
       <context-group purpose="location"><context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-form/shelter-form.component.ts</context><context context-type="linenumber">97</context></context-group></trans-unit><trans-unit id="shelter.info.is" datatype="html">
-        <source>Is valid ?</source><target state="new">Is valid ?</target>
+        <source>Is valid ?</source><target state="new">¿Es válida ?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.surface" datatype="html">
-        <source>Calculate accommodation capacity (indicative): 45 m2/person, taking the interior surface of the building.</source><target state="new">Calculate accommodation capacity (indicative): 45 m2/person, taking the interior surface of the building.</target>
+        <source>Calculate accommodation capacity (indicative): 45 m2/person, taking the interior surface of the building.</source><target state="new">Calcular capacidad de alojamiento (indicativo): 45 m2/persona, tomando la superficie interior del edificio.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.quantity" datatype="html">
-        <source>There is at least 1 shower for every 20 people staying, or space to install portable showers (calculate 2 m2/shower)</source><target state="new">There is at least 1 shower for every 20 people staying, or space to install portable showers (calculate 2 m2/shower)</target>
+        <source>There is at least 1 shower for every 20 people staying, or space to install portable showers (calculate 2 m2/shower)</source><target state="new">Hay al menos 1 ducha por cada 20 personas alojadas, o espacio para instalar duchas portátiles (calcular 2 m2/ducha)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.space" datatype="html">
-        <source>How many m2 are available to install laptops?</source><target state="new">How many m2 are available to install laptops?</target>
+        <source>How many m2 are available to install laptops?</source><target state="new">¿Cuántos m2 hay disponibles para instalar portátiles?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.toilet" datatype="html">
-        <source>If there is a space available for laundry with water and electricity connections, how many washers/dryers could be installed?</source><target state="new">If there is a space available for laundry with water and electricity connections, how many washers/dryers could be installed?</target>
+        <source>If there is a space available for laundry with water and electricity connections, how many washers/dryers could be installed?</source><target state="new">Si hay un espacio disponible para lavandería con conexiones de agua y electricidad, ¿cuántas lavadoras/secadoras se podrían instalar?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.toilet.surface" datatype="html">
-        <source>There is more than 1 sink/20 people, or space to install them.</source><target state="new">There is more than 1 sink/20 people, or space to install them.</target>
+        <source>There is more than 1 sink/20 people, or space to install them.</source><target state="new">Hay más de 1 lavabo/20 personas, o espacio para instalarlos.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.sink" datatype="html">
-        <source>How many m2 are available to install sinks?</source><target state="new">How many m2 are available to install sinks?</target>
+        <source>How many m2 are available to install sinks?</source><target state="new">¿Cuántos m2 hay disponibles para instalar lavabos?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.sink.surface" datatype="html">
-        <source>Space available for laundry (water and electricity connections for washers and dryers 1/100 people)</source><target state="new">Space available for laundry (water and electricity connections for washers and dryers 1/100 people)</target>
+        <source>Space available for laundry (water and electricity connections for washers and dryers 1/100 people)</source><target state="new">Espacio disponible para lavandería (conexiones de agua y electricidad para lavadoras y secadoras 1/100 personas)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.toilet20" datatype="html">
-        <source>There is 1 toilet for every 20 people staying or space to install portable toilets (calculate 1.5 m2/toilet)</source><target state="new">There is 1 toilet for every 20 people staying or space to install portable toilets (calculate 1.5 m2/toilet)</target>
+        <source>There is 1 toilet for every 20 people staying or space to install portable toilets (calculate 1.5 m2/toilet)</source><target state="new">Hay 1 aseo por cada 20 personas alojadas o espacio para instalar baños portátiles (calcular 1,5 m2/aseo)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit><trans-unit id="shelter.info.shower.washing.surface" datatype="html">
-        <source>How many m2 are available to install portable toilets?</source><target state="new">How many m2 are available to install portable toilets?</target>
+        <source>How many m2 are available to install portable toilets?</source><target state="new">¿Cuántos m2 hay disponibles para instalar baños portátiles?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/page/panel/page/shelter/components/shelter-info/shelter-info.component.html</context>
           <context context-type="linenumber">58</context>
