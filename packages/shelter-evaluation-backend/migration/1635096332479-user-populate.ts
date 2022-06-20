@@ -507,6 +507,8 @@ export class userPopulate1635096332479 implements MigrationInterface {
         shelter.potableWashingMachineSurfaceAP = 0;
         shelter.sufarceWahsingMachineCac = 0;
         shelter.sufarceWahsingMachineAp = 0;
+        shelter.isAp = false;
+        shelter.isCac = false;
         return await queryRunner.manager.save(shelter);
     }
 

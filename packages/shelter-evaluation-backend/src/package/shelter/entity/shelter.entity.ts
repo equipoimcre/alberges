@@ -172,4 +172,12 @@ export class ShelterEntity {
   @Column({name: 'portable_washing_machine_surface_ap'})
   @AutoMap()
   potableWashingMachineSurfaceAP: number;
+
+  @Column({name: 'is_cac'})
+  @AutoMap()
+  isCac: boolean;
+
+  @Column({name: 'is_ap'})
+  @AutoMap()
+  isAp: boolean;
 }

@@ -114,6 +114,8 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'portable_washing_machine_surface_ap', type: 'INT' }),
                 new TableColumn({ name: 'surface_washing_machine_cac', type: 'INT' }),
                 new TableColumn({ name: 'surface_washing_machine_ap', type: 'INT' }),
+                new TableColumn({ name: 'is_cac', type: 'BOOLEAN' }),
+                new TableColumn({ name: 'is_ap', type: 'BOOLEAN' }),
             ],
             foreignKeys: [
                 { columnNames: ['community_id'], referencedTableName: 'community', referencedColumnNames: ['id'] },

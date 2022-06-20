@@ -102,5 +102,9 @@ export class ShelterDto {
   sufarceWahsingMachineAp?: number;
   @AutoMap()
   sufarceWahsingMachineCac?: number;
+  @AutoMap()
+  isCac?: boolean;
+  @AutoMap()
+  isAp?: boolean;
 
 }

@@ -24,7 +24,7 @@ export class ShelterService {
 
   async insert(shelterDto: ShelterDto) {
     const shelterEntity = mapper.map(shelterDto, ShelterEntity, ShelterDto);
-    this.caculationCacAndAp(shelterEntity);
+    this.caculationCacAndAp(shelterEntity, shelterEntity.shelterResponseList.map( shelterResponse => shelterResponse.response).every(entries => entries === true));
     const queryRunner = this.connection.createQueryRunner();
     await queryRunner.connect();
     await queryRunner.startTransaction();
@@ -85,7 +85,7 @@ export class ShelterService {
     };
   }
 
-  private caculationCacAndAp(shelterEntity: ShelterEntity) {
+  private caculationCacAndAp(shelterEntity: ShelterEntity, quertionsAreTrue: boolean) {
     // CAC
     shelterEntity.cacSurface = Math.ceil(shelterEntity.surface / 35);
     shelterEntity.showerQuantityCac = Math.round(shelterEntity.cacSurface / 50);
@@ -95,13 +95,20 @@ export class ShelterService {
     shelterEntity.toiletQuantityCac = Math.round(shelterEntity.cacSurface / 20);
     const tolietSomethingCac = Math.abs(shelterEntity.toiletQuantityCac - shelterEntity.toiletQuantity) * 2
     shelterEntity.howManySurfaceForToiletCac = shelterEntity.toiletQuantity <= shelterEntity.toiletQuantityCac && tolietSomethingCac <= h21 ? tolietSomethingCac : 0;
+    const h24 = h21 - shelterEntity.howManySurfaceForToiletCac;
     shelterEntity.sufarceWahsingMachineCac = Math.round(100 / shelterEntity.cacSurface);
     const howManyWashingMachineCanInstallSomethingCac = Math.abs( shelterEntity.sufarceWahsingMachineCac - shelterEntity.washingMachineQuantity)
     shelterEntity.howManyWashingMachineCanInstallCac = shelterEntity.washingMachineQuantity <=  shelterEntity.sufarceWahsingMachineCac && howManyWashingMachineCanInstallSomethingCac <= h21 ? howManyWashingMachineCanInstallSomethingCac : 0;
-    const h28 = h21 - shelterEntity.howManyWashingMachineCanInstallCac;
+    const h28 = h24 - shelterEntity.howManyWashingMachineCanInstallCac;
     shelterEntity.thereAreTolietFor20PersonCac = Math.round(shelterEntity.cacSurface / 20);
     const howManySpaceWashingMachineSomethingCac = Math.abs(shelterEntity.thereAreTolietFor20PersonCac - shelterEntity.washingMachineQuantity) * 1.5;
     shelterEntity.potableWashingMachineSurfaceCac = shelterEntity.washingMachineQuantity <= shelterEntity.thereAreTolietFor20PersonCac && howManySpaceWashingMachineSomethingCac <= h28 ? howManySpaceWashingMachineSomethingCac : 0;
+    const h32 = h28 - shelterEntity.potableWashingMachineSurfaceCac;
+    if (quertionsAreTrue) {
+      shelterEntity.isCac = h32 >= 0;
+    } else {
+      shelterEntity.isCac = false;
+    }
     // AP
     shelterEntity.apSurface = Math.ceil(shelterEntity.surface / 45);
     shelterEntity.showerQuantitysAp = Math.round(shelterEntity.apSurface / 50);
@@ -111,12 +118,19 @@ export class ShelterService {
     shelterEntity.toiletQuantityAp = Math.round(shelterEntity.apSurface / 20);
     const tolietSomethingAp = Math.abs(shelterEntity.toiletQuantityAp - shelterEntity.toiletQuantity) * 2
     shelterEntity.howManySurfaceForToiletsAp = shelterEntity.toiletQuantity <= shelterEntity.toiletQuantityAp && tolietSomethingAp <= i21 ? tolietSomethingAp : 0;
+    const i24 = i21 - shelterEntity.howManySurfaceForToiletsAp;
     shelterEntity.sufarceWahsingMachineAp = Math.round(100 / shelterEntity.apSurface);
     const howManyWashingMachineCanInstallSomethinAp = Math.abs( shelterEntity.sufarceWahsingMachineAp - shelterEntity.washingMachineQuantity)
     shelterEntity.howManyWashingMachineCanInstallAp = shelterEntity.washingMachineQuantity <=  shelterEntity.sufarceWahsingMachineAp && howManyWashingMachineCanInstallSomethinAp <= h21 ? howManyWashingMachineCanInstallSomethinAp : 0;
-    const i28 = i21 - shelterEntity.howManyWashingMachineCanInstallAp;
+    const i28 = i24 - shelterEntity.howManyWashingMachineCanInstallAp;
     shelterEntity.thereAreTolietFor20PersonAp = Math.round(shelterEntity.apSurface / 20);
     const howManySpaceWashingMachineSomethingAp = Math.abs(shelterEntity.thereAreTolietFor20PersonAp - shelterEntity.washingMachineQuantity )* 1.5 ;
     shelterEntity.potableWashingMachineSurfaceAP = shelterEntity.washingMachineQuantity <= howManySpaceWashingMachineSomethingAp && howManySpaceWashingMachineSomethingAp <= i28 ? howManySpaceWashingMachineSomethingAp : 0;
+    const i32 = i28 - shelterEntity.potableWashingMachineSurfaceAP;
+    if (quertionsAreTrue) {
+      shelterEntity.isAp = i32 >= 0;
+    } else {
+      shelterEntity.isAp = false;
+    }
   }
 }
