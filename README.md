@@ -17,16 +17,27 @@ npm install
 npm run prepare
 ```
 
-### Runing the project localy
+### Runing the project localy develop
 
 ```bash
 npm run docker:local:up # This command laucnh localy production environment
 npm run docker:local:migration:run # Populate the database
 ```
 
-### Default login
+#### Default login
 
 Access url: https://local.app.shelter-evaluation.cruzroja.com/login
+
+### Runing the project localy prod
+```bash
+npm run docker:prod:up # This command laucnh localy production environment
+npm run docker:prod:migration:run # Populate the database
+```
+
+#### Default login
+
+Access url: https://shelter-evaluation.cruzroja.com/es-ES/login
+Access url: https://shelter-evaluation.cruzroja.com/en-US/login
 
 ```
 username: root@shelterevaluation.com
