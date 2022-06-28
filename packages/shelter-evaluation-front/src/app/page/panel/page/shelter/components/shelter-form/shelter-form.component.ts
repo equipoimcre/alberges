@@ -142,29 +142,42 @@ export class ShelterFormComponent implements OnInit {
     if (this.questionList.length > 0) {
       this.questionList.forEach(question => {
         let response = false;
+        let note: string | undefined = '';
         if (this.shelterDto) {
           const shelterResponse = this.shelterDto.shelterResponseList.find( shelterResponse => shelterResponse.questionId === question.id );
           if (shelterResponse) {
             response = shelterResponse.response;
+            note = shelterResponse?.note;
           }
         }
-        controls[`question-${question.id}`] = new FormControl(response, [Validators.required]);
+        controls[`question-response-${question.id}`] = new FormControl(response, [Validators.required]);
+        controls[`question-note-${question.id}`] = new FormControl(note, []);
       })
     }
     this.shelterForm = new FormGroup(controls);
   }
 
   private getShelterResponse() {
-    return Object.keys(this.shelterForm.value)
+    const responseMap = new Map<number, ShelterResponseDto>();
+    Object.keys(this.shelterForm.value)
       .filter(key => key.match(/question-.*/))
-      .map(key => {
-        const id = parseInt(key.slice(9));
-        return {
-          shelterId: undefined,
-          questionId: id,
-          response: this.shelterForm.value[key]
-        } as ShelterResponseDto
+      .forEach(key => {
+        const id = parseInt(key.split('-').pop() || '');
+        const response = responseMap.get(id);
+        const name = key.includes('response') ? 'response' : 'note';
+        if (response !== undefined) {
+          (response[name] as any) = this.shelterForm.value[key];
+          responseMap.set(id, response);
+        } else {
+          responseMap.set(id, {
+            shelterId: undefined,
+            questionId: id,
+            response: false,
+            [name]: this.shelterForm.value[key]
+          })
+        }
       });
+    return Array.from(responseMap, ([key, value]) => value );
   }
 
   private fillFormIFThereIsData() {

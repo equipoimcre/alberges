@@ -17,6 +17,10 @@ export class ShelterResponseEntity {
   @AutoMap()
   response: boolean;
 
+  @Column()
+  @AutoMap()
+  note: string;
+
   @ManyToOne(() => ShelterEntity, (shelter) => shelter.id)
   @JoinColumn({ name: 'shelter_id', referencedColumnName: 'id' })
   shelter: ShelterEntity;

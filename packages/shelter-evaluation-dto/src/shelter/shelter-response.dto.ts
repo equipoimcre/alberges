@@ -1,6 +1,6 @@
 import { AutoMap } from "@automapper/classes";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsBoolean, IsNumber } from "class-validator";
+import { IsBoolean, IsNumber, IsString } from "class-validator";
 
 export class ShelterResponseDto {
   @ApiProperty()
@@ -15,4 +15,7 @@ export class ShelterResponseDto {
   @AutoMap()
   @IsBoolean()
   response: boolean;
+  @AutoMap()
+  @ApiProperty()
+  note?: string;
 }

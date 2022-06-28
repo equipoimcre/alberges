@@ -139,6 +139,7 @@ export class setup1635081217246 implements MigrationInterface {
                 new TableColumn({ name: 'shelter_id', type: 'INT', isPrimary: true, }),
                 new TableColumn({ name: 'question_id', type: 'INT', isPrimary: true, }),
                 new TableColumn({ name: 'response', type: 'BOOLEAN' }),
+                new TableColumn({ name: 'note', type: 'TEXT', isNullable: true }),
             ],
             foreignKeys: [
                 { columnNames: ['shelter_id'], referencedTableName: 'shelter', referencedColumnNames: ['id'] },

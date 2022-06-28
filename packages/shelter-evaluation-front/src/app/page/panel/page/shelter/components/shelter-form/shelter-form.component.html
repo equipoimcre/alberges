@@ -166,9 +166,12 @@
               <input 
                 type="checkbox" 
                 [id]="'question-' + question.id" 
-                [formControlName]="'question-' + question.id" 
+                [formControlName]="'question-response-' + question.id" 
                 class="form-input" 
                 [attr.disabled]="validateMode || displayMode ? true : null">
+            </td>
+            <td>
+              <textarea [formControlName]="'question-note-' + question.id" class="form-input" [attr.disabled]="validateMode || displayMode ? true : null"></textarea>
             </td>
           </tr>
         </table>

@@ -97,6 +97,9 @@ export class ShelterService {
     shelterEntity.howManySurfaceForToiletCac = shelterEntity.toiletQuantity <= shelterEntity.toiletQuantityCac && tolietSomethingCac <= h21 ? tolietSomethingCac : 0;
     const h24 = h21 - shelterEntity.howManySurfaceForToiletCac;
     shelterEntity.sufarceWahsingMachineCac = Math.round(100 / shelterEntity.cacSurface);
+    if (!isFinite(shelterEntity.sufarceWahsingMachineCac)) {
+      shelterEntity.sufarceWahsingMachineCac = 0;
+    }
     const howManyWashingMachineCanInstallSomethingCac = Math.abs( shelterEntity.sufarceWahsingMachineCac - shelterEntity.washingMachineQuantity)
     shelterEntity.howManyWashingMachineCanInstallCac = shelterEntity.washingMachineQuantity <=  shelterEntity.sufarceWahsingMachineCac && howManyWashingMachineCanInstallSomethingCac <= h21 ? howManyWashingMachineCanInstallSomethingCac : 0;
     const h28 = h24 - shelterEntity.howManyWashingMachineCanInstallCac;
@@ -120,6 +123,9 @@ export class ShelterService {
     shelterEntity.howManySurfaceForToiletsAp = shelterEntity.toiletQuantity <= shelterEntity.toiletQuantityAp && tolietSomethingAp <= i21 ? tolietSomethingAp : 0;
     const i24 = i21 - shelterEntity.howManySurfaceForToiletsAp;
     shelterEntity.sufarceWahsingMachineAp = Math.round(100 / shelterEntity.apSurface);
+    if (!isFinite(shelterEntity.sufarceWahsingMachineAp)) {
+      shelterEntity.sufarceWahsingMachineAp = 0;
+    }
     const howManyWashingMachineCanInstallSomethinAp = Math.abs( shelterEntity.sufarceWahsingMachineAp - shelterEntity.washingMachineQuantity)
     shelterEntity.howManyWashingMachineCanInstallAp = shelterEntity.washingMachineQuantity <=  shelterEntity.sufarceWahsingMachineAp && howManyWashingMachineCanInstallSomethinAp <= h21 ? howManyWashingMachineCanInstallSomethinAp : 0;
     const i28 = i24 - shelterEntity.howManyWashingMachineCanInstallAp;
