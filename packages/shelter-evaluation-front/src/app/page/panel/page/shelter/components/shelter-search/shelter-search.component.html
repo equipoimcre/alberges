@@ -1,5 +1,5 @@
 <div class="flex flex-col h-screen">
-  <form [formGroup]="formFilters" (submit)="filter()" class="bg-white p-4 mb-4">
+  <form [formGroup]="formFilters" (submit)="filter()" class="box">
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <div class="flex flex-col">
         <label for="name" class="flex-1" i18n="@@common.name">Name</label>
@@ -24,7 +24,7 @@
     </div>
   </form>
   <ul class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols3 mb-4">
-    <li *ngFor="let shelter of paginableShelter.data" class="bg-white p-4">
+    <li *ngFor="let shelter of paginableShelter.data" class="box">
       <a [routerLink]="getPaht(shelter.id!)">
         <p><span i18n="@@common.name">Name</span>: {{shelter.name}}</p>
         <p><span i18n="@@common.community">Community</span>: {{shelter.community.name}}</p>
@@ -32,6 +32,6 @@
       </a>
     </li>
   </ul>
-  <app-shelter-map [paginableShelter]="paginableShelter" class="flex-grow"></app-shelter-map>
-  <app-pagination #pagination [elementsPerPage]="elementsPerPage" [totalElements]="paginableShelter.count" (navigateToPage)="requestShelters($event)"></app-pagination>
+  <app-shelter-map *ngIf="paginableShelter.count > 0" [paginableShelter]="paginableShelter" class="flex-grow"></app-shelter-map>
+  <app-pagination *ngIf="paginableShelter.count > 0" #pagination [elementsPerPage]="elementsPerPage" [totalElements]="paginableShelter.count" (navigateToPage)="requestShelters($event)"></app-pagination>
 </div>

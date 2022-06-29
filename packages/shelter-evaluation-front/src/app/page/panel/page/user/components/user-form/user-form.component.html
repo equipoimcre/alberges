@@ -1,4 +1,4 @@
-<div class="bg-white p-4 mb-4">
+<div class="box">
   <h2 *ngIf="user" class="mb-4" i18n="@@user.form.title.update">Update user</h2>
   <h2 *ngIf="!user" class="mb-4" i18n="@@user.form.title.create">Create user</h2>
   <form [formGroup]="userForm" (submit)="submitUser()" class="grid mb-4">
@@ -82,7 +82,7 @@
     </div>
   </form>
 </div>
-<div *ngIf="user" class="bg-white p-4 mb-4">
+<div *ngIf="user" class="box">
   <h2 i18n="@@user.form.title.change.pasword">Change password</h2>
   <form  [formGroup]="passwordFrom" (submit)="submitPassword()" class="grid mb-4">
     <div class="flex flex-col lg:flex-row mb-4">

@@ -53,6 +53,7 @@ export class ShelterMapComponent implements AfterViewInit {
       layers: []
       });
       this.map.addLayer(deckLayer);
+      this.addMarkers();
   }
 
   private addMarkers() {    
@@ -62,8 +63,9 @@ export class ShelterMapComponent implements AfterViewInit {
       const group = featureGroup();
       this._paginableShelter.data.forEach(shelter => {
         const markerAux = marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]);
+        markerAux.bindPopup(`<p>${shelter.name}</p>`)
         this.markerList.push(markerAux)
-        group.addLayer(marker([(shelter.coordinate as any).coordinates[0], (shelter.coordinate as any).coordinates[1]]));
+        group.addLayer(markerAux);
       })
       this.map.addLayer(group);
     }
